@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.secusociale.portail",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.7.0",
+    "applicationType": "monolith",
+    "baseName": "PortailCssIpresV2",
+    "packageName": "com.secusociale.portail",
+    "packageFolder": "com/secusociale/portail",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "M2FjYWM3YmNhMTczODdkODhmN2RjM2FmOGQ0NWYwZTllNTk5NTdmZWMyYjZmYzRkYTk5Mjk4M2U5ZGJiNjcxMzFiMDNjOWZkOTdiNTczOTY3MjA0NDk5ODcxZGExZTI1NzZmYzY5ODRkY2QyM2NmMDIzZDU5ODE2ZjVhMzA1Y2M=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1586428099714,
+    "testFrameworks": ["gatling", "protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr", "en"],
+    "blueprints": []
+  }
+}
