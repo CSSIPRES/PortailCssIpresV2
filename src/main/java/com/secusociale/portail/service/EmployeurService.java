@@ -1,0 +1,74 @@
+package com.secusociale.portail.service;
+
+import com.secusociale.portail.domain.Employeur;
+import com.secusociale.portail.repository.EmployeurRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+/**
+ * Service Implementation for managing {@link Employeur}.
+ */
+@Service
+@Transactional
+public class EmployeurService {
+
+    private final Logger log = LoggerFactory.getLogger(EmployeurService.class);
+
+    private final EmployeurRepository employeurRepository;
+
+    public EmployeurService(EmployeurRepository employeurRepository) {
+        this.employeurRepository = employeurRepository;
+    }
+
+    /**
+     * Save a employeur.
+     *
+     * @param employeur the entity to save.
+     * @return the persisted entity.
+     */
+    public Employeur save(Employeur employeur) {
+        log.debug("Request to save Employeur : {}", employeur);
+        return employeurRepository.save(employeur);
+    }
+
+    /**
+     * Get all the employeurs.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Transactional(readOnly = true)
+    public Page<Employeur> findAll(Pageable pageable) {
+        log.debug("Request to get all Employeurs");
+        return employeurRepository.findAll(pageable);
+    }
+
+    /**
+     * Get one employeur by id.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public Optional<Employeur> findOne(Long id) {
+        log.debug("Request to get Employeur : {}", id);
+        return employeurRepository.findById(id);
+    }
+
+    /**
+     * Delete the employeur by id.
+     *
+     * @param id the id of the entity.
+     */
+    public void delete(Long id) {
+        log.debug("Request to delete Employeur : {}", id);
+        employeurRepository.deleteById(id);
+    }
+}
