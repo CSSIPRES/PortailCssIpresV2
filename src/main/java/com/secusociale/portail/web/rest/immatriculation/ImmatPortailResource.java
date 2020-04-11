@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.secusociale.portail.service.immatriculation.CertificatImmatriculationService;
 import com.secusociale.portail.service.immatriculation.ImmatPortailService;
 import com.secusociale.portail.service.immatriculation.StatutDossierImmatriculationService;
+import com.secusociale.portail.service.immatriculation.VerifierExistenceEmployeur;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculation;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculationFault;
+import com.secusociale.portail.service.soap.checkExistenceEmployeur.CmCheckExistenceEmployeur;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
@@ -47,6 +49,9 @@ public class ImmatPortailResource {
 
     @Autowired
 	private CertificatImmatriculationService certificatImmatriculationService;
+    
+    @Autowired
+    private VerifierExistenceEmployeur verifierExistenceEmployeur;
 
 
 
@@ -78,6 +83,19 @@ public class ImmatPortailResource {
 
 
 		return statuDossier;
+
+	}
+
+	
+	@GetMapping("/checkExistenceEmployeur/{typeIdentifiant}/{numeroIdentifiant}")
+	Holder<CmCheckExistenceEmployeur> getExistenceEmployeur(@PathVariable String typeIdentifiant,@PathVariable String numeroIdentifiant) throws JAXBException, CmGetStatusDossierImmatriculationFault{
+
+		Holder<CmCheckExistenceEmployeur> cmCheckExistenceEmployeur = new Holder<CmCheckExistenceEmployeur>();
+
+		cmCheckExistenceEmployeur = verifierExistenceEmployeur.verifierExistenceEmployeur(typeIdentifiant, numeroIdentifiant) ;
+
+
+		return cmCheckExistenceEmployeur;
 
 	}
 
