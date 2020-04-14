@@ -3,7 +3,7 @@ package com.secusociale.portail.service.immatriculation;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.PropertyException;
+ 
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Holder;
 
@@ -16,7 +16,7 @@ import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDPortType;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDService;
-import com.secusociale.portail.service.soap.preDNS.CmPresDns;
+ 
 
 import org.springframework.stereotype.Service;
 
@@ -33,7 +33,7 @@ import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATI
 public class ImmatPortailService {
 
 
-	public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(IMMATRICULATIONINBOUND immatriculation) throws IMMATRICULATIONINBOUNDFault{
+	public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(IMMATRICULATIONINBOUND immatriculation){
 
 		//String immatriculationType = "BVOLN" ;   //Immatriculation Volontaire
 
@@ -66,7 +66,12 @@ public class ImmatPortailService {
 		prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
         prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
 
-        immatriculationinboundPortType.immatriculationINBOUND(immatriculationInbound);
+        try {
+			immatriculationinboundPortType.immatriculationINBOUND(immatriculationInbound);
+		} catch (IMMATRICULATIONINBOUNDFault e) {
+			 
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
 
 		return immatriculationInbound;
 
