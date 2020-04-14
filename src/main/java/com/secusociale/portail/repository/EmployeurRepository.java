@@ -17,6 +17,9 @@ public interface EmployeurRepository extends JpaRepository<Employeur, Long> {
     @Query("select employeur from Employeur employeur where employeur.user.login = ?#{principal.username}")
     List<Employeur> findByUserIsCurrentUser();
     
+    Employeur findByProcessFlowId(String processFlowId);
+    Employeur findByTypeIdentifiantAndNumeroIdentifiant(String typeIdentifiant,String numeroIdentifiant);
+    
     
 
 }
