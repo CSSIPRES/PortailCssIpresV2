@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-paiement-heading" jhiTranslate="portailCssIpresV2App.paiement.home.createOrEditLabel">Create or edit a Paiement</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.numeroOrdreVirement" for="field_numeroOrdreVirement">Numero Ordre Virement</label>
+                    <input type="text" class="form-control" name="numeroOrdreVirement" id="field_numeroOrdreVirement"
+                           formControlName="numeroOrdreVirement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.banqueSource" for="field_banqueSource">Banque Source</label>
+                    <input type="text" class="form-control" name="banqueSource" id="field_banqueSource"
+                           formControlName="banqueSource"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.numeroCompteSource" for="field_numeroCompteSource">Numero Compte Source</label>
+                    <input type="text" class="form-control" name="numeroCompteSource" id="field_numeroCompteSource"
+                           formControlName="numeroCompteSource"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.banqueDestination" for="field_banqueDestination">Banque Destination</label>
+                    <input type="text" class="form-control" name="banqueDestination" id="field_banqueDestination"
+                           formControlName="banqueDestination"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.numeroCompteDestination" for="field_numeroCompteDestination">Numero Compte Destination</label>
+                    <input type="text" class="form-control" name="numeroCompteDestination" id="field_numeroCompteDestination"
+                           formControlName="numeroCompteDestination"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.referenceFacture" for="field_referenceFacture">Reference Facture</label>
+                    <input type="text" class="form-control" name="referenceFacture" id="field_referenceFacture"
+                           formControlName="referenceFacture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.montantTotal" for="field_montantTotal">Montant Total</label>
+                    <input type="number" class="form-control" name="montantTotal" id="field_montantTotal"
+                           formControlName="montantTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.montantAccount" for="field_montantAccount">Montant Account</label>
+                    <input type="number" class="form-control" name="montantAccount" id="field_montantAccount"
+                           formControlName="montantAccount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                           formControlName="etat"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portailCssIpresV2App.paiement.fileJoin" for="field_fileJoin">File Join</label>
+                    <textarea class="form-control" name="fileJoin" id="field_fileJoin"
+                              formControlName="fileJoin"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

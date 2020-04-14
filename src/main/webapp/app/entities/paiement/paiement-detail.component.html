@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paiement">
+            <h2><span jhiTranslate="portailCssIpresV2App.paiement.detail.title">Paiement</span> {{ paiement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.numeroOrdreVirement">Numero Ordre Virement</span></dt>
+                <dd>
+                    <span>{{ paiement.numeroOrdreVirement }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.banqueSource">Banque Source</span></dt>
+                <dd>
+                    <span>{{ paiement.banqueSource }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.numeroCompteSource">Numero Compte Source</span></dt>
+                <dd>
+                    <span>{{ paiement.numeroCompteSource }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.banqueDestination">Banque Destination</span></dt>
+                <dd>
+                    <span>{{ paiement.banqueDestination }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.numeroCompteDestination">Numero Compte Destination</span></dt>
+                <dd>
+                    <span>{{ paiement.numeroCompteDestination }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.referenceFacture">Reference Facture</span></dt>
+                <dd>
+                    <span>{{ paiement.referenceFacture }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.montantTotal">Montant Total</span></dt>
+                <dd>
+                    <span>{{ paiement.montantTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.montantAccount">Montant Account</span></dt>
+                <dd>
+                    <span>{{ paiement.montantAccount }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ paiement.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="portailCssIpresV2App.paiement.fileJoin">File Join</span></dt>
+                <dd>
+                    <span>{{ paiement.fileJoin }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paiement', paiement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
