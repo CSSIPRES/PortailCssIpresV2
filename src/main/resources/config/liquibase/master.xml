@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20200409112400_added_entity_Employeur.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200409112500_added_entity_DocumentUrl.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200409112600_added_entity_DemandeService.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200413033200_added_entity_Paiement.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200409112400_added_entity_constraints_Employeur.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200409112500_added_entity_constraints_DocumentUrl.xml" relativeToChangelogFile="false"/>

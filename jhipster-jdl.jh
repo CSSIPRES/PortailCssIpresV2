@@ -1,0 +1,26 @@
+
+
+entity Paiement {
+	numeroOrdreVirement String,
+    banqueSource String,
+    numeroCompteSource String,
+    banqueDestination String,
+    numeroCompteDestination String,
+    referenceFacture String,
+    montantTotal Integer,
+    montantAccount Integer,
+    etat String,
+    fileJoin TextBlob
+}
+
+// Set pagination options
+paginate Paiement with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Paiment, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

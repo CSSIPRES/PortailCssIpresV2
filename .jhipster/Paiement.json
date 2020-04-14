@@ -1,0 +1,57 @@
+{
+    "name": "Paiement",
+    "fields": [
+        {
+            "fieldName": "numeroOrdreVirement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "banqueSource",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroCompteSource",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "banqueDestination",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroCompteDestination",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referenceFacture",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montantTotal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "montantAccount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fileJoin",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200413033200",
+    "entityTableName": "paiement",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
