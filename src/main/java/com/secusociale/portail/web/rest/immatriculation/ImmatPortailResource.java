@@ -1,5 +1,6 @@
 package com.secusociale.portail.web.rest.immatriculation;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 import javax.xml.bind.JAXBException;
@@ -46,17 +47,11 @@ public class ImmatPortailResource {
     @Autowired
     private StatutDossierImmatriculationService statutDossierImmatriculationService ;
 
-
     @Autowired
 	private CertificatImmatriculationService certificatImmatriculationService;
-    
+
     @Autowired
     private VerifierExistenceEmployeur verifierExistenceEmployeur;
-
-
-
-
-
 
 	@PostMapping("/immatPortail")
     public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException {
@@ -70,6 +65,19 @@ public class ImmatPortailResource {
 
     }
 
+
+
+    @PostMapping("/immatPortail/uploadFile")
+    public Holder<IMMATRICULATIONINBOUND> createImmatriculationUploadFilePortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException, IOException {
+        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+        Holder<IMMATRICULATIONINBOUND> immatriculationInbound = new Holder<IMMATRICULATIONINBOUND>();
+
+        immatriculationInbound = immatPortailService.createImmatriculationUploadFilePortail(immatriculation);
+
+        return immatriculationInbound;
+
+    }
 
 
 
@@ -86,7 +94,7 @@ public class ImmatPortailResource {
 
 	}
 
-	
+
 	@GetMapping("/checkExistenceEmployeur/{typeIdentifiant}/{numeroIdentifiant}")
 	Holder<CmCheckExistenceEmployeur> getExistenceEmployeur(@PathVariable String typeIdentifiant,@PathVariable String numeroIdentifiant) throws JAXBException, CmGetStatusDossierImmatriculationFault{
 
@@ -126,7 +134,7 @@ public class ImmatPortailResource {
 	 * Holder<MAINTAFFINBOUND>(); immatriculationMaintienAffiliation =
 	 * immatPortailService.createImmatriculationMaintienAffiliation(
 	 * immatriculationMainAffiliation); return immatriculationMaintienAffiliation; }
-	 * 
+	 *
 	 * @PostMapping("/immatriculation-representant-diplomatique") public
 	 * Holder<IMMATREPDIPLO> createImmatriculationRepresentant(@RequestBody
 	 * IMMATREPDIPLO.Input immatriculationRepresentant) throws URISyntaxException,

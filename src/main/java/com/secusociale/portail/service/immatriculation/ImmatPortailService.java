@@ -3,11 +3,12 @@ package com.secusociale.portail.service.immatriculation;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
- 
+
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Holder;
 
 
+import com.secusociale.portail.service.EmployeurService;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLO;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOFault;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOPortType;
@@ -16,7 +17,7 @@ import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDPortType;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDService;
- 
+
 
 import org.springframework.stereotype.Service;
 
@@ -28,10 +29,19 @@ import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATI
 import com.secusociale.portail.service.soap.demandeImmatriculation.ObjectFactory;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND.Input;
 
+import java.io.IOException;
+import java.util.List;
+
 
 @Service
 public class ImmatPortailService {
 
+    private EmployeurService employeurService;
+
+
+    public ImmatPortailService(EmployeurService employeurService){
+        this.employeurService = employeurService;
+    }
 
 	public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(IMMATRICULATIONINBOUND immatriculation){
 
@@ -69,7 +79,7 @@ public class ImmatPortailService {
         try {
 			immatriculationinboundPortType.immatriculationINBOUND(immatriculationInbound);
 		} catch (IMMATRICULATIONINBOUNDFault e) {
-			 
+
 			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
 		}
 
@@ -138,5 +148,59 @@ public class ImmatPortailService {
         immatriculationRepresentantPortType.immatREPDIPLO(immatriculationRepresentatnt);
         return immatriculationRepresentatnt;
     }
+
+
+
+    // Immaatriculation avec upload de file excel pour charger les employés
+    public Holder<IMMATRICULATIONINBOUND> createImmatriculationUploadFilePortail(IMMATRICULATIONINBOUND immatriculation) throws IOException {
+
+        //String immatriculationType = "BVOLN" ;   //Immatriculation Volontaire
+
+
+
+
+        Holder<IMMATRICULATIONINBOUND> immatriculationInbound = new Holder<IMMATRICULATIONINBOUND>();
+
+        Input input = new Input();
+
+
+
+        input.getEmployeList().addAll(immatriculation.getInput().getEmployeList());
+
+        input.setEmployerQuery(immatriculation.getInput().getEmployerQuery());
+        input.setMainRegistrationForm(immatriculation.getInput().getMainRegistrationForm());
+        input.setLegalRepresentativeForm(immatriculation.getInput().getLegalRepresentativeForm());
+        input.setDocuments(immatriculation.getInput().getDocuments());
+
+
+        // Chargement de la liste des employés via le fichier uploader
+        List<Input.EmployeList> employes = this.employeurService.mapReapExcelDataEmployeDB(input.getFileData());
+        input.setEmployeList(employes);
+
+
+
+
+        ObjectFactory obj = new ObjectFactory();
+        immatriculationInbound.value = obj.createIMMATRICULATIONINBOUND();
+        immatriculationInbound.value.setInput(input);
+
+        IMMATRICULATIONINBOUNDService immatriculationinboundService = new IMMATRICULATIONINBOUNDService();
+        IMMATRICULATIONINBOUNDPortType immatriculationinboundPortType = immatriculationinboundService.getIMMATRICULATIONINBOUNDPort();
+
+        BindingProvider prov = (BindingProvider) immatriculationinboundPortType ;
+        prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+        prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+
+        try {
+            immatriculationinboundPortType.immatriculationINBOUND(immatriculationInbound);
+        } catch (IMMATRICULATIONINBOUNDFault e) {
+
+            throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+        }
+
+        return immatriculationInbound;
+
+    }
+
 
 }

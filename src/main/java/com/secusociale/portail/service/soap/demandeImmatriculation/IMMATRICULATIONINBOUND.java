@@ -1,8 +1,11 @@
 
 package com.secusociale.portail.service.soap.demandeImmatriculation;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.Size;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java pour anonymous complex type.
- * 
+ *
  * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -462,8 +465,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -480,11 +483,11 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * Obtient la valeur de la propri�t� input.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link IMMATRICULATIONINBOUND.Input }
-     *     
+     *
      */
     public IMMATRICULATIONINBOUND.Input getInput() {
         return input;
@@ -492,11 +495,11 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * D�finit la valeur de la propri�t� input.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link IMMATRICULATIONINBOUND.Input }
-     *     
+     *
      */
     public void setInput(IMMATRICULATIONINBOUND.Input value) {
         this.input = value;
@@ -504,11 +507,11 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * Obtient la valeur de la propri�t� output.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link IMMATRICULATIONINBOUND.Output }
-     *     
+     *
      */
     public IMMATRICULATIONINBOUND.Output getOutput() {
         return output;
@@ -516,11 +519,11 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * D�finit la valeur de la propri�t� output.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link IMMATRICULATIONINBOUND.Output }
-     *     
+     *
      */
     public void setOutput(IMMATRICULATIONINBOUND.Output value) {
         this.output = value;
@@ -528,11 +531,11 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * Obtient la valeur de la propri�t� dateTimeTagFormat.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getDateTimeTagFormat() {
         if (dateTimeTagFormat == null) {
@@ -544,11 +547,11 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * D�finit la valeur de la propri�t� dateTimeTagFormat.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setDateTimeTagFormat(String value) {
         this.dateTimeTagFormat = value;
@@ -557,9 +560,9 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * <p>Classe Java pour anonymous complex type.
-     * 
+     *
      * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -973,8 +976,8 @@ public class IMMATRICULATIONINBOUND {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -992,13 +995,17 @@ public class IMMATRICULATIONINBOUND {
         protected IMMATRICULATIONINBOUND.Input.Documents documents;
         protected List<IMMATRICULATIONINBOUND.Input.EmployeList> employeList;
 
+        // File pour la récupération du fichier en base64
+        @Size(max = 1000000)
+        protected MultipartFile fileData;
+
         /**
          * Obtient la valeur de la propri�t� employerQuery.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link IMMATRICULATIONINBOUND.Input.EmployerQuery }
-         *     
+         *
          */
         public IMMATRICULATIONINBOUND.Input.EmployerQuery getEmployerQuery() {
             return employerQuery;
@@ -1006,23 +1013,32 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� employerQuery.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link IMMATRICULATIONINBOUND.Input.EmployerQuery }
-         *     
+         *
          */
         public void setEmployerQuery(IMMATRICULATIONINBOUND.Input.EmployerQuery value) {
             this.employerQuery = value;
         }
 
+
+        public void setFileData() {
+            this.fileData = fileData;
+        }
+
+        public MultipartFile getFileData() {
+            return fileData;
+        }
+
         /**
          * Obtient la valeur de la propri�t� mainRegistrationForm.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link IMMATRICULATIONINBOUND.Input.MainRegistrationForm }
-         *     
+         *
          */
         public IMMATRICULATIONINBOUND.Input.MainRegistrationForm getMainRegistrationForm() {
             return mainRegistrationForm;
@@ -1030,11 +1046,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� mainRegistrationForm.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link IMMATRICULATIONINBOUND.Input.MainRegistrationForm }
-         *     
+         *
          */
         public void setMainRegistrationForm(IMMATRICULATIONINBOUND.Input.MainRegistrationForm value) {
             this.mainRegistrationForm = value;
@@ -1042,11 +1058,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� legalRepresentativeForm.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm }
-         *     
+         *
          */
         public IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm getLegalRepresentativeForm() {
             return legalRepresentativeForm;
@@ -1054,11 +1070,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� legalRepresentativeForm.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm }
-         *     
+         *
          */
         public void setLegalRepresentativeForm(IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm value) {
             this.legalRepresentativeForm = value;
@@ -1066,11 +1082,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� documents.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link IMMATRICULATIONINBOUND.Input.Documents }
-         *     
+         *
          */
         public IMMATRICULATIONINBOUND.Input.Documents getDocuments() {
             return documents;
@@ -1078,11 +1094,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� documents.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link IMMATRICULATIONINBOUND.Input.Documents }
-         *     
+         *
          */
         public void setDocuments(IMMATRICULATIONINBOUND.Input.Documents value) {
             this.documents = value;
@@ -1090,25 +1106,25 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Gets the value of the employeList property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the employeList property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getEmployeList().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link IMMATRICULATIONINBOUND.Input.EmployeList }
-         * 
-         * 
+         *
+         *
          */
         public List<IMMATRICULATIONINBOUND.Input.EmployeList> getEmployeList() {
             if (employeList == null) {
@@ -1118,11 +1134,15 @@ public class IMMATRICULATIONINBOUND {
         }
 
 
+        public void setEmployeList(List<EmployeList> employeList) {
+            this.employeList = employeList;
+        }
+
         /**
          * <p>Classe Java pour anonymous complex type.
-         * 
+         *
          * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -1385,8 +1405,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -1438,11 +1458,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� demandeEcrit.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit getDemandeEcrit() {
                 return demandeEcrit;
@@ -1450,11 +1470,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� demandeEcrit.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit }
-             *     
+             *
              */
             public void setDemandeEcrit(IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit value) {
                 this.demandeEcrit = value;
@@ -1462,11 +1482,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� formDemande.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.FormDemande }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.FormDemande getFormDemande() {
                 return formDemande;
@@ -1474,11 +1494,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� formDemande.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.FormDemande }
-             *     
+             *
              */
             public void setFormDemande(IMMATRICULATIONINBOUND.Input.Documents.FormDemande value) {
                 this.formDemande = value;
@@ -1486,11 +1506,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� registreCommerce.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce getRegistreCommerce() {
                 return registreCommerce;
@@ -1498,11 +1518,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� registreCommerce.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce }
-             *     
+             *
              */
             public void setRegistreCommerce(IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce value) {
                 this.registreCommerce = value;
@@ -1510,11 +1530,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� declarationEtablissement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement getDeclarationEtablissement() {
                 return declarationEtablissement;
@@ -1522,11 +1542,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� declarationEtablissement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement }
-             *     
+             *
              */
             public void setDeclarationEtablissement(IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement value) {
                 this.declarationEtablissement = value;
@@ -1534,11 +1554,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� photocopieStatus.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus getPhotocopieStatus() {
                 return photocopieStatus;
@@ -1546,11 +1566,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� photocopieStatus.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus }
-             *     
+             *
              */
             public void setPhotocopieStatus(IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus value) {
                 this.photocopieStatus = value;
@@ -1558,11 +1578,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� decretMinisteriel.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel getDecretMinisteriel() {
                 return decretMinisteriel;
@@ -1570,11 +1590,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� decretMinisteriel.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel }
-             *     
+             *
              */
             public void setDecretMinisteriel(IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel value) {
                 this.decretMinisteriel = value;
@@ -1582,11 +1602,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� avisImmatriculation.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation getAvisImmatriculation() {
                 return avisImmatriculation;
@@ -1594,11 +1614,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� avisImmatriculation.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation }
-             *     
+             *
              */
             public void setAvisImmatriculation(IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation value) {
                 this.avisImmatriculation = value;
@@ -1606,11 +1626,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� dmt.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.Dmt }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.Dmt getDmt() {
                 return dmt;
@@ -1618,11 +1638,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� dmt.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.Dmt }
-             *     
+             *
              */
             public void setDmt(IMMATRICULATIONINBOUND.Input.Documents.Dmt value) {
                 this.dmt = value;
@@ -1630,11 +1650,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� contratsTravail.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail getContratsTravail() {
                 return contratsTravail;
@@ -1642,11 +1662,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� contratsTravail.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail }
-             *     
+             *
              */
             public void setContratsTravail(IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail value) {
                 this.contratsTravail = value;
@@ -1654,11 +1674,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� cni.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.Cni }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.Cni getCni() {
                 return cni;
@@ -1666,11 +1686,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� cni.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.Cni }
-             *     
+             *
              */
             public void setCni(IMMATRICULATIONINBOUND.Input.Documents.Cni value) {
                 this.cni = value;
@@ -1678,11 +1698,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� carteIdentiteConsulaire.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire getCarteIdentiteConsulaire() {
                 return carteIdentiteConsulaire;
@@ -1690,11 +1710,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� carteIdentiteConsulaire.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire }
-             *     
+             *
              */
             public void setCarteIdentiteConsulaire(IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire value) {
                 this.carteIdentiteConsulaire = value;
@@ -1702,11 +1722,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� etatRecensement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement getEtatRecensement() {
                 return etatRecensement;
@@ -1714,11 +1734,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� etatRecensement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement }
-             *     
+             *
              */
             public void setEtatRecensement(IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement value) {
                 this.etatRecensement = value;
@@ -1726,11 +1746,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� attestationChomage.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage getAttestationChomage() {
                 return attestationChomage;
@@ -1738,11 +1758,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� attestationChomage.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage }
-             *     
+             *
              */
             public void setAttestationChomage(IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage value) {
                 this.attestationChomage = value;
@@ -1750,11 +1770,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� bulletinsSalaire.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire getBulletinsSalaire() {
                 return bulletinsSalaire;
@@ -1762,11 +1782,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� bulletinsSalaire.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire }
-             *     
+             *
              */
             public void setBulletinsSalaire(IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire value) {
                 this.bulletinsSalaire = value;
@@ -1774,11 +1794,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� cessationActivity.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.CessationActivity }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.CessationActivity getCessationActivity() {
                 return cessationActivity;
@@ -1786,11 +1806,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� cessationActivity.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.CessationActivity }
-             *     
+             *
              */
             public void setCessationActivity(IMMATRICULATIONINBOUND.Input.Documents.CessationActivity value) {
                 this.cessationActivity = value;
@@ -1798,11 +1818,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� carteNationaleIdentite.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite getCarteNationaleIdentite() {
                 return carteNationaleIdentite;
@@ -1810,11 +1830,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� carteNationaleIdentite.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite }
-             *     
+             *
              */
             public void setCarteNationaleIdentite(IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite value) {
                 this.carteNationaleIdentite = value;
@@ -1822,11 +1842,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� derniersBulletins.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins getDerniersBulletins() {
                 return derniersBulletins;
@@ -1834,11 +1854,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� derniersBulletins.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins }
-             *     
+             *
              */
             public void setDerniersBulletins(IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins value) {
                 this.derniersBulletins = value;
@@ -1846,11 +1866,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� manuscriteAdressee.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee getManuscriteAdressee() {
                 return manuscriteAdressee;
@@ -1858,11 +1878,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� manuscriteAdressee.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee }
-             *     
+             *
              */
             public void setManuscriteAdressee(IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee value) {
                 this.manuscriteAdressee = value;
@@ -1870,11 +1890,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� passportDoc.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PassportDoc }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.PassportDoc getPassportDoc() {
                 return passportDoc;
@@ -1882,11 +1902,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� passportDoc.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PassportDoc }
-             *     
+             *
              */
             public void setPassportDoc(IMMATRICULATIONINBOUND.Input.Documents.PassportDoc value) {
                 this.passportDoc = value;
@@ -1894,11 +1914,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� pieceIdDoc.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc getPieceIdDoc() {
                 return pieceIdDoc;
@@ -1906,11 +1926,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� pieceIdDoc.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc }
-             *     
+             *
              */
             public void setPieceIdDoc(IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc value) {
                 this.pieceIdDoc = value;
@@ -1918,11 +1938,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� pieceIdGerantDoc.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc }
-             *     
+             *
              */
             public IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc getPieceIdGerantDoc() {
                 return pieceIdGerantDoc;
@@ -1930,11 +1950,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� pieceIdGerantDoc.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc }
-             *     
+             *
              */
             public void setPieceIdGerantDoc(IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc value) {
                 this.pieceIdGerantDoc = value;
@@ -1943,9 +1963,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -1958,8 +1978,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -1974,11 +1994,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -1986,11 +2006,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -1998,11 +2018,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2010,11 +2030,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2025,9 +2045,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2040,8 +2060,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2056,11 +2076,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2068,11 +2088,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2080,11 +2100,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2092,11 +2112,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2107,9 +2127,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2122,8 +2142,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2138,11 +2158,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2150,11 +2170,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2162,11 +2182,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2174,11 +2194,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2189,9 +2209,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2204,8 +2224,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2220,11 +2240,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2232,11 +2252,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2244,11 +2264,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2256,11 +2276,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2271,9 +2291,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2286,8 +2306,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2302,11 +2322,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2314,11 +2334,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2326,11 +2346,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2338,11 +2358,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2353,9 +2373,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2368,8 +2388,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2384,11 +2404,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2396,11 +2416,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2408,11 +2428,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2420,11 +2440,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2435,9 +2455,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2450,8 +2470,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2466,11 +2486,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2478,11 +2498,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2490,11 +2510,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2502,11 +2522,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2517,9 +2537,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2532,8 +2552,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2548,11 +2568,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2560,11 +2580,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2572,11 +2592,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2584,11 +2604,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2599,9 +2619,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2614,8 +2634,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2630,11 +2650,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2642,11 +2662,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2654,11 +2674,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2666,11 +2686,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2681,9 +2701,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2696,8 +2716,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2712,11 +2732,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2724,11 +2744,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2736,11 +2756,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2748,11 +2768,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2763,9 +2783,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2778,8 +2798,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2794,11 +2814,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2806,11 +2826,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2818,11 +2838,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2830,11 +2850,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2845,9 +2865,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2860,8 +2880,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2876,11 +2896,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2888,11 +2908,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2900,11 +2920,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2912,11 +2932,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2927,9 +2947,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2942,8 +2962,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2958,11 +2978,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -2970,11 +2990,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -2982,11 +3002,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -2994,11 +3014,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3009,9 +3029,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3024,8 +3044,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3040,11 +3060,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3052,11 +3072,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3064,11 +3084,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3076,11 +3096,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3091,9 +3111,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3106,8 +3126,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3122,11 +3142,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3134,11 +3154,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3146,11 +3166,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3158,11 +3178,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3173,9 +3193,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3188,8 +3208,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3204,11 +3224,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3216,11 +3236,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3228,11 +3248,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3240,11 +3260,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3255,9 +3275,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3270,8 +3290,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3286,11 +3306,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3298,11 +3318,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3310,11 +3330,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3322,11 +3342,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3337,9 +3357,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3352,8 +3372,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3368,11 +3388,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3380,11 +3400,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3392,11 +3412,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3404,11 +3424,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3419,9 +3439,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3434,8 +3454,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3450,11 +3470,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3462,11 +3482,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3474,11 +3494,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3486,11 +3506,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3501,9 +3521,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3516,8 +3536,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3532,11 +3552,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3544,11 +3564,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3556,11 +3576,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3568,11 +3588,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3583,9 +3603,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             * 
+             *
              * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3598,8 +3618,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3614,11 +3634,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
@@ -3626,11 +3646,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� delivered.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *     
+                 *
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
@@ -3638,11 +3658,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * Obtient la valeur de la propri�t� url.
-                 * 
+                 *
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public String getUrl() {
                     return url;
@@ -3650,11 +3670,11 @@ public class IMMATRICULATIONINBOUND {
 
                 /**
                  * D�finit la valeur de la propri�t� url.
-                 * 
+                 *
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *     
+                 *
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3667,9 +3687,9 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * <p>Classe Java pour anonymous complex type.
-         * 
+         *
          * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -3722,8 +3742,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -3818,11 +3838,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� rechercheEmploye.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getRechercheEmploye() {
                 return rechercheEmploye;
@@ -3830,11 +3850,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� rechercheEmploye.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setRechercheEmploye(String value) {
                 this.rechercheEmploye = value;
@@ -3842,11 +3862,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nomEmploye.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNomEmploye() {
                 return nomEmploye;
@@ -3854,11 +3874,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nomEmploye.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNomEmploye(String value) {
                 this.nomEmploye = value;
@@ -3866,11 +3886,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� prenomEmploye.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPrenomEmploye() {
                 return prenomEmploye;
@@ -3878,11 +3898,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� prenomEmploye.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPrenomEmploye(String value) {
                 this.prenomEmploye = value;
@@ -3890,11 +3910,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� sexe.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getSexe() {
                 return sexe;
@@ -3902,11 +3922,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� sexe.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setSexe(String value) {
                 this.sexe = value;
@@ -3914,11 +3934,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� etatCivil.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEtatCivil() {
                 return etatCivil;
@@ -3926,11 +3946,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� etatCivil.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEtatCivil(String value) {
                 this.etatCivil = value;
@@ -3938,11 +3958,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� dateNaissance.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDateNaissance() {
                 return dateNaissance;
@@ -3950,11 +3970,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� dateNaissance.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDateNaissance(String value) {
                 this.dateNaissance = value;
@@ -3962,11 +3982,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� numRegNaiss.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNumRegNaiss() {
                 return numRegNaiss;
@@ -3974,11 +3994,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� numRegNaiss.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNumRegNaiss(String value) {
                 this.numRegNaiss = value;
@@ -3986,11 +4006,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nomPere.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNomPere() {
                 return nomPere;
@@ -3998,11 +4018,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nomPere.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNomPere(String value) {
                 this.nomPere = value;
@@ -4010,11 +4030,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� prenomPere.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPrenomPere() {
                 return prenomPere;
@@ -4022,11 +4042,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� prenomPere.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPrenomPere(String value) {
                 this.prenomPere = value;
@@ -4034,11 +4054,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nomMere.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNomMere() {
                 return nomMere;
@@ -4046,11 +4066,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nomMere.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNomMere(String value) {
                 this.nomMere = value;
@@ -4058,11 +4078,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� prenomMere.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPrenomMere() {
                 return prenomMere;
@@ -4070,11 +4090,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� prenomMere.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPrenomMere(String value) {
                 this.prenomMere = value;
@@ -4082,11 +4102,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nationalite.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNationalite() {
                 return nationalite;
@@ -4094,11 +4114,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nationalite.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNationalite(String value) {
                 this.nationalite = value;
@@ -4106,11 +4126,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� typePieceIdentite.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTypePieceIdentite() {
                 return typePieceIdentite;
@@ -4118,11 +4138,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� typePieceIdentite.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTypePieceIdentite(String value) {
                 this.typePieceIdentite = value;
@@ -4130,11 +4150,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nin.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNin() {
                 return nin;
@@ -4142,11 +4162,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nin.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNin(String value) {
                 this.nin = value;
@@ -4154,11 +4174,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� ninCedeao.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNinCedeao() {
                 return ninCedeao;
@@ -4166,11 +4186,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� ninCedeao.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNinCedeao(String value) {
                 this.ninCedeao = value;
@@ -4178,11 +4198,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� numPieceIdentite.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNumPieceIdentite() {
                 return numPieceIdentite;
@@ -4190,11 +4210,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� numPieceIdentite.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNumPieceIdentite(String value) {
                 this.numPieceIdentite = value;
@@ -4202,11 +4222,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� delivreLe.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDelivreLe() {
                 return delivreLe;
@@ -4214,11 +4234,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� delivreLe.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDelivreLe(String value) {
                 this.delivreLe = value;
@@ -4226,11 +4246,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� lieuDelivrance.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getLieuDelivrance() {
                 return lieuDelivrance;
@@ -4238,11 +4258,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� lieuDelivrance.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setLieuDelivrance(String value) {
                 this.lieuDelivrance = value;
@@ -4250,11 +4270,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� expireLe.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getExpireLe() {
                 return expireLe;
@@ -4262,11 +4282,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� expireLe.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setExpireLe(String value) {
                 this.expireLe = value;
@@ -4274,11 +4294,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� villeNaissance.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getVilleNaissance() {
                 return villeNaissance;
@@ -4286,11 +4306,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� villeNaissance.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setVilleNaissance(String value) {
                 this.villeNaissance = value;
@@ -4298,11 +4318,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� paysNaissance.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPaysNaissance() {
                 return paysNaissance;
@@ -4310,11 +4330,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� paysNaissance.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPaysNaissance(String value) {
                 this.paysNaissance = value;
@@ -4322,11 +4342,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� employeurPrec.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEmployeurPrec() {
                 return employeurPrec;
@@ -4334,11 +4354,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� employeurPrec.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEmployeurPrec(String value) {
                 this.employeurPrec = value;
@@ -4346,11 +4366,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� pays.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPays() {
                 return pays;
@@ -4358,11 +4378,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� pays.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPays(String value) {
                 this.pays = value;
@@ -4370,11 +4390,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� region.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getRegion() {
                 return region;
@@ -4382,11 +4402,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� region.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setRegion(String value) {
                 this.region = value;
@@ -4394,11 +4414,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� departement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDepartement() {
                 return departement;
@@ -4406,11 +4426,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� departement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDepartement(String value) {
                 this.departement = value;
@@ -4418,11 +4438,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� arrondissement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getArrondissement() {
                 return arrondissement;
@@ -4430,11 +4450,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� arrondissement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setArrondissement(String value) {
                 this.arrondissement = value;
@@ -4442,11 +4462,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� commune.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getCommune() {
                 return commune;
@@ -4454,11 +4474,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� commune.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setCommune(String value) {
                 this.commune = value;
@@ -4466,11 +4486,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� quartier.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getQuartier() {
                 return quartier;
@@ -4478,11 +4498,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� quartier.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setQuartier(String value) {
                 this.quartier = value;
@@ -4490,11 +4510,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� adresse.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getAdresse() {
                 return adresse;
@@ -4502,11 +4522,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� adresse.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setAdresse(String value) {
                 this.adresse = value;
@@ -4514,11 +4534,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� boitePostale.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getBoitePostale() {
                 return boitePostale;
@@ -4526,11 +4546,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� boitePostale.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setBoitePostale(String value) {
                 this.boitePostale = value;
@@ -4538,11 +4558,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� typeMouvement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTypeMouvement() {
                 return typeMouvement;
@@ -4550,11 +4570,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� typeMouvement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTypeMouvement(String value) {
                 this.typeMouvement = value;
@@ -4562,11 +4582,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� natureContrat.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNatureContrat() {
                 return natureContrat;
@@ -4574,11 +4594,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� natureContrat.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNatureContrat(String value) {
                 this.natureContrat = value;
@@ -4586,11 +4606,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� dateDebutContrat.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDateDebutContrat() {
                 return dateDebutContrat;
@@ -4598,11 +4618,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� dateDebutContrat.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDateDebutContrat(String value) {
                 this.dateDebutContrat = value;
@@ -4610,11 +4630,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� dateFinContrat.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDateFinContrat() {
                 return dateFinContrat;
@@ -4622,11 +4642,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� dateFinContrat.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDateFinContrat(String value) {
                 this.dateFinContrat = value;
@@ -4634,11 +4654,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� profession.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getProfession() {
                 return profession;
@@ -4646,11 +4666,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� profession.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setProfession(String value) {
                 this.profession = value;
@@ -4658,11 +4678,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� emploi.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEmploi() {
                 return emploi;
@@ -4670,11 +4690,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� emploi.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEmploi(String value) {
                 this.emploi = value;
@@ -4682,11 +4702,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nonCadre.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNonCadre() {
                 return nonCadre;
@@ -4694,11 +4714,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nonCadre.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNonCadre(String value) {
                 this.nonCadre = value;
@@ -4706,11 +4726,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� ouiCadre.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getOuiCadre() {
                 return ouiCadre;
@@ -4718,11 +4738,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� ouiCadre.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setOuiCadre(String value) {
                 this.ouiCadre = value;
@@ -4730,11 +4750,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� conventionApplicable.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getConventionApplicable() {
                 return conventionApplicable;
@@ -4742,11 +4762,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� conventionApplicable.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setConventionApplicable(String value) {
                 this.conventionApplicable = value;
@@ -4754,11 +4774,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� salaireContractuel.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getSalaireContractuel() {
                 return salaireContractuel;
@@ -4766,11 +4786,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� salaireContractuel.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setSalaireContractuel(String value) {
                 this.salaireContractuel = value;
@@ -4778,11 +4798,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� tempsTravail.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTempsTravail() {
                 return tempsTravail;
@@ -4790,11 +4810,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� tempsTravail.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTempsTravail(String value) {
                 this.tempsTravail = value;
@@ -4802,11 +4822,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� categorie.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getCategorie() {
                 return categorie;
@@ -4814,11 +4834,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� categorie.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setCategorie(String value) {
                 this.categorie = value;
@@ -4829,9 +4849,9 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * <p>Classe Java pour anonymous complex type.
-         * 
+         *
          * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -4855,8 +4875,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -4892,11 +4912,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� regType.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getRegType() {
                 return regType;
@@ -4904,11 +4924,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� regType.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setRegType(String value) {
                 this.regType = value;
@@ -4916,11 +4936,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� employerType.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEmployerType() {
                 return employerType;
@@ -4928,11 +4948,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� employerType.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEmployerType(String value) {
                 this.employerType = value;
@@ -4940,11 +4960,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� typeEtablissement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTypeEtablissement() {
                 return typeEtablissement;
@@ -4952,11 +4972,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� typeEtablissement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTypeEtablissement(String value) {
                 this.typeEtablissement = value;
@@ -4964,11 +4984,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� employerName.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEmployerName() {
                 return employerName;
@@ -4976,11 +4996,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� employerName.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEmployerName(String value) {
                 this.employerName = value;
@@ -4988,11 +5008,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� hqId.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getHqId() {
                 return hqId;
@@ -5000,11 +5020,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� hqId.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setHqId(String value) {
                 this.hqId = value;
@@ -5012,11 +5032,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nineaNumber.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNineaNumber() {
                 return nineaNumber;
@@ -5024,11 +5044,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nineaNumber.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNineaNumber(String value) {
                 this.nineaNumber = value;
@@ -5036,11 +5056,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� ninetNumber.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNinetNumber() {
                 return ninetNumber;
@@ -5048,11 +5068,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� ninetNumber.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNinetNumber(String value) {
                 this.ninetNumber = value;
@@ -5060,11 +5080,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� companyOriginId.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getCompanyOriginId() {
                 return companyOriginId;
@@ -5072,11 +5092,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� companyOriginId.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setCompanyOriginId(String value) {
                 this.companyOriginId = value;
@@ -5084,11 +5104,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� legalStatus.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getLegalStatus() {
                 return legalStatus;
@@ -5096,11 +5116,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� legalStatus.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setLegalStatus(String value) {
                 this.legalStatus = value;
@@ -5108,11 +5128,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� taxId.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTaxId() {
                 return taxId;
@@ -5120,11 +5140,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� taxId.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTaxId(String value) {
                 this.taxId = value;
@@ -5132,11 +5152,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� taxIdDate.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTaxIdDate() {
                 return taxIdDate;
@@ -5144,11 +5164,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� taxIdDate.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTaxIdDate(String value) {
                 this.taxIdDate = value;
@@ -5156,11 +5176,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� tradeRegisterNumber.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTradeRegisterNumber() {
                 return tradeRegisterNumber;
@@ -5168,11 +5188,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� tradeRegisterNumber.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTradeRegisterNumber(String value) {
                 this.tradeRegisterNumber = value;
@@ -5180,11 +5200,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� tradeRegisterDate.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTradeRegisterDate() {
                 return tradeRegisterDate;
@@ -5192,11 +5212,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� tradeRegisterDate.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTradeRegisterDate(String value) {
                 this.tradeRegisterDate = value;
@@ -5207,9 +5227,9 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * <p>Classe Java pour anonymous complex type.
-         * 
+         *
          * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -5242,8 +5262,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -5297,11 +5317,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� legalRepPerson.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getLegalRepPerson() {
                 return legalRepPerson;
@@ -5309,11 +5329,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� legalRepPerson.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setLegalRepPerson(String value) {
                 this.legalRepPerson = value;
@@ -5321,11 +5341,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� lastName.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getLastName() {
                 return lastName;
@@ -5333,11 +5353,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� lastName.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setLastName(String value) {
                 this.lastName = value;
@@ -5345,11 +5365,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� firstName.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getFirstName() {
                 return firstName;
@@ -5357,11 +5377,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� firstName.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setFirstName(String value) {
                 this.firstName = value;
@@ -5369,11 +5389,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� birthdate.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getBirthdate() {
                 return birthdate;
@@ -5381,11 +5401,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� birthdate.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setBirthdate(String value) {
                 this.birthdate = value;
@@ -5393,11 +5413,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nationality.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNationality() {
                 return nationality;
@@ -5405,11 +5425,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nationality.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNationality(String value) {
                 this.nationality = value;
@@ -5417,11 +5437,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� nin.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNin() {
                 return nin;
@@ -5429,11 +5449,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� nin.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNin(String value) {
                 this.nin = value;
@@ -5441,11 +5461,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� placeOfBirth.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPlaceOfBirth() {
                 return placeOfBirth;
@@ -5453,11 +5473,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� placeOfBirth.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPlaceOfBirth(String value) {
                 this.placeOfBirth = value;
@@ -5465,11 +5485,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� cityOfBirth.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getCityOfBirth() {
                 return cityOfBirth;
@@ -5477,11 +5497,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� cityOfBirth.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setCityOfBirth(String value) {
                 this.cityOfBirth = value;
@@ -5489,11 +5509,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� typeOfIdentity.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTypeOfIdentity() {
                 return typeOfIdentity;
@@ -5501,11 +5521,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� typeOfIdentity.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTypeOfIdentity(String value) {
                 this.typeOfIdentity = value;
@@ -5513,11 +5533,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� identityIdNumber.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getIdentityIdNumber() {
                 return identityIdNumber;
@@ -5525,11 +5545,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� identityIdNumber.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setIdentityIdNumber(String value) {
                 this.identityIdNumber = value;
@@ -5537,11 +5557,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� ninCedeo.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNinCedeo() {
                 return ninCedeo;
@@ -5549,11 +5569,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� ninCedeo.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNinCedeo(String value) {
                 this.ninCedeo = value;
@@ -5561,11 +5581,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� issuedDate.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getIssuedDate() {
                 return issuedDate;
@@ -5573,11 +5593,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� issuedDate.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setIssuedDate(String value) {
                 this.issuedDate = value;
@@ -5585,11 +5605,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� expiryDate.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getExpiryDate() {
                 return expiryDate;
@@ -5597,11 +5617,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� expiryDate.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setExpiryDate(String value) {
                 this.expiryDate = value;
@@ -5609,11 +5629,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� region.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getRegion() {
                 return region;
@@ -5621,11 +5641,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� region.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setRegion(String value) {
                 this.region = value;
@@ -5633,11 +5653,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� department.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDepartment() {
                 return department;
@@ -5645,11 +5665,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� department.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDepartment(String value) {
                 this.department = value;
@@ -5657,11 +5677,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� arondissement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getArondissement() {
                 return arondissement;
@@ -5669,11 +5689,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� arondissement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setArondissement(String value) {
                 this.arondissement = value;
@@ -5681,11 +5701,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� commune.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getCommune() {
                 return commune;
@@ -5693,11 +5713,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� commune.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setCommune(String value) {
                 this.commune = value;
@@ -5705,11 +5725,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� qartier.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getQartier() {
                 return qartier;
@@ -5717,11 +5737,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� qartier.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setQartier(String value) {
                 this.qartier = value;
@@ -5729,11 +5749,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� address.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getAddress() {
                 return address;
@@ -5741,11 +5761,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� address.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setAddress(String value) {
                 this.address = value;
@@ -5753,11 +5773,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� landLineNumber.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getLandLineNumber() {
                 return landLineNumber;
@@ -5765,11 +5785,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� landLineNumber.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setLandLineNumber(String value) {
                 this.landLineNumber = value;
@@ -5777,11 +5797,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� mobileNumber.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getMobileNumber() {
                 return mobileNumber;
@@ -5789,11 +5809,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� mobileNumber.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setMobileNumber(String value) {
                 this.mobileNumber = value;
@@ -5801,11 +5821,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� email.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEmail() {
                 return email;
@@ -5813,11 +5833,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� email.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEmail(String value) {
                 this.email = value;
@@ -5828,9 +5848,9 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * <p>Classe Java pour anonymous complex type.
-         * 
+         *
          * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -5865,8 +5885,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -5924,11 +5944,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� dateOfInspection.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDateOfInspection() {
                 return dateOfInspection;
@@ -5936,11 +5956,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� dateOfInspection.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDateOfInspection(String value) {
                 this.dateOfInspection = value;
@@ -5948,11 +5968,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� dateOfFirstHire.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDateOfFirstHire() {
                 return dateOfFirstHire;
@@ -5960,11 +5980,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� dateOfFirstHire.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDateOfFirstHire(String value) {
                 this.dateOfFirstHire = value;
@@ -5972,11 +5992,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� shortName.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getShortName() {
                 return shortName;
@@ -5984,11 +6004,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� shortName.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setShortName(String value) {
                 this.shortName = value;
@@ -5996,11 +6016,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� businessSector.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getBusinessSector() {
                 return businessSector;
@@ -6008,11 +6028,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� businessSector.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setBusinessSector(String value) {
                 this.businessSector = value;
@@ -6020,11 +6040,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� mainLineOfBusiness.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getMainLineOfBusiness() {
                 return mainLineOfBusiness;
@@ -6032,11 +6052,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� mainLineOfBusiness.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setMainLineOfBusiness(String value) {
                 this.mainLineOfBusiness = value;
@@ -6044,11 +6064,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� atRate.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getAtRate() {
                 return atRate;
@@ -6056,11 +6076,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� atRate.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setAtRate(String value) {
                 this.atRate = value;
@@ -6068,11 +6088,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� noOfWorkersInGenScheme.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNoOfWorkersInGenScheme() {
                 return noOfWorkersInGenScheme;
@@ -6080,11 +6100,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� noOfWorkersInGenScheme.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNoOfWorkersInGenScheme(String value) {
                 this.noOfWorkersInGenScheme = value;
@@ -6092,11 +6112,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� noOfWorkersInBasicScheme.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getNoOfWorkersInBasicScheme() {
                 return noOfWorkersInBasicScheme;
@@ -6104,11 +6124,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� noOfWorkersInBasicScheme.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setNoOfWorkersInBasicScheme(String value) {
                 this.noOfWorkersInBasicScheme = value;
@@ -6116,11 +6136,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� region.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getRegion() {
                 return region;
@@ -6128,11 +6148,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� region.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setRegion(String value) {
                 this.region = value;
@@ -6140,11 +6160,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� department.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getDepartment() {
                 return department;
@@ -6152,11 +6172,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� department.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setDepartment(String value) {
                 this.department = value;
@@ -6164,11 +6184,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� arondissement.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getArondissement() {
                 return arondissement;
@@ -6176,11 +6196,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� arondissement.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setArondissement(String value) {
                 this.arondissement = value;
@@ -6188,11 +6208,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� commune.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getCommune() {
                 return commune;
@@ -6200,11 +6220,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� commune.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setCommune(String value) {
                 this.commune = value;
@@ -6212,11 +6232,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� qartier.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getQartier() {
                 return qartier;
@@ -6224,11 +6244,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� qartier.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setQartier(String value) {
                 this.qartier = value;
@@ -6236,11 +6256,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� address.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getAddress() {
                 return address;
@@ -6248,11 +6268,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� address.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setAddress(String value) {
                 this.address = value;
@@ -6260,11 +6280,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� postboxNo.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getPostboxNo() {
                 return postboxNo;
@@ -6272,11 +6292,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� postboxNo.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setPostboxNo(String value) {
                 this.postboxNo = value;
@@ -6284,11 +6304,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� telephone.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getTelephone() {
                 return telephone;
@@ -6296,11 +6316,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� telephone.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setTelephone(String value) {
                 this.telephone = value;
@@ -6308,11 +6328,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� email.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getEmail() {
                 return email;
@@ -6320,11 +6340,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� email.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setEmail(String value) {
                 this.email = value;
@@ -6332,11 +6352,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� website.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getWebsite() {
                 return website;
@@ -6344,11 +6364,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� website.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setWebsite(String value) {
                 this.website = value;
@@ -6356,11 +6376,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� zoneCss.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getZoneCss() {
                 return zoneCss;
@@ -6368,11 +6388,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� zoneCss.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setZoneCss(String value) {
                 this.zoneCss = value;
@@ -6380,11 +6400,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� zoneIpres.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getZoneIpres() {
                 return zoneIpres;
@@ -6392,11 +6412,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� zoneIpres.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setZoneIpres(String value) {
                 this.zoneIpres = value;
@@ -6404,11 +6424,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� sectorCss.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getSectorCss() {
                 return sectorCss;
@@ -6416,11 +6436,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� sectorCss.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setSectorCss(String value) {
                 this.sectorCss = value;
@@ -6428,11 +6448,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� sectorIpres.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getSectorIpres() {
                 return sectorIpres;
@@ -6440,11 +6460,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� sectorIpres.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setSectorIpres(String value) {
                 this.sectorIpres = value;
@@ -6452,11 +6472,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� agencyCss.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getAgencyCss() {
                 return agencyCss;
@@ -6464,11 +6484,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� agencyCss.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setAgencyCss(String value) {
                 this.agencyCss = value;
@@ -6476,11 +6496,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * Obtient la valeur de la propri�t� agencyIpres.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getAgencyIpres() {
                 return agencyIpres;
@@ -6488,11 +6508,11 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * D�finit la valeur de la propri�t� agencyIpres.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setAgencyIpres(String value) {
                 this.agencyIpres = value;
@@ -6505,9 +6525,9 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * <p>Classe Java pour anonymous complex type.
-     * 
+     *
      * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -6528,8 +6548,8 @@ public class IMMATRICULATIONINBOUND {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -6559,11 +6579,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� employerRegistrationFormId.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getEmployerRegistrationFormId() {
             return employerRegistrationFormId;
@@ -6571,11 +6591,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� employerRegistrationFormId.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setEmployerRegistrationFormId(String value) {
             this.employerRegistrationFormId = value;
@@ -6583,11 +6603,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� employeeRegistrationFormId.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getEmployeeRegistrationFormId() {
             return employeeRegistrationFormId;
@@ -6595,11 +6615,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� employeeRegistrationFormId.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setEmployeeRegistrationFormId(String value) {
             this.employeeRegistrationFormId = value;
@@ -6607,11 +6627,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� processFlowId.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getProcessFlowId() {
             return processFlowId;
@@ -6619,11 +6639,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� processFlowId.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setProcessFlowId(String value) {
             this.processFlowId = value;
@@ -6631,11 +6651,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� zoneCss.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getZoneCss() {
             return zoneCss;
@@ -6643,11 +6663,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� zoneCss.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setZoneCss(String value) {
             this.zoneCss = value;
@@ -6655,11 +6675,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� zoneIpres.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getZoneIpres() {
             return zoneIpres;
@@ -6667,11 +6687,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� zoneIpres.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setZoneIpres(String value) {
             this.zoneIpres = value;
@@ -6679,11 +6699,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� sectorCss.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getSectorCss() {
             return sectorCss;
@@ -6691,11 +6711,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� sectorCss.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setSectorCss(String value) {
             this.sectorCss = value;
@@ -6703,11 +6723,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� sectorIpres.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getSectorIpres() {
             return sectorIpres;
@@ -6715,11 +6735,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� sectorIpres.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setSectorIpres(String value) {
             this.sectorIpres = value;
@@ -6727,11 +6747,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� agenceCss.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getAgenceCss() {
             return agenceCss;
@@ -6739,11 +6759,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� agenceCss.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setAgenceCss(String value) {
             this.agenceCss = value;
@@ -6751,11 +6771,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� agenceIpres.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getAgenceIpres() {
             return agenceIpres;
@@ -6763,11 +6783,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� agenceIpres.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setAgenceIpres(String value) {
             this.agenceIpres = value;
@@ -6775,11 +6795,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * Obtient la valeur de la propri�t� tauxAt.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getTauxAt() {
             return tauxAt;
@@ -6787,11 +6807,11 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * D�finit la valeur de la propri�t� tauxAt.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setTauxAt(String value) {
             this.tauxAt = value;

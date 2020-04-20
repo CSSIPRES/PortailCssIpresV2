@@ -2,6 +2,7 @@ package com.secusociale.portail.web.rest;
 
 import com.secusociale.portail.domain.Employeur;
 import com.secusociale.portail.service.EmployeurService;
+import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -13,11 +14,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -122,4 +124,17 @@ public class EmployeurResource {
         employeurService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+
+
+
+
+    // Test pour la déclaration en masse
+    @PostMapping("/employeurs/import/fileXSSF")
+    public List<IMMATRICULATIONINBOUND.Input.EmployeList> mapReapExcelDatatoDB(@RequestParam("file") MultipartFile reapExcelDataFile) throws IOException {
+
+
+        return this.employeurService.mapReapExcelDataEmployeDB(reapExcelDataFile);
+    }
+
 }
