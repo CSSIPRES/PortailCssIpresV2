@@ -37,10 +37,11 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://192.168.125.252:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-
+    url: jdbc:mysql://192.168.0.103:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    #url: jdbc:mysql://localhost:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root
     password: Oracle123$
+    #password: Oracle123
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -107,7 +108,7 @@ jhipster:
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    base-url: http://127.0.0.1:8080
+    base-url: http://192.168.0.103:8080
   metrics:
     logs: # Reports metrics in the logs
       enabled: false

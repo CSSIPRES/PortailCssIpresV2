@@ -27,6 +27,10 @@ import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATI
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDPortType;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDService;
 import com.secusociale.portail.service.soap.demandeImmatriculation.ObjectFactory;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDFault;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDPortType;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDService;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND.Input;
 
 import java.io.IOException;
@@ -89,7 +93,7 @@ public class ImmatPortailService {
 
 	 // Save Immatriculation maintien d'affiliation
 
-    public Holder<MAINTAFFINBOUND> createImmatriculationMaintienAffiliation(MAINTAFFINBOUND.Input immatriculation) throws MAINTAFFINBOUNDFault, JAXBException, JAXBException {
+    public Holder<MAINTAFFINBOUND> createImmatriculationMaintienAffiliation(MAINTAFFINBOUND.Input immatriculation) throws   JAXBException, JAXBException {
         //String immatriculationType = "BVOLN" ;   //Immatriculation Volontaire
         Holder<MAINTAFFINBOUND> immatriculationAffiliation = new Holder<MAINTAFFINBOUND>();
         MAINTAFFINBOUND.Input input = new MAINTAFFINBOUND.Input();
@@ -113,7 +117,11 @@ public class ImmatPortailService {
         BindingProvider prov = (BindingProvider) immatriculationMainAffiliationPortType ;
         prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
         prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
-        immatriculationMainAffiliationPortType.maintAFFINBOUND(immatriculationAffiliation);
+        try {
+			immatriculationMainAffiliationPortType.maintAFFINBOUND(immatriculationAffiliation);
+		} catch (MAINTAFFINBOUNDFault e) {
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
         return immatriculationAffiliation;
     }
 
@@ -122,7 +130,7 @@ public class ImmatPortailService {
 
     // Save Immatriculation representant
 
-    public Holder<IMMATREPDIPLO> createImmatriculationRepresentatnt(IMMATREPDIPLO.Input immatriculation) throws IMMATREPDIPLOFault, JAXBException {
+    public Holder<IMMATREPDIPLO> createImmatriculationRepresentatnt(IMMATREPDIPLO.Input immatriculation) throws   JAXBException {
         // String immatriculationType = "BVOLN" ;   //Immatriculation Volontaire
         Holder<IMMATREPDIPLO> immatriculationRepresentatnt = new Holder<IMMATREPDIPLO>();
         IMMATREPDIPLO.Input input = new IMMATREPDIPLO.Input();
@@ -145,8 +153,52 @@ public class ImmatPortailService {
         prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
         prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
 
-        immatriculationRepresentantPortType.immatREPDIPLO(immatriculationRepresentatnt);
+        try {
+			immatriculationRepresentantPortType.immatREPDIPLO(immatriculationRepresentatnt);
+		} catch (IMMATREPDIPLOFault e) {
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
         return immatriculationRepresentatnt;
+    }
+    
+    
+    
+    
+    
+    
+   public Holder<IMMAT2INBOUND> createImmatPublicParapublique(IMMAT2INBOUND immatriculation) throws JAXBException{
+    	
+    	Holder<IMMAT2INBOUND> immatPublicPara = new Holder<IMMAT2INBOUND>();
+    	 IMMAT2INBOUND.Input input= new IMMAT2INBOUND.Input();
+    	 input.setEmployerQuery(immatriculation.getInput().getEmployerQuery());
+    	 input.setMainRegistrationForm(immatriculation.getInput().getMainRegistrationForm());
+    	 input.setPersonneContact(immatriculation.getInput().getPersonneContact());
+    	 input.setDocuments(immatriculation.getInput().getDocuments());
+    	 
+    	 com.secusociale.portail.service.soap.immatPublicParapublic.ObjectFactory obj= new com.secusociale.portail.service.soap.immatPublicParapublic.ObjectFactory();
+    	 immatPublicPara.value = obj.createIMMAT2INBOUND();
+    	 immatPublicPara.value.setInput(input);
+    	 
+    	 final JAXBContext jc = JAXBContext.newInstance(IMMAT2INBOUND.class);
+         final Marshaller marshaller = jc.createMarshaller();
+         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+         marshaller.marshal(immatPublicPara.value, System.out);
+    	
+         IMMAT2INBOUNDService immat2inboundService = new IMMAT2INBOUNDService();
+         IMMAT2INBOUNDPortType immat2inboundPortType = immat2inboundService.getIMMAT2INBOUNDPort();
+         
+         BindingProvider prov = (BindingProvider) immat2inboundPortType ;
+         prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+         prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+
+         try {
+			immat2inboundPortType.immat2INBOUND(immatPublicPara);
+		} catch (IMMAT2INBOUNDFault e) {
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
+         
+		return immatPublicPara;
+    	
     }
 
 

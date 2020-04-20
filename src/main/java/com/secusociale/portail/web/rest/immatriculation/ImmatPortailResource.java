@@ -30,6 +30,7 @@ import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCerti
 import com.secusociale.portail.service.soap.checkExistenceEmployeur.CmCheckExistenceEmployeur;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculationFault;
 //import com.secusociale.portail.web.rest.ImmatriculationResource;
@@ -60,6 +61,44 @@ public class ImmatPortailResource {
         Holder<IMMATRICULATIONINBOUND> immatriculationInbound = new Holder<IMMATRICULATIONINBOUND>();
 
            immatriculationInbound = immatPortailService.createImmatriculationPortail(immatriculation);
+
+		return immatriculationInbound;
+
+    }
+	
+	
+	@PostMapping("/maintient-affiliation")
+    public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND.Input immatriculation) throws URISyntaxException,   JAXBException {
+       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+        Holder<MAINTAFFINBOUND> immatriculationInbound = new Holder<MAINTAFFINBOUND>();
+
+           immatriculationInbound = immatPortailService.createImmatriculationMaintienAffiliation(immatriculation);
+
+		return immatriculationInbound;
+
+    }
+	
+	
+	@PostMapping("/representation-diplomatique")
+    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO.Input immatriculation) throws URISyntaxException,  JAXBException {
+       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+        Holder<IMMATREPDIPLO> immatriculationInbound = new Holder<IMMATREPDIPLO>();
+
+           immatriculationInbound = immatPortailService.createImmatriculationRepresentatnt(immatriculation);
+
+		return immatriculationInbound;
+
+    }
+	
+	@PostMapping("/publique-parapublique")
+    public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND immatriculation) throws URISyntaxException,  JAXBException {
+       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+        Holder<IMMAT2INBOUND> immatriculationInbound = new Holder<IMMAT2INBOUND>();
+
+           immatriculationInbound = immatPortailService.createImmatPublicParapublique(immatriculation);
 
 		return immatriculationInbound;
 

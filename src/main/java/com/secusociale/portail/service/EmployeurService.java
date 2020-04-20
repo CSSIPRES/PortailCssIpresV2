@@ -2,10 +2,15 @@ package com.secusociale.portail.service;
 
 import com.secusociale.portail.domain.Employeur;
 import com.secusociale.portail.repository.EmployeurRepository;
+<<<<<<< HEAD
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+=======
+import com.secusociale.portail.security.SecurityUtils;
+
+>>>>>>> 168ea6bfd9c269e3dc2135714063f5de196b046b
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +20,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.ArrayList;
+=======
+>>>>>>> 168ea6bfd9c269e3dc2135714063f5de196b046b
 import java.util.List;
 import java.util.Optional;
 
@@ -57,6 +65,22 @@ public class EmployeurService {
         log.debug("Request to get all Employeurs");
         return employeurRepository.findAll(pageable);
     }
+    
+    
+    /**
+     * Get all employeurs by User.
+     *
+     * @param .
+     * @return  the list of employeurs by currentUser.
+     */
+    @Transactional(readOnly = true)
+    public List<Employeur> findEmployeurByUser() {
+        log.debug("Request to get Employeur : {}");
+       // String username = SecurityUtils.getCurrentUserLogin().get(); 
+        return employeurRepository.findByUserIsCurrentUser();
+    }
+
+    
 
     /**
      * Get one employeur by id.

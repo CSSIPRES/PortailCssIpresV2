@@ -123,15 +123,15 @@ jhipster:
   clientApp:
     name: 'portailCssIpresV2App'
   # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #     allowed-origins: "*"
-  #     allowed-methods: "*"
-  #     allowed-headers: "*"
-  #     exposed-headers: "Authorization,Link,X-Total-Count"
-  #     allow-credentials: true
-  #     max-age: 1800
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allow-credentials: true
+    max-age: 1800
   mail:
-    from: PortailCssIpresV2@localhost
+    from: cssipresportail@gmail.com
   swagger:
     default-include-pattern: /api/.*
     title: PortailCssIpresV2 API
