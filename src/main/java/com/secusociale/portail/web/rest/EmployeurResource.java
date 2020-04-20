@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
@@ -111,24 +112,24 @@ public class EmployeurResource {
         Optional<Employeur> employeur = employeurService.findOne(id);
         return ResponseUtil.wrapOrNotFound(employeur);
     }
-    
-    
-    
-    
+
+
+
+
     /**
      * {@code GET  /employeursByLogin } : get employeur by Login.
      *
-     *  
+     *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the employeur, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/employeursByLogin")
     public ResponseEntity<List<Employeur>> getEmployeurByLogin() {
         log.debug("REST request to get Employeur : {}" );
          List<Employeur> employeurs = employeurService.findEmployeurByUser();
-        return  new ResponseEntity<List<Employeur>>(employeurs, HttpStatus.OK); 
+        return  new ResponseEntity<List<Employeur>>(employeurs, HttpStatus.OK);
     }
-    
-    
+
+
 
     /**
      * {@code DELETE  /employeurs/:id} : delete the "id" employeur.
