@@ -1,7 +1,7 @@
 
 package com.secusociale.portail.service.soap.demandeImmatriculation;
 
-import org.springframework.web.multipart.MultipartFile;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -995,10 +995,6 @@ public class IMMATRICULATIONINBOUND {
         protected IMMATRICULATIONINBOUND.Input.Documents documents;
         protected List<IMMATRICULATIONINBOUND.Input.EmployeList> employeList;
 
-        // File pour la récupération du fichier en base64
-        @Size(max = 1000000)
-        protected MultipartFile fileData;
-
         /**
          * Obtient la valeur de la propri�t� employerQuery.
          *
@@ -1024,13 +1020,6 @@ public class IMMATRICULATIONINBOUND {
         }
 
 
-        public void setFileData() {
-            this.fileData = fileData;
-        }
-
-        public MultipartFile getFileData() {
-            return fileData;
-        }
 
         /**
          * Obtient la valeur de la propri�t� mainRegistrationForm.

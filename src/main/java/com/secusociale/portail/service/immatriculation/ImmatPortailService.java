@@ -160,33 +160,33 @@ public class ImmatPortailService {
 		}
         return immatriculationRepresentatnt;
     }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
    public Holder<IMMAT2INBOUND> createImmatPublicParapublique(IMMAT2INBOUND immatriculation) throws JAXBException{
-    	
+
     	Holder<IMMAT2INBOUND> immatPublicPara = new Holder<IMMAT2INBOUND>();
     	 IMMAT2INBOUND.Input input= new IMMAT2INBOUND.Input();
     	 input.setEmployerQuery(immatriculation.getInput().getEmployerQuery());
     	 input.setMainRegistrationForm(immatriculation.getInput().getMainRegistrationForm());
     	 input.setPersonneContact(immatriculation.getInput().getPersonneContact());
     	 input.setDocuments(immatriculation.getInput().getDocuments());
-    	 
+
     	 com.secusociale.portail.service.soap.immatPublicParapublic.ObjectFactory obj= new com.secusociale.portail.service.soap.immatPublicParapublic.ObjectFactory();
     	 immatPublicPara.value = obj.createIMMAT2INBOUND();
     	 immatPublicPara.value.setInput(input);
-    	 
+
     	 final JAXBContext jc = JAXBContext.newInstance(IMMAT2INBOUND.class);
          final Marshaller marshaller = jc.createMarshaller();
          marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
          marshaller.marshal(immatPublicPara.value, System.out);
-    	
+
          IMMAT2INBOUNDService immat2inboundService = new IMMAT2INBOUNDService();
          IMMAT2INBOUNDPortType immat2inboundPortType = immat2inboundService.getIMMAT2INBOUNDPort();
-         
+
          BindingProvider prov = (BindingProvider) immat2inboundPortType ;
          prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
          prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
@@ -196,9 +196,9 @@ public class ImmatPortailService {
 		} catch (IMMAT2INBOUNDFault e) {
 			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
 		}
-         
+
 		return immatPublicPara;
-    	
+
     }
 
 
@@ -226,8 +226,8 @@ public class ImmatPortailService {
 
 
         // Chargement de la liste des employés via le fichier uploader
-        List<Input.EmployeList> employes = this.employeurService.mapReapExcelDataEmployeDB(input.getFileData());
-        input.setEmployeList(employes);
+       // List<Input.EmployeList> employes = this.employeurService.mapReapExcelDataEmployeDB(input.getFileData());
+      //  input.setEmployeList(employes);
 
 
 
