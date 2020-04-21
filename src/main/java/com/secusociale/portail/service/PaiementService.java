@@ -51,10 +51,10 @@ public interface PaiementService {
     /**
      * Get all the paiements.
      *
-     * @param idUser the pagination information.
+     * @param userId the pagination information.
      * @return the list of entities.
      */
-    List<Paiement> findAllByUser(Long idUser);
+    List<Paiement> findAllByUserId(Long userId);
 
 
 }

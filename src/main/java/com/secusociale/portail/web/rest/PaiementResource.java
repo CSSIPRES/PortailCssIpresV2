@@ -130,10 +130,10 @@ public class PaiementResource {
      * @param idUser the id of the paiement to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the paiement, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/paiements/{idUser}")
+    @GetMapping("/paiements/user/{idUser}")
     public List<Paiement> getPaiementByUser(@PathVariable Long idUser) {
         log.debug("REST request to get Paiement : {}", idUser);
-        List<Paiement> paiement = paiementService.findAllByUser(idUser);
+        List<Paiement> paiement = paiementService.findAllByUserId(idUser);
         return paiement;
     }
 }

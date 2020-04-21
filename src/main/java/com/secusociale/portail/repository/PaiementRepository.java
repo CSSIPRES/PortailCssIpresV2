@@ -15,6 +15,6 @@ import java.util.List;
 @Repository
 public interface PaiementRepository extends JpaRepository<Paiement, Long> {
 
-    public List<Paiement> findByUser(User user);
+    public List<Paiement> findByUserId(Long userId);
 
 }

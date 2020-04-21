@@ -54,10 +54,9 @@ public class Paiement implements Serializable {
     @Column(name = "file_join")
     private String fileJoin;
 
-    @ManyToOne
-    @JsonIgnoreProperties("paiements")
-    @JoinColumn(name = "user_id")
-    private User user;
+
+    @Column(name="user_id")
+    private Long userId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -200,13 +199,12 @@ public class Paiement implements Serializable {
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override

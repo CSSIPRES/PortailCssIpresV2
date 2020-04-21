@@ -43,10 +43,7 @@ public class PaiementServiceImpl implements PaiementService {
     @Override
     public Paiement save(Paiement paiement) {
         log.debug("Request to save Paiement : {}", paiement);
-        if(paiement.getUser() == null){
-            throw new RuntimeException("Cet utilisateur n'existe pas dans la base de donnée");
-        }
-        this.userRepository.save(paiement.getUser());
+
         return paiementRepository.save(paiement);
     }
 
@@ -89,14 +86,11 @@ public class PaiementServiceImpl implements PaiementService {
 
 
     @Override
-    public List<Paiement> findAllByUser(Long idUser) {
+    public List<Paiement> findAllByUserId(Long userId) {
 
-        User user = this.userRepository.findById(idUser).get();
-        if(user != null){
-            return this.paiementRepository.findByUser(user);
-        }else{
-            throw new RuntimeException("Aucun utilisateur associé a cet id");
-        }
+
+            return this.paiementRepository.findByUserId(userId);
+
 
     }
 }
