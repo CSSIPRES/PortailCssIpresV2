@@ -1,14 +1,31 @@
 package com.secusociale.portail.service.immatriculation;
 
+import java.io.IOException;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Holder;
 
+import org.springframework.stereotype.Service;
 
 import com.secusociale.portail.service.EmployeurService;
+import com.secusociale.portail.service.PortailConstant;
+import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
+import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND.Input;
+import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
+import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDPortType;
+import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDService;
+import com.secusociale.portail.service.soap.demandeImmatriculation.ObjectFactory;
+import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
+import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILSFault;
+import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILSPortType;
+import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILSService;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDFault;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDPortType;
+import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDService;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLO;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOFault;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOPortType;
@@ -17,24 +34,6 @@ import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDPortType;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDService;
-
-
-import org.springframework.stereotype.Service;
-
-import com.secusociale.portail.service.PortailConstant;
-import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
-import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
-import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDPortType;
-import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDService;
-import com.secusociale.portail.service.soap.demandeImmatriculation.ObjectFactory;
-import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
-import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDFault;
-import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDPortType;
-import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUNDService;
-import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND.Input;
-
-import java.io.IOException;
-import java.util.List;
 
 
 @Service
@@ -252,6 +251,43 @@ public class ImmatPortailService {
 
         return immatriculationInbound;
 
+    }
+    
+    public Holder<CMGETEMPLOYEURDETAILS> getEmployeurExistant(CMGETEMPLOYEURDETAILS employeurDetail) throws JAXBException{
+    	
+    	Holder<CMGETEMPLOYEURDETAILS> cmGetEmployeurDetails = new Holder<CMGETEMPLOYEURDETAILS>();
+    	
+      CMGETEMPLOYEURDETAILS.Input input = new CMGETEMPLOYEURDETAILS.Input();
+      input.setTypeIdentifiant(employeurDetail.getInput().getTypeIdentifiant());
+      input.setNumeroIdentifiant(employeurDetail.getInput().getNumeroIdentifiant());
+      input.setNumeroUnique(employeurDetail.getInput().getNumeroUnique());
+    	
+      com.secusociale.portail.service.soap.employeurExistant.ObjectFactory obj = new com.secusociale.portail.service.soap.employeurExistant.ObjectFactory();
+		cmGetEmployeurDetails.value = obj.createCMGETEMPLOYEURDETAILS();
+		cmGetEmployeurDetails.value.setInput(input);    
+		
+		 final JAXBContext jc = JAXBContext.newInstance(CMGETEMPLOYEURDETAILS.class);
+	     final Marshaller marshaller = jc.createMarshaller();
+	     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	     marshaller.marshal(cmGetEmployeurDetails.value, System.out);
+		
+		CMGETEMPLOYEURDETAILSService cmgetemployeurdetailsService = new CMGETEMPLOYEURDETAILSService();
+		CMGETEMPLOYEURDETAILSPortType cmgetemployeurdetailsPortType = cmgetemployeurdetailsService.getCMGETEMPLOYEURDETAILSPort();
+      
+
+        BindingProvider prov = (BindingProvider) cmgetemployeurdetailsPortType ;
+        prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+        prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+        
+        try {
+			cmgetemployeurdetailsPortType.cmGETEMPLOYEURDETAILS(cmGetEmployeurDetails);
+		} catch (CMGETEMPLOYEURDETAILSFault e) {
+			 
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
+		
+		return cmGetEmployeurDetails;
+    	
     }
 
 

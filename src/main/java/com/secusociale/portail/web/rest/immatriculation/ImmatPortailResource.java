@@ -30,6 +30,7 @@ import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCerti
 import com.secusociale.portail.service.soap.checkExistenceEmployeur.CmCheckExistenceEmployeur;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
+import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
 import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculationFault;
@@ -163,26 +164,21 @@ public class ImmatPortailResource {
 
 	}
 
-	/*
-	 * @PostMapping("/immatriculation-maintien-affiliation") public
-	 * Holder<MAINTAFFINBOUND> createImmatriculationMainAffiliation(@RequestBody
-	 * MAINTAFFINBOUND.Input immatriculationMainAffiliation) throws
-	 * URISyntaxException, MAINTAFFINBOUNDFault, JAXBException {
-	 * //log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
-	 * Holder<MAINTAFFINBOUND> immatriculationMaintienAffiliation = new
-	 * Holder<MAINTAFFINBOUND>(); immatriculationMaintienAffiliation =
-	 * immatPortailService.createImmatriculationMaintienAffiliation(
-	 * immatriculationMainAffiliation); return immatriculationMaintienAffiliation; }
-	 *
-	 * @PostMapping("/immatriculation-representant-diplomatique") public
-	 * Holder<IMMATREPDIPLO> createImmatriculationRepresentant(@RequestBody
-	 * IMMATREPDIPLO.Input immatriculationRepresentant) throws URISyntaxException,
-	 * IMMATREPDIPLOFault, JAXBException, MAINTAFFINBOUNDFault { //
-	 * log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
-	 * Holder<IMMATREPDIPLO> immatriculationRepresentantOuput = new
-	 * Holder<IMMATREPDIPLO>(); immatriculationRepresentantOuput =
-	 * immatPortailService.createImmatriculationRepresentatnt(
-	 * immatriculationRepresentant); return immatriculationRepresentantOuput; }
-	 */
+	
+
+	@PostMapping("/employeurExistant")
+    public Holder<CMGETEMPLOYEURDETAILS> getEmployeurexistant(@RequestBody CMGETEMPLOYEURDETAILS cmgetEmployeurDetails) throws JAXBException   {
+       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+        Holder<CMGETEMPLOYEURDETAILS> employeurDetails = new Holder<CMGETEMPLOYEURDETAILS>();
+
+        employeurDetails = immatPortailService.getEmployeurExistant(cmgetEmployeurDetails);
+
+		return employeurDetails;
+
+    }
+	
+	
+	 
 }
 
