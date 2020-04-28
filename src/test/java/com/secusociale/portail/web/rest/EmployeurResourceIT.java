@@ -124,6 +124,9 @@ public class EmployeurResourceIT {
     private static final String DEFAULT_AGENCY_IPRES = "AAAAAAAAAA";
     private static final String UPDATED_AGENCY_IPRES = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TAUX_AT = "AAAAAAAAAA";
+    private static final String UPDATED_TAUX_AT = "BBBBBBBBBB";
+
     private static final String DEFAULT_PROCESS_FLOW_ID = "AAAAAAAAAA";
     private static final String UPDATED_PROCESS_FLOW_ID = "BBBBBBBBBB";
 
@@ -208,6 +211,7 @@ public class EmployeurResourceIT {
             .sectorIpres(DEFAULT_SECTOR_IPRES)
             .agencyCss(DEFAULT_AGENCY_CSS)
             .agencyIpres(DEFAULT_AGENCY_IPRES)
+            .tauxAT(DEFAULT_TAUX_AT)
             .processFlowId(DEFAULT_PROCESS_FLOW_ID)
             .statutDossier(DEFAULT_STATUT_DOSSIER)
             .statutImmatriculation(DEFAULT_STATUT_IMMATRICULATION);
@@ -251,6 +255,7 @@ public class EmployeurResourceIT {
             .sectorIpres(UPDATED_SECTOR_IPRES)
             .agencyCss(UPDATED_AGENCY_CSS)
             .agencyIpres(UPDATED_AGENCY_IPRES)
+            .tauxAT(UPDATED_TAUX_AT)
             .processFlowId(UPDATED_PROCESS_FLOW_ID)
             .statutDossier(UPDATED_STATUT_DOSSIER)
             .statutImmatriculation(UPDATED_STATUT_IMMATRICULATION);
@@ -307,6 +312,7 @@ public class EmployeurResourceIT {
         assertThat(testEmployeur.getSectorIpres()).isEqualTo(DEFAULT_SECTOR_IPRES);
         assertThat(testEmployeur.getAgencyCss()).isEqualTo(DEFAULT_AGENCY_CSS);
         assertThat(testEmployeur.getAgencyIpres()).isEqualTo(DEFAULT_AGENCY_IPRES);
+        assertThat(testEmployeur.getTauxAT()).isEqualTo(DEFAULT_TAUX_AT);
         assertThat(testEmployeur.getProcessFlowId()).isEqualTo(DEFAULT_PROCESS_FLOW_ID);
         assertThat(testEmployeur.getStatutDossier()).isEqualTo(DEFAULT_STATUT_DOSSIER);
         assertThat(testEmployeur.isStatutImmatriculation()).isEqualTo(DEFAULT_STATUT_IMMATRICULATION);
@@ -373,6 +379,7 @@ public class EmployeurResourceIT {
             .andExpect(jsonPath("$.[*].sectorIpres").value(hasItem(DEFAULT_SECTOR_IPRES)))
             .andExpect(jsonPath("$.[*].agencyCss").value(hasItem(DEFAULT_AGENCY_CSS)))
             .andExpect(jsonPath("$.[*].agencyIpres").value(hasItem(DEFAULT_AGENCY_IPRES)))
+            .andExpect(jsonPath("$.[*].tauxAT").value(hasItem(DEFAULT_TAUX_AT)))
             .andExpect(jsonPath("$.[*].processFlowId").value(hasItem(DEFAULT_PROCESS_FLOW_ID)))
             .andExpect(jsonPath("$.[*].statutDossier").value(hasItem(DEFAULT_STATUT_DOSSIER)))
             .andExpect(jsonPath("$.[*].statutImmatriculation").value(hasItem(DEFAULT_STATUT_IMMATRICULATION.booleanValue())));
@@ -419,6 +426,7 @@ public class EmployeurResourceIT {
             .andExpect(jsonPath("$.sectorIpres").value(DEFAULT_SECTOR_IPRES))
             .andExpect(jsonPath("$.agencyCss").value(DEFAULT_AGENCY_CSS))
             .andExpect(jsonPath("$.agencyIpres").value(DEFAULT_AGENCY_IPRES))
+            .andExpect(jsonPath("$.tauxAT").value(DEFAULT_TAUX_AT))
             .andExpect(jsonPath("$.processFlowId").value(DEFAULT_PROCESS_FLOW_ID))
             .andExpect(jsonPath("$.statutDossier").value(DEFAULT_STATUT_DOSSIER))
             .andExpect(jsonPath("$.statutImmatriculation").value(DEFAULT_STATUT_IMMATRICULATION.booleanValue()));
@@ -475,6 +483,7 @@ public class EmployeurResourceIT {
             .sectorIpres(UPDATED_SECTOR_IPRES)
             .agencyCss(UPDATED_AGENCY_CSS)
             .agencyIpres(UPDATED_AGENCY_IPRES)
+            .tauxAT(UPDATED_TAUX_AT)
             .processFlowId(UPDATED_PROCESS_FLOW_ID)
             .statutDossier(UPDATED_STATUT_DOSSIER)
             .statutImmatriculation(UPDATED_STATUT_IMMATRICULATION);
@@ -518,6 +527,7 @@ public class EmployeurResourceIT {
         assertThat(testEmployeur.getSectorIpres()).isEqualTo(UPDATED_SECTOR_IPRES);
         assertThat(testEmployeur.getAgencyCss()).isEqualTo(UPDATED_AGENCY_CSS);
         assertThat(testEmployeur.getAgencyIpres()).isEqualTo(UPDATED_AGENCY_IPRES);
+        assertThat(testEmployeur.getTauxAT()).isEqualTo(UPDATED_TAUX_AT);
         assertThat(testEmployeur.getProcessFlowId()).isEqualTo(UPDATED_PROCESS_FLOW_ID);
         assertThat(testEmployeur.getStatutDossier()).isEqualTo(UPDATED_STATUT_DOSSIER);
         assertThat(testEmployeur.isStatutImmatriculation()).isEqualTo(UPDATED_STATUT_IMMATRICULATION);

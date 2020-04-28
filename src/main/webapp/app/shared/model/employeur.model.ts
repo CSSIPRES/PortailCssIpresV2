@@ -34,10 +34,11 @@ export interface IEmployeur {
   sectorIpres?: string;
   agencyCss?: string;
   agencyIpres?: string;
+  tauxAT?: string;
   processFlowId?: string;
   statutDossier?: string;
   statutImmatriculation?: boolean;
-  idDossiers?: IDemandeService[];
+  demandes?: IDemandeService[];
   documents?: IDocumentUrl[];
   user?: IUser;
 }
@@ -75,10 +76,11 @@ export class Employeur implements IEmployeur {
     public sectorIpres?: string,
     public agencyCss?: string,
     public agencyIpres?: string,
+    public tauxAT?: string,
     public processFlowId?: string,
     public statutDossier?: string,
     public statutImmatriculation?: boolean,
-    public idDossiers?: IDemandeService[],
+    public demandes?: IDemandeService[],
     public documents?: IDocumentUrl[],
     public user?: IUser
   ) {

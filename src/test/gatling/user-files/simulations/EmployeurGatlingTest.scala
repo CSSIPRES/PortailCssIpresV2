@@ -102,6 +102,7 @@ class EmployeurGatlingTest extends Simulation {
                 , "sectorIpres":"SAMPLE_TEXT"
                 , "agencyCss":"SAMPLE_TEXT"
                 , "agencyIpres":"SAMPLE_TEXT"
+                , "tauxAT":"SAMPLE_TEXT"
                 , "processFlowId":"SAMPLE_TEXT"
                 , "statutDossier":"SAMPLE_TEXT"
                 , "statutImmatriculation":null

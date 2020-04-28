@@ -54,6 +54,7 @@ describe('Service Tests', () => {
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
+        'AAAAAAA',
         false
       );
     });
@@ -119,6 +120,7 @@ describe('Service Tests', () => {
             sectorIpres: 'BBBBBB',
             agencyCss: 'BBBBBB',
             agencyIpres: 'BBBBBB',
+            tauxAT: 'BBBBBB',
             processFlowId: 'BBBBBB',
             statutDossier: 'BBBBBB',
             statutImmatriculation: true
@@ -168,6 +170,7 @@ describe('Service Tests', () => {
             sectorIpres: 'BBBBBB',
             agencyCss: 'BBBBBB',
             agencyIpres: 'BBBBBB',
+            tauxAT: 'BBBBBB',
             processFlowId: 'BBBBBB',
             statutDossier: 'BBBBBB',
             statutImmatriculation: true

@@ -46,10 +46,11 @@
       "sectorIpres": "Sector Ipres",
       "agencyCss": "Agency Css",
       "agencyIpres": "Agency Ipres",
+      "tauxAT": "Taux AT",
       "processFlowId": "Process Flow Id",
       "statutDossier": "Statut Dossier",
       "statutImmatriculation": "Statut Immatriculation",
-      "idDossier": "Id Dossier",
+      "demande": "Demande",
       "document": "Document",
       "user": "User"
     }

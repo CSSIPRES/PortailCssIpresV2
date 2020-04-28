@@ -47,6 +47,7 @@ public class CacheConfiguration {
             createCache(cm, com.secusociale.portail.domain.Employeur.class.getName() + ".documents");
             createCache(cm, com.secusociale.portail.domain.DocumentUrl.class.getName());
             createCache(cm, com.secusociale.portail.domain.DemandeService.class.getName());
+            createCache(cm, com.secusociale.portail.domain.Employeur.class.getName() + ".demandes");
             // jhipster-needle-ehcache-add-entry
         };
     }

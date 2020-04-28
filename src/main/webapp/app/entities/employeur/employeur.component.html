@@ -53,10 +53,11 @@
                     <th scope="col"  jhiSortBy="sectorIpres"><span jhiTranslate="portailCssIpresV2App.employeur.sectorIpres">Sector Ipres</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="agencyCss"><span jhiTranslate="portailCssIpresV2App.employeur.agencyCss">Agency Css</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="agencyIpres"><span jhiTranslate="portailCssIpresV2App.employeur.agencyIpres">Agency Ipres</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tauxAT"><span jhiTranslate="portailCssIpresV2App.employeur.tauxAT">Taux AT</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="processFlowId"><span jhiTranslate="portailCssIpresV2App.employeur.processFlowId">Process Flow Id</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="statutDossier"><span jhiTranslate="portailCssIpresV2App.employeur.statutDossier">Statut Dossier</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="statutImmatriculation"><span jhiTranslate="portailCssIpresV2App.employeur.statutImmatriculation">Statut Immatriculation</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="portailCssIpresV2App.employeur.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.login"><span jhiTranslate="portailCssIpresV2App.employeur.user">User</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -93,11 +94,12 @@
                     <td>{{ employeur.sectorIpres }}</td>
                     <td>{{ employeur.agencyCss }}</td>
                     <td>{{ employeur.agencyIpres }}</td>
+                    <td>{{ employeur.tauxAT }}</td>
                     <td>{{ employeur.processFlowId }}</td>
                     <td>{{ employeur.statutDossier }}</td>
                     <td>{{ employeur.statutImmatriculation }}</td>
                     <td>
-                        {{ employeur.user?.id }}
+                        {{ employeur.user?.login }}
                     </td>
                     <td class="text-right">
                         <div class="btn-group">

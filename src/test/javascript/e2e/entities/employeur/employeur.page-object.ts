@@ -59,6 +59,7 @@ export class EmployeurUpdatePage {
   sectorIpresInput = element(by.id('field_sectorIpres'));
   agencyCssInput = element(by.id('field_agencyCss'));
   agencyIpresInput = element(by.id('field_agencyIpres'));
+  tauxATInput = element(by.id('field_tauxAT'));
   processFlowIdInput = element(by.id('field_processFlowId'));
   statutDossierInput = element(by.id('field_statutDossier'));
   statutImmatriculationInput = element(by.id('field_statutImmatriculation'));
@@ -307,6 +308,14 @@ export class EmployeurUpdatePage {
 
   async getAgencyIpresInput(): Promise<string> {
     return await this.agencyIpresInput.getAttribute('value');
+  }
+
+  async setTauxATInput(tauxAT: string): Promise<void> {
+    await this.tauxATInput.sendKeys(tauxAT);
+  }
+
+  async getTauxATInput(): Promise<string> {
+    return await this.tauxATInput.getAttribute('value');
   }
 
   async setProcessFlowIdInput(processFlowId: string): Promise<void> {

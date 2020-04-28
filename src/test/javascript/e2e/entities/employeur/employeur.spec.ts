@@ -71,6 +71,7 @@ describe('Employeur e2e test', () => {
       employeurUpdatePage.setSectorIpresInput('sectorIpres'),
       employeurUpdatePage.setAgencyCssInput('agencyCss'),
       employeurUpdatePage.setAgencyIpresInput('agencyIpres'),
+      employeurUpdatePage.setTauxATInput('tauxAT'),
       employeurUpdatePage.setProcessFlowIdInput('processFlowId'),
       employeurUpdatePage.setStatutDossierInput('statutDossier'),
       employeurUpdatePage.userSelectLastOption()
@@ -136,6 +137,7 @@ describe('Employeur e2e test', () => {
     expect(await employeurUpdatePage.getSectorIpresInput()).to.eq('sectorIpres', 'Expected SectorIpres value to be equals to sectorIpres');
     expect(await employeurUpdatePage.getAgencyCssInput()).to.eq('agencyCss', 'Expected AgencyCss value to be equals to agencyCss');
     expect(await employeurUpdatePage.getAgencyIpresInput()).to.eq('agencyIpres', 'Expected AgencyIpres value to be equals to agencyIpres');
+    expect(await employeurUpdatePage.getTauxATInput()).to.eq('tauxAT', 'Expected TauxAT value to be equals to tauxAT');
     expect(await employeurUpdatePage.getProcessFlowIdInput()).to.eq(
       'processFlowId',
       'Expected ProcessFlowId value to be equals to processFlowId'

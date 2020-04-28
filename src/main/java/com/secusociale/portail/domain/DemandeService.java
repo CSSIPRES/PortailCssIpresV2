@@ -35,7 +35,7 @@ public class DemandeService implements Serializable {
     private String urlDocument;
 
     @ManyToOne
-    @JsonIgnoreProperties("idDossiers")
+    @JsonIgnoreProperties("demandes")
     private Employeur employeur;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -106,6 +106,9 @@
             <column name="agency_ipres" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="taux_at" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="process_flow_id" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -171,6 +174,7 @@
             <column name="sector_ipres" type="string"/>
             <column name="agency_css" type="string"/>
             <column name="agency_ipres" type="string"/>
+            <column name="taux_at" type="string"/>
             <column name="process_flow_id" type="string"/>
             <column name="statut_dossier" type="string"/>
             <column name="statut_immatriculation" type="boolean"/>

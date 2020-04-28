@@ -114,6 +114,9 @@ public class Employeur implements Serializable {
     @Column(name = "agency_ipres")
     private String agencyIpres;
 
+    @Column(name = "taux_at")
+    private String tauxAT;
+
     @Column(name = "process_flow_id")
     private String processFlowId;
 
@@ -125,7 +128,7 @@ public class Employeur implements Serializable {
 
     @OneToMany(mappedBy = "employeur")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<DemandeService> idDossiers = new HashSet<>();
+    private Set<DemandeService> demandes = new HashSet<>();
 
     @OneToMany(mappedBy = "employeur")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -534,6 +537,19 @@ public class Employeur implements Serializable {
         this.agencyIpres = agencyIpres;
     }
 
+    public String getTauxAT() {
+        return tauxAT;
+    }
+
+    public Employeur tauxAT(String tauxAT) {
+        this.tauxAT = tauxAT;
+        return this;
+    }
+
+    public void setTauxAT(String tauxAT) {
+        this.tauxAT = tauxAT;
+    }
+
     public String getProcessFlowId() {
         return processFlowId;
     }
@@ -573,29 +589,29 @@ public class Employeur implements Serializable {
         this.statutImmatriculation = statutImmatriculation;
     }
 
-    public Set<DemandeService> getIdDossiers() {
-        return idDossiers;
+    public Set<DemandeService> getDemandes() {
+        return demandes;
     }
 
-    public Employeur idDossiers(Set<DemandeService> demandeServices) {
-        this.idDossiers = demandeServices;
+    public Employeur demandes(Set<DemandeService> demandeServices) {
+        this.demandes = demandeServices;
         return this;
     }
 
-    public Employeur addIdDossier(DemandeService demandeService) {
-        this.idDossiers.add(demandeService);
+    public Employeur addDemande(DemandeService demandeService) {
+        this.demandes.add(demandeService);
         demandeService.setEmployeur(this);
         return this;
     }
 
-    public Employeur removeIdDossier(DemandeService demandeService) {
-        this.idDossiers.remove(demandeService);
+    public Employeur removeDemande(DemandeService demandeService) {
+        this.demandes.remove(demandeService);
         demandeService.setEmployeur(null);
         return this;
     }
 
-    public void setIdDossiers(Set<DemandeService> demandeServices) {
-        this.idDossiers = demandeServices;
+    public void setDemandes(Set<DemandeService> demandeServices) {
+        this.demandes = demandeServices;
     }
 
     public Set<DocumentUrl> getDocuments() {
@@ -687,6 +703,7 @@ public class Employeur implements Serializable {
             ", sectorIpres='" + getSectorIpres() + "'" +
             ", agencyCss='" + getAgencyCss() + "'" +
             ", agencyIpres='" + getAgencyIpres() + "'" +
+            ", tauxAT='" + getTauxAT() + "'" +
             ", processFlowId='" + getProcessFlowId() + "'" +
             ", statutDossier='" + getStatutDossier() + "'" +
             ", statutImmatriculation='" + isStatutImmatriculation() + "'" +

@@ -93,6 +93,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/dns").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/preDNS").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/immatPortail").hasAuthority(AuthoritiesConstants.USER)
+            .antMatchers("/api/employeurExistant").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/certificatImmatriculation/**").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/checkExistenceEmployeur/**").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/attestation/getStatus/**").hasAuthority(AuthoritiesConstants.USER)
