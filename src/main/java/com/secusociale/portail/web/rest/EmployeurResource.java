@@ -109,6 +109,25 @@ public class EmployeurResource {
         Optional<Employeur> employeur = employeurService.findOne(id);
         return ResponseUtil.wrapOrNotFound(employeur);
     }
+    
+    
+    /**
+     * {@code GET  /employeursByLogin } : get employeur by Login.
+     *
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the employeur, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/employeursByLogin")
+    public ResponseEntity<List<Employeur>> getEmployeurByLogin() {
+        log.debug("REST request to get Employeur : {}" );
+         List<Employeur> employeurs = employeurService.findEmployeurByUser();
+        return  new ResponseEntity<List<Employeur>>(employeurs, HttpStatus.OK);
+    }
+
+    
+    
+    
+    
 
     /**
      * {@code DELETE  /employeurs/:id} : delete the "id" employeur.

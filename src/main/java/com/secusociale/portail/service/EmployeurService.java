@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -61,6 +62,22 @@ public class EmployeurService {
         log.debug("Request to get Employeur : {}", id);
         return employeurRepository.findById(id);
     }
+    
+    
+    /**
+     * Get all employeurs by User.
+     *
+     * @param .
+     * @return  the list of employeurs by currentUser.
+     */
+    @Transactional(readOnly = true)
+    public List<Employeur> findEmployeurByUser() {
+        log.debug("Request to get Employeur : {}");
+       // String username = SecurityUtils.getCurrentUserLogin().get();
+        return employeurRepository.findByUserIsCurrentUser();
+    }
+    
+    
 
     /**
      * Delete the employeur by id.
