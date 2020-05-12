@@ -69,7 +69,7 @@ spring:
     protocol: smtp
     tls: true
     auth: true
-    from: cssipresportail@gmail.com
+    from: smtp.office365.com
     properties.mail.smtp:
       auth: true
       starttls.enable: true

@@ -62,10 +62,10 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: smtp.gmail.com
+    host: smtp.office365.com
     port: 587
-    username: cssipresportail@gmail.com
-    password: Oracle123$
+    username: no-reply@secusociale.sn
+    password: RQfzw688
     protocol: smtp
     tls: true
     auth: true
