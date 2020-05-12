@@ -38,10 +38,10 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://192.168.0.103:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    #url: jdbc:mysql://localhost:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    username: root
     password: Oracle123$
-    #password: Oracle123
+    username: root
+    # url: jdbc:mysql://localhost:8889/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    # password: root
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -62,10 +62,10 @@ spring:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
   mail:
-    host: smtp.gmail.com
+    host: smtp.office365.com
     port: 587
-    username: cssipresportail@gmail.com
-    password: Oracle123$
+    username: no-reply@secusociale.sn
+    password: RQfzw688
     protocol: smtp
     tls: true
     auth: true
@@ -73,7 +73,7 @@ spring:
     properties.mail.smtp:
       auth: true
       starttls.enable: true
-      ssl.trust: smtp.gmail.com
+      ssl.trust: smtp.office365.com
   thymeleaf:
     cache: false
 
