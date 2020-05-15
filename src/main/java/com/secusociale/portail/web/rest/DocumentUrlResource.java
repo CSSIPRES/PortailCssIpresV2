@@ -1,5 +1,6 @@
 package com.secusociale.portail.web.rest;
 
+import com.secusociale.portail.domain.BASE64DecodedMultipartFile;
 import com.secusociale.portail.domain.DocumentUrl;
 import com.secusociale.portail.service.DocumentUrlService;
 import com.secusociale.portail.web.rest.errors.BadRequestAlertException;
@@ -14,12 +15,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -121,5 +126,22 @@ public class DocumentUrlResource {
         log.debug("REST request to delete DocumentUrl : {}", id);
         documentUrlService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+
+
+
+    /**
+     * {@code POST  /document-test} : Create a new documentUrl.
+     *
+     * @param docBase64 the documentUrl to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new documentUrl, or with status {@code 400 (Bad Request)} if the documentUrl has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping("/document-test")
+    public String upladDocumentUrl(@RequestBody String docBase64) throws URISyntaxException, IOException {
+
+
+        return this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(docBase64,"certificat_naissance"));
     }
 }

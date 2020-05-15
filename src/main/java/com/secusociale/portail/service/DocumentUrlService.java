@@ -9,7 +9,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -37,6 +40,9 @@ public class DocumentUrlService {
         log.debug("Request to save DocumentUrl : {}", documentUrl);
         return documentUrlRepository.save(documentUrl);
     }
+
+
+
 
     /**
      * Get all the documentUrls.
@@ -70,5 +76,14 @@ public class DocumentUrlService {
     public void delete(Long id) {
         log.debug("Request to delete DocumentUrl : {}", id);
         documentUrlRepository.deleteById(id);
+    }
+
+
+
+
+    public String uploadedDocument(MultipartFile document) throws IOException {
+
+        document.transferTo(new File("http://192.168.0.102/Portail/documents/"+document.getOriginalFilename()));
+        return "http://192.168.0.102/Portail/documents/"+document.getOriginalFilename();
     }
 }
