@@ -14,6 +14,10 @@ import com.secusociale.portail.service.EmployeurService;
 import com.secusociale.portail.service.PortailConstant;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND.Input;
+import com.secusociale.portail.service.soap.domestique.InboundDomFrm;
+import com.secusociale.portail.service.soap.domestique.InboundDomFrmFault;
+import com.secusociale.portail.service.soap.domestique.InboundDomFrmPortType;
+import com.secusociale.portail.service.soap.domestique.InboundDomFrmService;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDPortType;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDService;
@@ -129,15 +133,15 @@ public class ImmatPortailService {
 
     // Save Immatriculation representant
 
-    public Holder<IMMATREPDIPLO> createImmatriculationRepresentatnt(IMMATREPDIPLO.Input immatriculation) throws   JAXBException {
+    public Holder<IMMATREPDIPLO> createImmatriculationRepresentatnt(IMMATREPDIPLO immatriculation) throws   JAXBException {
         // String immatriculationType = "BVOLN" ;   //Immatriculation Volontaire
         Holder<IMMATREPDIPLO> immatriculationRepresentatnt = new Holder<IMMATREPDIPLO>();
-        IMMATREPDIPLO.Input input = new IMMATREPDIPLO.Input();
-        // input.getEmployeList().addAll(immatriculation.getInput().getEmployeList());
-        input.setEmployerQuery(immatriculation.getEmployerQuery());
-        input.setMainRegistrationForm(immatriculation.getMainRegistrationForm());
-        input.setPersonneContact(immatriculation.getPersonneContact());
-        // input.setDocuments(immatriculation.getDocuments());
+        IMMATREPDIPLO.Input input = new IMMATREPDIPLO.Input() ;
+        input.getEmployeList().addAll(immatriculation.getInput().getEmployeList());
+        input.setEmployerQuery(immatriculation.getInput().getEmployerQuery());
+        input.setMainRegistrationForm(immatriculation.getInput().getMainRegistrationForm());
+        input.setPersonneContact(immatriculation.getInput().getPersonneContact());
+        input.setDocuments(immatriculation.getInput().getDocuments());
         com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.ObjectFactory obj = new com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.ObjectFactory();
         immatriculationRepresentatnt.value = obj.createIMMATREPDIPLO();
         immatriculationRepresentatnt.value.setInput(input);
@@ -169,6 +173,7 @@ public class ImmatPortailService {
 
     	Holder<IMMAT2INBOUND> immatPublicPara = new Holder<IMMAT2INBOUND>();
     	 IMMAT2INBOUND.Input input= new IMMAT2INBOUND.Input();
+    	 input.getEmployeList().addAll(immatriculation.getInput().getEmployeList());
     	 input.setEmployerQuery(immatriculation.getInput().getEmployerQuery());
     	 input.setMainRegistrationForm(immatriculation.getInput().getMainRegistrationForm());
     	 input.setPersonneContact(immatriculation.getInput().getPersonneContact());
@@ -199,6 +204,49 @@ public class ImmatPortailService {
 		return immatPublicPara;
 
     }
+
+   
+   public Holder<InboundDomFrm> createImmatDomestique(InboundDomFrm immatriculation) throws JAXBException{
+		
+		Holder<InboundDomFrm> inboundDomForm = new Holder<InboundDomFrm>();
+		
+		InboundDomFrm.Input input = new InboundDomFrm.Input();
+		
+		input.getEmployeList().addAll(immatriculation.getInput().getEmployeList());
+		input.setRegistrationFormInfos(immatriculation.getInput().getRegistrationFormInfos());
+		input.setDomesticRegistrationForm(immatriculation.getInput().getDomesticRegistrationForm());
+		input.setDocuments(immatriculation.getInput().getDocuments());
+		
+		
+		com.secusociale.portail.service.soap.domestique.ObjectFactory obj = new com.secusociale.portail.service.soap.domestique.ObjectFactory();
+		
+		inboundDomForm.value = obj.createInboundDomFrm();
+		inboundDomForm.value.setInput(input);
+		
+		final JAXBContext jc = JAXBContext.newInstance(InboundDomFrm.class);
+        final Marshaller marshaller = jc.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.marshal(inboundDomForm.value, System.out);
+		InboundDomFrmService domFrmService = new InboundDomFrmService();
+		InboundDomFrmPortType domFrmPortType = domFrmService.getInboundDomFrmPort();
+		
+		BindingProvider prov = (BindingProvider) domFrmPortType ;
+		prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+        prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+       
+       try {
+			domFrmPortType.inboundDomFrm(inboundDomForm);
+		} catch (InboundDomFrmFault e) {
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
+		
+		return inboundDomForm;
+		
+		
+		
+	}
+
+ 
 
 
 
@@ -289,6 +337,9 @@ public class ImmatPortailService {
 		return cmGetEmployeurDetails;
     	
     }
+    
+    
+    
 
 
 }
