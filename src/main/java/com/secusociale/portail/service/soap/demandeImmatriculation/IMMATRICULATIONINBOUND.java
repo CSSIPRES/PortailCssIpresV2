@@ -1979,6 +1979,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2061,6 +2062,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2143,6 +2145,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2225,6 +2228,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2307,6 +2311,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2389,6 +2394,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2471,6 +2477,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2553,6 +2560,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2635,6 +2643,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=100000000)
                 protected String url;
 
                 /**
@@ -2717,6 +2726,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2799,6 +2809,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=100000000)
                 protected String url;
 
                 /**
@@ -2881,6 +2892,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -2963,6 +2975,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3045,6 +3058,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3127,6 +3141,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=100000000)
                 protected String url;
 
                 /**
@@ -3209,6 +3224,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3291,6 +3307,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3373,6 +3390,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3455,6 +3473,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3537,6 +3556,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=1000000)
                 protected String url;
 
                 /**
@@ -3619,6 +3639,7 @@ public class IMMATRICULATIONINBOUND {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @Size(max=100000000)
                 protected String url;
 
                 /**

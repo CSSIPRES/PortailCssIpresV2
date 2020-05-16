@@ -62,8 +62,8 @@ public class EmployeurService {
         log.debug("Request to get Employeur : {}", id);
         return employeurRepository.findById(id);
     }
-    
-    
+
+
     /**
      * Get all employeurs by User.
      *
@@ -76,8 +76,8 @@ public class EmployeurService {
        // String username = SecurityUtils.getCurrentUserLogin().get();
         return employeurRepository.findByUserIsCurrentUser();
     }
-    
-    
+
+
 
     /**
      * Delete the employeur by id.

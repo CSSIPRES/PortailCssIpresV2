@@ -57,7 +57,7 @@ public class ImmatPortailResource {
     private VerifierExistenceEmployeur verifierExistenceEmployeur;
 
 	@PostMapping("/immatPortail")
-    public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException {
+    public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException, IOException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMATRICULATIONINBOUND> immatriculationInbound = new Holder<IMMATRICULATIONINBOUND>();
@@ -67,8 +67,8 @@ public class ImmatPortailResource {
 		return immatriculationInbound;
 
     }
-	
-	
+
+
 	@PostMapping("/maintient-affiliation")
     public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND.Input immatriculation) throws URISyntaxException,   JAXBException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
@@ -80,8 +80,8 @@ public class ImmatPortailResource {
 		return immatriculationInbound;
 
     }
-	
-	
+
+
 	@PostMapping("/representation-diplomatique")
     public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO immatriculation) throws URISyntaxException,  JAXBException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
@@ -93,7 +93,7 @@ public class ImmatPortailResource {
 		return immatriculationInbound;
 
     }
-	
+
 	@PostMapping("/publique-parapublique")
     public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND immatriculation) throws URISyntaxException,  JAXBException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
@@ -178,7 +178,7 @@ public class ImmatPortailResource {
 
 	}
 
-	
+
 
 	@PostMapping("/employeurExistant")
     public Holder<CMGETEMPLOYEURDETAILS> getEmployeurexistant(@RequestBody CMGETEMPLOYEURDETAILS cmgetEmployeurDetails) throws JAXBException   {
@@ -191,8 +191,8 @@ public class ImmatPortailResource {
 		return employeurDetails;
 
     }
-	
-	
-	 
+
+
+
 }
 
