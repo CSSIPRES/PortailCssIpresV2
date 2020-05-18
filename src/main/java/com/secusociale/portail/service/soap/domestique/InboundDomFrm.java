@@ -1,11 +1,8 @@
 
-package com.secusociale.portail.service.soap.demandeImmatriculation;
-
-
+package com.secusociale.portail.service.soap.domestique;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.constraints.Size;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,9 +15,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java pour anonymous complex type.
- *
- * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
- *
+ * 
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -31,52 +28,48 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="employerQuery" minOccurs="0">
+ *                   &lt;element name="registrationFormInfos" minOccurs="0">
  *                     &lt;complexType>
  *                       &lt;complexContent>
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                           &lt;sequence>
- *                             &lt;element name="regType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="employerType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="typeEtablissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="employerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="hqId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nineaNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="ninetNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="companyOriginId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="legalStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="taxId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="taxIdDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="tradeRegisterNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="tradeRegisterDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="receiveDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="documentLocator" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
  *                     &lt;/complexType>
  *                   &lt;/element>
- *                   &lt;element name="mainRegistrationForm" minOccurs="0">
+ *                   &lt;element name="domesticRegistrationForm" minOccurs="0">
  *                     &lt;complexType>
  *                       &lt;complexContent>
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                           &lt;sequence>
- *                             &lt;element name="dateOfInspection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="dateOfFirstHire" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="shortName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="dateEmbauchePremierSalarie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="regType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="idType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="idNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="dateOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="countryOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="phoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="businessSector" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="mainLineOfBusiness" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="atRate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="noOfWorkersInGenScheme" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="noOfWorkersInBasicScheme" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="postboxNo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="telephone" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="website" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="zoneCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="zoneIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="sectorCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -88,33 +81,53 @@ import javax.xml.bind.annotation.XmlType;
  *                       &lt;/complexContent>
  *                     &lt;/complexType>
  *                   &lt;/element>
- *                   &lt;element name="legalRepresentativeForm" minOccurs="0">
+ *                   &lt;element name="employeList" maxOccurs="unbounded" minOccurs="0">
  *                     &lt;complexType>
  *                       &lt;complexContent>
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                           &lt;sequence>
- *                             &lt;element name="legalRepPerson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="rechercheEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="prenomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="sexe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="etatCivil" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="dateNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="numRegNaiss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="prenomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="prenomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nationalite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="typePieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="placeOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="typeOfIdentity" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="identityIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="ninCedeo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="numPieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="delivreLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="LieuDelivrance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="expireLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="villeNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="paysNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="employeurPrec" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="departement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                             &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="landLineNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="mobileNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="adresse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="boitePostale" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="typeMouvement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="natureContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="dateDebutContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="dateFinContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="profession" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="emploi" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nonCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="ouiCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="conventionApplicable" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="salaireContractuel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="tempsTravail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="categorie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -382,58 +395,6 @@ import javax.xml.bind.annotation.XmlType;
  *                       &lt;/complexContent>
  *                     &lt;/complexType>
  *                   &lt;/element>
- *                   &lt;element name="employeList" maxOccurs="unbounded" minOccurs="0">
- *                     &lt;complexType>
- *                       &lt;complexContent>
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                           &lt;sequence>
- *                             &lt;element name="rechercheEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="prenomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="sexe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="etatCivil" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="dateNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="numRegNaiss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="prenomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="prenomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nationalite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="typePieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="numPieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="delivreLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="LieuDelivrance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="expireLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="villeNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="paysNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="employeurPrec" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="departement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="adresse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="boitePostale" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="typeMouvement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="natureContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="dateDebutContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="dateFinContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="profession" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="emploi" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="nonCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="ouiCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="conventionApplicable" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="salaireContractuel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="tempsTravail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="categorie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                           &lt;/sequence>
- *                         &lt;/restriction>
- *                       &lt;/complexContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -444,9 +405,8 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="employerRegistrationFormId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                   &lt;element name="employeeRegistrationFormId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                   &lt;element name="processFlowId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="registrationFormId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="folderId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="zoneCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="zoneIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="sectorCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -465,77 +425,77 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "input",
     "output"
 })
-@XmlRootElement(name = "IMMATRICULATION_INBOUND")
-public class IMMATRICULATIONINBOUND {
+@XmlRootElement(name = "inboundDomFrm")
+public class InboundDomFrm {
 
-    protected IMMATRICULATIONINBOUND.Input input;
-    protected IMMATRICULATIONINBOUND.Output output;
+    protected InboundDomFrm.Input input;
+    protected InboundDomFrm.Output output;
     @XmlAttribute(name = "dateTimeTagFormat", required = true)
     protected String dateTimeTagFormat;
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ input.
-     *
+     * Obtient la valeur de la propriété input.
+     * 
      * @return
      *     possible object is
-     *     {@link IMMATRICULATIONINBOUND.Input }
-     *
+     *     {@link InboundDomFrm.Input }
+     *     
      */
-    public IMMATRICULATIONINBOUND.Input getInput() {
+    public InboundDomFrm.Input getInput() {
         return input;
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ input.
-     *
+     * Définit la valeur de la propriété input.
+     * 
      * @param value
      *     allowed object is
-     *     {@link IMMATRICULATIONINBOUND.Input }
-     *
+     *     {@link InboundDomFrm.Input }
+     *     
      */
-    public void setInput(IMMATRICULATIONINBOUND.Input value) {
+    public void setInput(InboundDomFrm.Input value) {
         this.input = value;
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ output.
-     *
+     * Obtient la valeur de la propriété output.
+     * 
      * @return
      *     possible object is
-     *     {@link IMMATRICULATIONINBOUND.Output }
-     *
+     *     {@link InboundDomFrm.Output }
+     *     
      */
-    public IMMATRICULATIONINBOUND.Output getOutput() {
+    public InboundDomFrm.Output getOutput() {
         return output;
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ output.
-     *
+     * Définit la valeur de la propriété output.
+     * 
      * @param value
      *     allowed object is
-     *     {@link IMMATRICULATIONINBOUND.Output }
-     *
+     *     {@link InboundDomFrm.Output }
+     *     
      */
-    public void setOutput(IMMATRICULATIONINBOUND.Output value) {
+    public void setOutput(InboundDomFrm.Output value) {
         this.output = value;
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ dateTimeTagFormat.
-     *
+     * Obtient la valeur de la propriété dateTimeTagFormat.
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getDateTimeTagFormat() {
         if (dateTimeTagFormat == null) {
@@ -546,12 +506,12 @@ public class IMMATRICULATIONINBOUND {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ dateTimeTagFormat.
-     *
+     * Définit la valeur de la propriété dateTimeTagFormat.
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setDateTimeTagFormat(String value) {
         this.dateTimeTagFormat = value;
@@ -560,60 +520,56 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * <p>Classe Java pour anonymous complex type.
-     *
-     * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-     *
+     * 
+     * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="employerQuery" minOccurs="0">
+     *         &lt;element name="registrationFormInfos" minOccurs="0">
      *           &lt;complexType>
      *             &lt;complexContent>
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                 &lt;sequence>
-     *                   &lt;element name="regType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="employerType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="typeEtablissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="employerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="hqId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nineaNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="ninetNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="companyOriginId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="legalStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="taxId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="taxIdDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="tradeRegisterNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="tradeRegisterDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="receiveDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="documentLocator" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
      *           &lt;/complexType>
      *         &lt;/element>
-     *         &lt;element name="mainRegistrationForm" minOccurs="0">
+     *         &lt;element name="domesticRegistrationForm" minOccurs="0">
      *           &lt;complexType>
      *             &lt;complexContent>
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                 &lt;sequence>
-     *                   &lt;element name="dateOfInspection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="dateOfFirstHire" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="shortName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="dateEmbauchePremierSalarie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="regType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="idType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="idNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="dateOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="countryOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="phoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="businessSector" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="mainLineOfBusiness" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="atRate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="noOfWorkersInGenScheme" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="noOfWorkersInBasicScheme" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="postboxNo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="telephone" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="website" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="zoneCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="zoneIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="sectorCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -625,33 +581,53 @@ public class IMMATRICULATIONINBOUND {
      *             &lt;/complexContent>
      *           &lt;/complexType>
      *         &lt;/element>
-     *         &lt;element name="legalRepresentativeForm" minOccurs="0">
+     *         &lt;element name="employeList" maxOccurs="unbounded" minOccurs="0">
      *           &lt;complexType>
      *             &lt;complexContent>
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                 &lt;sequence>
-     *                   &lt;element name="legalRepPerson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="rechercheEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="prenomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="sexe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="etatCivil" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="dateNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="numRegNaiss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="prenomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="prenomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nationalite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="typePieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="placeOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="typeOfIdentity" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="identityIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="ninCedeo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="numPieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="delivreLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="LieuDelivrance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="expireLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="villeNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="paysNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="employeurPrec" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="departement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                   &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="landLineNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="mobileNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="adresse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="boitePostale" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="typeMouvement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="natureContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="dateDebutContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="dateFinContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="profession" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="emploi" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nonCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="ouiCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="conventionApplicable" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="salaireContractuel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="tempsTravail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="categorie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -919,219 +895,135 @@ public class IMMATRICULATIONINBOUND {
      *             &lt;/complexContent>
      *           &lt;/complexType>
      *         &lt;/element>
-     *         &lt;element name="employeList" maxOccurs="unbounded" minOccurs="0">
-     *           &lt;complexType>
-     *             &lt;complexContent>
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *                 &lt;sequence>
-     *                   &lt;element name="rechercheEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="prenomEmploye" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="sexe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="etatCivil" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="dateNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="numRegNaiss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="prenomPere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="prenomMere" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nationalite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="typePieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="numPieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="delivreLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="LieuDelivrance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="expireLe" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="villeNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="paysNaissance" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="employeurPrec" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="departement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="adresse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="boitePostale" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="typeMouvement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="natureContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="dateDebutContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="dateFinContrat" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="profession" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="emploi" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="nonCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="ouiCadre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="conventionApplicable" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="salaireContractuel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="tempsTravail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                   &lt;element name="categorie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *                 &lt;/sequence>
-     *               &lt;/restriction>
-     *             &lt;/complexContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "employerQuery",
-        "mainRegistrationForm",
-        "legalRepresentativeForm",
-        "documents",
-        "employeList"
+        "registrationFormInfos",
+        "domesticRegistrationForm",
+        "employeList",
+        "documents"
     })
     public static class Input {
 
-        protected IMMATRICULATIONINBOUND.Input.EmployerQuery employerQuery;
-        protected IMMATRICULATIONINBOUND.Input.MainRegistrationForm mainRegistrationForm;
-        protected IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm legalRepresentativeForm;
-        protected IMMATRICULATIONINBOUND.Input.Documents documents;
-        protected List<IMMATRICULATIONINBOUND.Input.EmployeList> employeList;
+        protected InboundDomFrm.Input.RegistrationFormInfos registrationFormInfos;
+        protected InboundDomFrm.Input.DomesticRegistrationForm domesticRegistrationForm;
+        protected List<InboundDomFrm.Input.EmployeList> employeList;
+        protected InboundDomFrm.Input.Documents documents;
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ employerQuery.
-         *
+         * Obtient la valeur de la propriété registrationFormInfos.
+         * 
          * @return
          *     possible object is
-         *     {@link IMMATRICULATIONINBOUND.Input.EmployerQuery }
-         *
+         *     {@link InboundDomFrm.Input.RegistrationFormInfos }
+         *     
          */
-        public IMMATRICULATIONINBOUND.Input.EmployerQuery getEmployerQuery() {
-            return employerQuery;
+        public InboundDomFrm.Input.RegistrationFormInfos getRegistrationFormInfos() {
+            return registrationFormInfos;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ employerQuery.
-         *
+         * Définit la valeur de la propriété registrationFormInfos.
+         * 
          * @param value
          *     allowed object is
-         *     {@link IMMATRICULATIONINBOUND.Input.EmployerQuery }
-         *
+         *     {@link InboundDomFrm.Input.RegistrationFormInfos }
+         *     
          */
-        public void setEmployerQuery(IMMATRICULATIONINBOUND.Input.EmployerQuery value) {
-            this.employerQuery = value;
+        public void setRegistrationFormInfos(InboundDomFrm.Input.RegistrationFormInfos value) {
+            this.registrationFormInfos = value;
         }
 
-
-
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ mainRegistrationForm.
-         *
+         * Obtient la valeur de la propriété domesticRegistrationForm.
+         * 
          * @return
          *     possible object is
-         *     {@link IMMATRICULATIONINBOUND.Input.MainRegistrationForm }
-         *
+         *     {@link InboundDomFrm.Input.DomesticRegistrationForm }
+         *     
          */
-        public IMMATRICULATIONINBOUND.Input.MainRegistrationForm getMainRegistrationForm() {
-            return mainRegistrationForm;
+        public InboundDomFrm.Input.DomesticRegistrationForm getDomesticRegistrationForm() {
+            return domesticRegistrationForm;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ mainRegistrationForm.
-         *
+         * Définit la valeur de la propriété domesticRegistrationForm.
+         * 
          * @param value
          *     allowed object is
-         *     {@link IMMATRICULATIONINBOUND.Input.MainRegistrationForm }
-         *
+         *     {@link InboundDomFrm.Input.DomesticRegistrationForm }
+         *     
          */
-        public void setMainRegistrationForm(IMMATRICULATIONINBOUND.Input.MainRegistrationForm value) {
-            this.mainRegistrationForm = value;
-        }
-
-        /**
-         * Obtient la valeur de la propriï¿½tï¿½ legalRepresentativeForm.
-         *
-         * @return
-         *     possible object is
-         *     {@link IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm }
-         *
-         */
-        public IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm getLegalRepresentativeForm() {
-            return legalRepresentativeForm;
-        }
-
-        /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ legalRepresentativeForm.
-         *
-         * @param value
-         *     allowed object is
-         *     {@link IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm }
-         *
-         */
-        public void setLegalRepresentativeForm(IMMATRICULATIONINBOUND.Input.LegalRepresentativeForm value) {
-            this.legalRepresentativeForm = value;
-        }
-
-        /**
-         * Obtient la valeur de la propriï¿½tï¿½ documents.
-         *
-         * @return
-         *     possible object is
-         *     {@link IMMATRICULATIONINBOUND.Input.Documents }
-         *
-         */
-        public IMMATRICULATIONINBOUND.Input.Documents getDocuments() {
-            return documents;
-        }
-
-        /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ documents.
-         *
-         * @param value
-         *     allowed object is
-         *     {@link IMMATRICULATIONINBOUND.Input.Documents }
-         *
-         */
-        public void setDocuments(IMMATRICULATIONINBOUND.Input.Documents value) {
-            this.documents = value;
+        public void setDomesticRegistrationForm(InboundDomFrm.Input.DomesticRegistrationForm value) {
+            this.domesticRegistrationForm = value;
         }
 
         /**
          * Gets the value of the employeList property.
-         *
+         * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the employeList property.
-         *
+         * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getEmployeList().add(newItem);
          * </pre>
-         *
-         *
+         * 
+         * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link IMMATRICULATIONINBOUND.Input.EmployeList }
-         *
-         *
+         * {@link InboundDomFrm.Input.EmployeList }
+         * 
+         * 
          */
-        public List<IMMATRICULATIONINBOUND.Input.EmployeList> getEmployeList() {
+        public List<InboundDomFrm.Input.EmployeList> getEmployeList() {
             if (employeList == null) {
-                employeList = new ArrayList<IMMATRICULATIONINBOUND.Input.EmployeList>();
+                employeList = new ArrayList<InboundDomFrm.Input.EmployeList>();
             }
             return this.employeList;
         }
 
-
-        public void setEmployeList(List<EmployeList> employeList) {
-            this.employeList = employeList;
+        /**
+         * Obtient la valeur de la propriété documents.
+         * 
+         * @return
+         *     possible object is
+         *     {@link InboundDomFrm.Input.Documents }
+         *     
+         */
+        public InboundDomFrm.Input.Documents getDocuments() {
+            return documents;
         }
 
         /**
+         * Définit la valeur de la propriété documents.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link InboundDomFrm.Input.Documents }
+         *     
+         */
+        public void setDocuments(InboundDomFrm.Input.Documents value) {
+            this.documents = value;
+        }
+
+
+        /**
          * <p>Classe Java pour anonymous complex type.
-         *
-         * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-         *
+         * 
+         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -1394,8 +1286,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         *
-         *
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -1423,538 +1315,538 @@ public class IMMATRICULATIONINBOUND {
         })
         public static class Documents {
 
-            protected IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit demandeEcrit;
-            protected IMMATRICULATIONINBOUND.Input.Documents.FormDemande formDemande;
-            protected IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce registreCommerce;
-            protected IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement declarationEtablissement;
-            protected IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus photocopieStatus;
-            protected IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel decretMinisteriel;
-            protected IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation avisImmatriculation;
-            protected IMMATRICULATIONINBOUND.Input.Documents.Dmt dmt;
-            protected IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail contratsTravail;
-            protected IMMATRICULATIONINBOUND.Input.Documents.Cni cni;
-            protected IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire carteIdentiteConsulaire;
-            protected IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement etatRecensement;
-            protected IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage attestationChomage;
-            protected IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire bulletinsSalaire;
-            protected IMMATRICULATIONINBOUND.Input.Documents.CessationActivity cessationActivity;
-            protected IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite carteNationaleIdentite;
-            protected IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins derniersBulletins;
-            protected IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee manuscriteAdressee;
-            protected IMMATRICULATIONINBOUND.Input.Documents.PassportDoc passportDoc;
-            protected IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc pieceIdDoc;
-            protected IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc pieceIdGerantDoc;
+            protected InboundDomFrm.Input.Documents.DemandeEcrit demandeEcrit;
+            protected InboundDomFrm.Input.Documents.FormDemande formDemande;
+            protected InboundDomFrm.Input.Documents.RegistreCommerce registreCommerce;
+            protected InboundDomFrm.Input.Documents.DeclarationEtablissement declarationEtablissement;
+            protected InboundDomFrm.Input.Documents.PhotocopieStatus photocopieStatus;
+            protected InboundDomFrm.Input.Documents.DecretMinisteriel decretMinisteriel;
+            protected InboundDomFrm.Input.Documents.AvisImmatriculation avisImmatriculation;
+            protected InboundDomFrm.Input.Documents.Dmt dmt;
+            protected InboundDomFrm.Input.Documents.ContratsTravail contratsTravail;
+            protected InboundDomFrm.Input.Documents.Cni cni;
+            protected InboundDomFrm.Input.Documents.CarteIdentiteConsulaire carteIdentiteConsulaire;
+            protected InboundDomFrm.Input.Documents.EtatRecensement etatRecensement;
+            protected InboundDomFrm.Input.Documents.AttestationChomage attestationChomage;
+            protected InboundDomFrm.Input.Documents.BulletinsSalaire bulletinsSalaire;
+            protected InboundDomFrm.Input.Documents.CessationActivity cessationActivity;
+            protected InboundDomFrm.Input.Documents.CarteNationaleIdentite carteNationaleIdentite;
+            protected InboundDomFrm.Input.Documents.DerniersBulletins derniersBulletins;
+            protected InboundDomFrm.Input.Documents.ManuscriteAdressee manuscriteAdressee;
+            protected InboundDomFrm.Input.Documents.PassportDoc passportDoc;
+            protected InboundDomFrm.Input.Documents.PieceIdDoc pieceIdDoc;
+            protected InboundDomFrm.Input.Documents.PieceIdGerantDoc pieceIdGerantDoc;
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ demandeEcrit.
-             *
+             * Obtient la valeur de la propriété demandeEcrit.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DemandeEcrit }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit getDemandeEcrit() {
+            public InboundDomFrm.Input.Documents.DemandeEcrit getDemandeEcrit() {
                 return demandeEcrit;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ demandeEcrit.
-             *
+             * Définit la valeur de la propriété demandeEcrit.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DemandeEcrit }
+             *     
              */
-            public void setDemandeEcrit(IMMATRICULATIONINBOUND.Input.Documents.DemandeEcrit value) {
+            public void setDemandeEcrit(InboundDomFrm.Input.Documents.DemandeEcrit value) {
                 this.demandeEcrit = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ formDemande.
-             *
+             * Obtient la valeur de la propriété formDemande.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.FormDemande }
-             *
+             *     {@link InboundDomFrm.Input.Documents.FormDemande }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.FormDemande getFormDemande() {
+            public InboundDomFrm.Input.Documents.FormDemande getFormDemande() {
                 return formDemande;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ formDemande.
-             *
+             * Définit la valeur de la propriété formDemande.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.FormDemande }
-             *
+             *     {@link InboundDomFrm.Input.Documents.FormDemande }
+             *     
              */
-            public void setFormDemande(IMMATRICULATIONINBOUND.Input.Documents.FormDemande value) {
+            public void setFormDemande(InboundDomFrm.Input.Documents.FormDemande value) {
                 this.formDemande = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ registreCommerce.
-             *
+             * Obtient la valeur de la propriété registreCommerce.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce }
-             *
+             *     {@link InboundDomFrm.Input.Documents.RegistreCommerce }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce getRegistreCommerce() {
+            public InboundDomFrm.Input.Documents.RegistreCommerce getRegistreCommerce() {
                 return registreCommerce;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ registreCommerce.
-             *
+             * Définit la valeur de la propriété registreCommerce.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce }
-             *
+             *     {@link InboundDomFrm.Input.Documents.RegistreCommerce }
+             *     
              */
-            public void setRegistreCommerce(IMMATRICULATIONINBOUND.Input.Documents.RegistreCommerce value) {
+            public void setRegistreCommerce(InboundDomFrm.Input.Documents.RegistreCommerce value) {
                 this.registreCommerce = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ declarationEtablissement.
-             *
+             * Obtient la valeur de la propriété declarationEtablissement.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DeclarationEtablissement }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement getDeclarationEtablissement() {
+            public InboundDomFrm.Input.Documents.DeclarationEtablissement getDeclarationEtablissement() {
                 return declarationEtablissement;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ declarationEtablissement.
-             *
+             * Définit la valeur de la propriété declarationEtablissement.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DeclarationEtablissement }
+             *     
              */
-            public void setDeclarationEtablissement(IMMATRICULATIONINBOUND.Input.Documents.DeclarationEtablissement value) {
+            public void setDeclarationEtablissement(InboundDomFrm.Input.Documents.DeclarationEtablissement value) {
                 this.declarationEtablissement = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ photocopieStatus.
-             *
+             * Obtient la valeur de la propriété photocopieStatus.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PhotocopieStatus }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus getPhotocopieStatus() {
+            public InboundDomFrm.Input.Documents.PhotocopieStatus getPhotocopieStatus() {
                 return photocopieStatus;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ photocopieStatus.
-             *
+             * Définit la valeur de la propriété photocopieStatus.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PhotocopieStatus }
+             *     
              */
-            public void setPhotocopieStatus(IMMATRICULATIONINBOUND.Input.Documents.PhotocopieStatus value) {
+            public void setPhotocopieStatus(InboundDomFrm.Input.Documents.PhotocopieStatus value) {
                 this.photocopieStatus = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ decretMinisteriel.
-             *
+             * Obtient la valeur de la propriété decretMinisteriel.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DecretMinisteriel }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel getDecretMinisteriel() {
+            public InboundDomFrm.Input.Documents.DecretMinisteriel getDecretMinisteriel() {
                 return decretMinisteriel;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ decretMinisteriel.
-             *
+             * Définit la valeur de la propriété decretMinisteriel.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DecretMinisteriel }
+             *     
              */
-            public void setDecretMinisteriel(IMMATRICULATIONINBOUND.Input.Documents.DecretMinisteriel value) {
+            public void setDecretMinisteriel(InboundDomFrm.Input.Documents.DecretMinisteriel value) {
                 this.decretMinisteriel = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ avisImmatriculation.
-             *
+             * Obtient la valeur de la propriété avisImmatriculation.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation }
-             *
+             *     {@link InboundDomFrm.Input.Documents.AvisImmatriculation }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation getAvisImmatriculation() {
+            public InboundDomFrm.Input.Documents.AvisImmatriculation getAvisImmatriculation() {
                 return avisImmatriculation;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ avisImmatriculation.
-             *
+             * Définit la valeur de la propriété avisImmatriculation.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation }
-             *
+             *     {@link InboundDomFrm.Input.Documents.AvisImmatriculation }
+             *     
              */
-            public void setAvisImmatriculation(IMMATRICULATIONINBOUND.Input.Documents.AvisImmatriculation value) {
+            public void setAvisImmatriculation(InboundDomFrm.Input.Documents.AvisImmatriculation value) {
                 this.avisImmatriculation = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ dmt.
-             *
+             * Obtient la valeur de la propriété dmt.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.Dmt }
-             *
+             *     {@link InboundDomFrm.Input.Documents.Dmt }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.Dmt getDmt() {
+            public InboundDomFrm.Input.Documents.Dmt getDmt() {
                 return dmt;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ dmt.
-             *
+             * Définit la valeur de la propriété dmt.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.Dmt }
-             *
+             *     {@link InboundDomFrm.Input.Documents.Dmt }
+             *     
              */
-            public void setDmt(IMMATRICULATIONINBOUND.Input.Documents.Dmt value) {
+            public void setDmt(InboundDomFrm.Input.Documents.Dmt value) {
                 this.dmt = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ contratsTravail.
-             *
+             * Obtient la valeur de la propriété contratsTravail.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail }
-             *
+             *     {@link InboundDomFrm.Input.Documents.ContratsTravail }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail getContratsTravail() {
+            public InboundDomFrm.Input.Documents.ContratsTravail getContratsTravail() {
                 return contratsTravail;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ contratsTravail.
-             *
+             * Définit la valeur de la propriété contratsTravail.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail }
-             *
+             *     {@link InboundDomFrm.Input.Documents.ContratsTravail }
+             *     
              */
-            public void setContratsTravail(IMMATRICULATIONINBOUND.Input.Documents.ContratsTravail value) {
+            public void setContratsTravail(InboundDomFrm.Input.Documents.ContratsTravail value) {
                 this.contratsTravail = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ cni.
-             *
+             * Obtient la valeur de la propriété cni.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.Cni }
-             *
+             *     {@link InboundDomFrm.Input.Documents.Cni }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.Cni getCni() {
+            public InboundDomFrm.Input.Documents.Cni getCni() {
                 return cni;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ cni.
-             *
+             * Définit la valeur de la propriété cni.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.Cni }
-             *
+             *     {@link InboundDomFrm.Input.Documents.Cni }
+             *     
              */
-            public void setCni(IMMATRICULATIONINBOUND.Input.Documents.Cni value) {
+            public void setCni(InboundDomFrm.Input.Documents.Cni value) {
                 this.cni = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ carteIdentiteConsulaire.
-             *
+             * Obtient la valeur de la propriété carteIdentiteConsulaire.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire }
-             *
+             *     {@link InboundDomFrm.Input.Documents.CarteIdentiteConsulaire }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire getCarteIdentiteConsulaire() {
+            public InboundDomFrm.Input.Documents.CarteIdentiteConsulaire getCarteIdentiteConsulaire() {
                 return carteIdentiteConsulaire;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ carteIdentiteConsulaire.
-             *
+             * Définit la valeur de la propriété carteIdentiteConsulaire.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire }
-             *
+             *     {@link InboundDomFrm.Input.Documents.CarteIdentiteConsulaire }
+             *     
              */
-            public void setCarteIdentiteConsulaire(IMMATRICULATIONINBOUND.Input.Documents.CarteIdentiteConsulaire value) {
+            public void setCarteIdentiteConsulaire(InboundDomFrm.Input.Documents.CarteIdentiteConsulaire value) {
                 this.carteIdentiteConsulaire = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ etatRecensement.
-             *
+             * Obtient la valeur de la propriété etatRecensement.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement }
-             *
+             *     {@link InboundDomFrm.Input.Documents.EtatRecensement }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement getEtatRecensement() {
+            public InboundDomFrm.Input.Documents.EtatRecensement getEtatRecensement() {
                 return etatRecensement;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ etatRecensement.
-             *
+             * Définit la valeur de la propriété etatRecensement.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement }
-             *
+             *     {@link InboundDomFrm.Input.Documents.EtatRecensement }
+             *     
              */
-            public void setEtatRecensement(IMMATRICULATIONINBOUND.Input.Documents.EtatRecensement value) {
+            public void setEtatRecensement(InboundDomFrm.Input.Documents.EtatRecensement value) {
                 this.etatRecensement = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ attestationChomage.
-             *
+             * Obtient la valeur de la propriété attestationChomage.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage }
-             *
+             *     {@link InboundDomFrm.Input.Documents.AttestationChomage }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage getAttestationChomage() {
+            public InboundDomFrm.Input.Documents.AttestationChomage getAttestationChomage() {
                 return attestationChomage;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ attestationChomage.
-             *
+             * Définit la valeur de la propriété attestationChomage.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage }
-             *
+             *     {@link InboundDomFrm.Input.Documents.AttestationChomage }
+             *     
              */
-            public void setAttestationChomage(IMMATRICULATIONINBOUND.Input.Documents.AttestationChomage value) {
+            public void setAttestationChomage(InboundDomFrm.Input.Documents.AttestationChomage value) {
                 this.attestationChomage = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ bulletinsSalaire.
-             *
+             * Obtient la valeur de la propriété bulletinsSalaire.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire }
-             *
+             *     {@link InboundDomFrm.Input.Documents.BulletinsSalaire }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire getBulletinsSalaire() {
+            public InboundDomFrm.Input.Documents.BulletinsSalaire getBulletinsSalaire() {
                 return bulletinsSalaire;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ bulletinsSalaire.
-             *
+             * Définit la valeur de la propriété bulletinsSalaire.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire }
-             *
+             *     {@link InboundDomFrm.Input.Documents.BulletinsSalaire }
+             *     
              */
-            public void setBulletinsSalaire(IMMATRICULATIONINBOUND.Input.Documents.BulletinsSalaire value) {
+            public void setBulletinsSalaire(InboundDomFrm.Input.Documents.BulletinsSalaire value) {
                 this.bulletinsSalaire = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ cessationActivity.
-             *
+             * Obtient la valeur de la propriété cessationActivity.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.CessationActivity }
-             *
+             *     {@link InboundDomFrm.Input.Documents.CessationActivity }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.CessationActivity getCessationActivity() {
+            public InboundDomFrm.Input.Documents.CessationActivity getCessationActivity() {
                 return cessationActivity;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ cessationActivity.
-             *
+             * Définit la valeur de la propriété cessationActivity.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.CessationActivity }
-             *
+             *     {@link InboundDomFrm.Input.Documents.CessationActivity }
+             *     
              */
-            public void setCessationActivity(IMMATRICULATIONINBOUND.Input.Documents.CessationActivity value) {
+            public void setCessationActivity(InboundDomFrm.Input.Documents.CessationActivity value) {
                 this.cessationActivity = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ carteNationaleIdentite.
-             *
+             * Obtient la valeur de la propriété carteNationaleIdentite.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite }
-             *
+             *     {@link InboundDomFrm.Input.Documents.CarteNationaleIdentite }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite getCarteNationaleIdentite() {
+            public InboundDomFrm.Input.Documents.CarteNationaleIdentite getCarteNationaleIdentite() {
                 return carteNationaleIdentite;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ carteNationaleIdentite.
-             *
+             * Définit la valeur de la propriété carteNationaleIdentite.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite }
-             *
+             *     {@link InboundDomFrm.Input.Documents.CarteNationaleIdentite }
+             *     
              */
-            public void setCarteNationaleIdentite(IMMATRICULATIONINBOUND.Input.Documents.CarteNationaleIdentite value) {
+            public void setCarteNationaleIdentite(InboundDomFrm.Input.Documents.CarteNationaleIdentite value) {
                 this.carteNationaleIdentite = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ derniersBulletins.
-             *
+             * Obtient la valeur de la propriété derniersBulletins.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DerniersBulletins }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins getDerniersBulletins() {
+            public InboundDomFrm.Input.Documents.DerniersBulletins getDerniersBulletins() {
                 return derniersBulletins;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ derniersBulletins.
-             *
+             * Définit la valeur de la propriété derniersBulletins.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins }
-             *
+             *     {@link InboundDomFrm.Input.Documents.DerniersBulletins }
+             *     
              */
-            public void setDerniersBulletins(IMMATRICULATIONINBOUND.Input.Documents.DerniersBulletins value) {
+            public void setDerniersBulletins(InboundDomFrm.Input.Documents.DerniersBulletins value) {
                 this.derniersBulletins = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ manuscriteAdressee.
-             *
+             * Obtient la valeur de la propriété manuscriteAdressee.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee }
-             *
+             *     {@link InboundDomFrm.Input.Documents.ManuscriteAdressee }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee getManuscriteAdressee() {
+            public InboundDomFrm.Input.Documents.ManuscriteAdressee getManuscriteAdressee() {
                 return manuscriteAdressee;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ manuscriteAdressee.
-             *
+             * Définit la valeur de la propriété manuscriteAdressee.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee }
-             *
+             *     {@link InboundDomFrm.Input.Documents.ManuscriteAdressee }
+             *     
              */
-            public void setManuscriteAdressee(IMMATRICULATIONINBOUND.Input.Documents.ManuscriteAdressee value) {
+            public void setManuscriteAdressee(InboundDomFrm.Input.Documents.ManuscriteAdressee value) {
                 this.manuscriteAdressee = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ passportDoc.
-             *
+             * Obtient la valeur de la propriété passportDoc.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PassportDoc }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PassportDoc }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.PassportDoc getPassportDoc() {
+            public InboundDomFrm.Input.Documents.PassportDoc getPassportDoc() {
                 return passportDoc;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ passportDoc.
-             *
+             * Définit la valeur de la propriété passportDoc.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PassportDoc }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PassportDoc }
+             *     
              */
-            public void setPassportDoc(IMMATRICULATIONINBOUND.Input.Documents.PassportDoc value) {
+            public void setPassportDoc(InboundDomFrm.Input.Documents.PassportDoc value) {
                 this.passportDoc = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ pieceIdDoc.
-             *
+             * Obtient la valeur de la propriété pieceIdDoc.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PieceIdDoc }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc getPieceIdDoc() {
+            public InboundDomFrm.Input.Documents.PieceIdDoc getPieceIdDoc() {
                 return pieceIdDoc;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ pieceIdDoc.
-             *
+             * Définit la valeur de la propriété pieceIdDoc.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PieceIdDoc }
+             *     
              */
-            public void setPieceIdDoc(IMMATRICULATIONINBOUND.Input.Documents.PieceIdDoc value) {
+            public void setPieceIdDoc(InboundDomFrm.Input.Documents.PieceIdDoc value) {
                 this.pieceIdDoc = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ pieceIdGerantDoc.
-             *
+             * Obtient la valeur de la propriété pieceIdGerantDoc.
+             * 
              * @return
              *     possible object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PieceIdGerantDoc }
+             *     
              */
-            public IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc getPieceIdGerantDoc() {
+            public InboundDomFrm.Input.Documents.PieceIdGerantDoc getPieceIdGerantDoc() {
                 return pieceIdGerantDoc;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ pieceIdGerantDoc.
-             *
+             * Définit la valeur de la propriété pieceIdGerantDoc.
+             * 
              * @param value
              *     allowed object is
-             *     {@link IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc }
-             *
+             *     {@link InboundDomFrm.Input.Documents.PieceIdGerantDoc }
+             *     
              */
-            public void setPieceIdGerantDoc(IMMATRICULATIONINBOUND.Input.Documents.PieceIdGerantDoc value) {
+            public void setPieceIdGerantDoc(InboundDomFrm.Input.Documents.PieceIdGerantDoc value) {
                 this.pieceIdGerantDoc = value;
             }
 
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -1967,8 +1859,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -1977,54 +1869,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class AttestationChomage {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2035,9 +1926,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2050,8 +1941,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2060,54 +1951,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class AvisImmatriculation {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2118,9 +2008,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2133,8 +2023,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2143,54 +2033,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class BulletinsSalaire {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2201,9 +2090,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2216,8 +2105,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2226,54 +2115,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class CarteIdentiteConsulaire {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2284,9 +2172,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2299,8 +2187,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2309,54 +2197,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class CarteNationaleIdentite {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2367,9 +2254,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2382,8 +2269,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2392,54 +2279,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class CessationActivity {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2450,9 +2336,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2465,8 +2351,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2475,54 +2361,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class Cni {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2533,9 +2418,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2548,8 +2433,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2558,54 +2443,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class ContratsTravail {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2616,9 +2500,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2631,8 +2515,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2641,54 +2525,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class DeclarationEtablissement {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=100000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2699,9 +2582,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2714,8 +2597,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2724,54 +2607,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class DecretMinisteriel {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2782,9 +2664,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2797,8 +2679,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2807,54 +2689,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class DemandeEcrit {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=100000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2865,9 +2746,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2880,8 +2761,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2890,54 +2771,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class DerniersBulletins {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -2948,9 +2828,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -2963,8 +2843,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -2973,54 +2853,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class Dmt {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3031,9 +2910,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3046,8 +2925,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3056,54 +2935,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class EtatRecensement {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3114,9 +2992,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3129,8 +3007,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3139,54 +3017,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class FormDemande {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=100000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3197,9 +3074,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3212,8 +3089,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3222,54 +3099,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class ManuscriteAdressee {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3280,9 +3156,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3295,8 +3171,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3305,54 +3181,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class PassportDoc {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3363,9 +3238,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3378,8 +3253,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3388,54 +3263,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class PhotocopieStatus {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3446,9 +3320,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3461,8 +3335,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3471,54 +3345,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class PieceIdDoc {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3529,9 +3402,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3544,8 +3417,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3554,54 +3427,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class PieceIdGerantDoc {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=1000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3612,9 +3484,9 @@ public class IMMATRICULATIONINBOUND {
 
             /**
              * <p>Classe Java pour anonymous complex type.
-             *
-             * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-             *
+             * 
+             * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -3627,8 +3499,8 @@ public class IMMATRICULATIONINBOUND {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             *
-             *
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -3637,54 +3509,53 @@ public class IMMATRICULATIONINBOUND {
             })
             public static class RegistreCommerce {
 
-                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/IMMATRICULATION_INBOUND.xsd", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "delivered", namespace = "http://oracle.com/inboundDomFrm.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
-                @Size(max=100000000)
                 protected String url;
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Obtient la valeur de la propriété delivered.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public JAXBElement<Boolean> getDelivered() {
                     return delivered;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ delivered.
-                 *
+                 * Définit la valeur de la propriété delivered.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-                 *
+                 *     
                  */
                 public void setDelivered(JAXBElement<Boolean> value) {
                     this.delivered = value;
                 }
 
                 /**
-                 * Obtient la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Obtient la valeur de la propriété url.
+                 * 
                  * @return
                  *     possible object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public String getUrl() {
                     return url;
                 }
 
                 /**
-                 * Dï¿½finit la valeur de la propriï¿½tï¿½ url.
-                 *
+                 * Définit la valeur de la propriété url.
+                 * 
                  * @param value
                  *     allowed object is
                  *     {@link String }
-                 *
+                 *     
                  */
                 public void setUrl(String value) {
                     this.url = value;
@@ -3697,9 +3568,873 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * <p>Classe Java pour anonymous complex type.
-         *
-         * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-         *
+         * 
+         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * 
+         * <pre>
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="dateEmbauchePremierSalarie" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="regType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="idType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="ninCedeao" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="idNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="dateOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="countryOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="phoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="businessSector" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="mainLineOfBusiness" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="atRate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="arrondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="quartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="zoneCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="zoneIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="sectorCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="sectorIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="agencyCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="agencyIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "dateEmbauchePremierSalarie",
+            "regType",
+            "idType",
+            "nin",
+            "lastName",
+            "firstName",
+            "ninCedeao",
+            "nationality",
+            "idNumber",
+            "issuedDate",
+            "expiryDate",
+            "dateOfBirth",
+            "countryOfBirth",
+            "cityOfBirth",
+            "phoneNumber",
+            "email",
+            "businessSector",
+            "mainLineOfBusiness",
+            "atRate",
+            "region",
+            "department",
+            "arrondissement",
+            "commune",
+            "quartier",
+            "address",
+            "zoneCss",
+            "zoneIpres",
+            "sectorCss",
+            "sectorIpres",
+            "agencyCss",
+            "agencyIpres"
+        })
+        public static class DomesticRegistrationForm {
+
+            protected String dateEmbauchePremierSalarie;
+            protected String regType;
+            protected String idType;
+            protected String nin;
+            protected String lastName;
+            protected String firstName;
+            protected String ninCedeao;
+            protected String nationality;
+            protected String idNumber;
+            protected String issuedDate;
+            protected String expiryDate;
+            protected String dateOfBirth;
+            protected String countryOfBirth;
+            protected String cityOfBirth;
+            protected String phoneNumber;
+            protected String email;
+            protected String businessSector;
+            protected String mainLineOfBusiness;
+            protected String atRate;
+            protected String region;
+            protected String department;
+            protected String arrondissement;
+            protected String commune;
+            protected String quartier;
+            protected String address;
+            protected String zoneCss;
+            protected String zoneIpres;
+            protected String sectorCss;
+            protected String sectorIpres;
+            protected String agencyCss;
+            protected String agencyIpres;
+
+            /**
+             * Obtient la valeur de la propriété dateEmbauchePremierSalarie.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDateEmbauchePremierSalarie() {
+                return dateEmbauchePremierSalarie;
+            }
+
+            /**
+             * Définit la valeur de la propriété dateEmbauchePremierSalarie.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDateEmbauchePremierSalarie(String value) {
+                this.dateEmbauchePremierSalarie = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété regType.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getRegType() {
+                return regType;
+            }
+
+            /**
+             * Définit la valeur de la propriété regType.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setRegType(String value) {
+                this.regType = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété idType.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getIdType() {
+                return idType;
+            }
+
+            /**
+             * Définit la valeur de la propriété idType.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setIdType(String value) {
+                this.idType = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété nin.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNin() {
+                return nin;
+            }
+
+            /**
+             * Définit la valeur de la propriété nin.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNin(String value) {
+                this.nin = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété lastName.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getLastName() {
+                return lastName;
+            }
+
+            /**
+             * Définit la valeur de la propriété lastName.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setLastName(String value) {
+                this.lastName = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété firstName.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFirstName() {
+                return firstName;
+            }
+
+            /**
+             * Définit la valeur de la propriété firstName.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFirstName(String value) {
+                this.firstName = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété ninCedeao.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNinCedeao() {
+                return ninCedeao;
+            }
+
+            /**
+             * Définit la valeur de la propriété ninCedeao.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNinCedeao(String value) {
+                this.ninCedeao = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété nationality.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNationality() {
+                return nationality;
+            }
+
+            /**
+             * Définit la valeur de la propriété nationality.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNationality(String value) {
+                this.nationality = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété idNumber.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getIdNumber() {
+                return idNumber;
+            }
+
+            /**
+             * Définit la valeur de la propriété idNumber.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setIdNumber(String value) {
+                this.idNumber = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété issuedDate.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getIssuedDate() {
+                return issuedDate;
+            }
+
+            /**
+             * Définit la valeur de la propriété issuedDate.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setIssuedDate(String value) {
+                this.issuedDate = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété expiryDate.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getExpiryDate() {
+                return expiryDate;
+            }
+
+            /**
+             * Définit la valeur de la propriété expiryDate.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setExpiryDate(String value) {
+                this.expiryDate = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété dateOfBirth.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDateOfBirth() {
+                return dateOfBirth;
+            }
+
+            /**
+             * Définit la valeur de la propriété dateOfBirth.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDateOfBirth(String value) {
+                this.dateOfBirth = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété countryOfBirth.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCountryOfBirth() {
+                return countryOfBirth;
+            }
+
+            /**
+             * Définit la valeur de la propriété countryOfBirth.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCountryOfBirth(String value) {
+                this.countryOfBirth = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété cityOfBirth.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCityOfBirth() {
+                return cityOfBirth;
+            }
+
+            /**
+             * Définit la valeur de la propriété cityOfBirth.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCityOfBirth(String value) {
+                this.cityOfBirth = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété phoneNumber.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getPhoneNumber() {
+                return phoneNumber;
+            }
+
+            /**
+             * Définit la valeur de la propriété phoneNumber.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setPhoneNumber(String value) {
+                this.phoneNumber = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété email.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getEmail() {
+                return email;
+            }
+
+            /**
+             * Définit la valeur de la propriété email.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setEmail(String value) {
+                this.email = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété businessSector.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getBusinessSector() {
+                return businessSector;
+            }
+
+            /**
+             * Définit la valeur de la propriété businessSector.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setBusinessSector(String value) {
+                this.businessSector = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété mainLineOfBusiness.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getMainLineOfBusiness() {
+                return mainLineOfBusiness;
+            }
+
+            /**
+             * Définit la valeur de la propriété mainLineOfBusiness.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setMainLineOfBusiness(String value) {
+                this.mainLineOfBusiness = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété atRate.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getAtRate() {
+                return atRate;
+            }
+
+            /**
+             * Définit la valeur de la propriété atRate.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setAtRate(String value) {
+                this.atRate = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété region.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getRegion() {
+                return region;
+            }
+
+            /**
+             * Définit la valeur de la propriété region.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setRegion(String value) {
+                this.region = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété department.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDepartment() {
+                return department;
+            }
+
+            /**
+             * Définit la valeur de la propriété department.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDepartment(String value) {
+                this.department = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété arrondissement.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getArrondissement() {
+                return arrondissement;
+            }
+
+            /**
+             * Définit la valeur de la propriété arrondissement.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setArrondissement(String value) {
+                this.arrondissement = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété commune.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCommune() {
+                return commune;
+            }
+
+            /**
+             * Définit la valeur de la propriété commune.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCommune(String value) {
+                this.commune = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété quartier.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getQuartier() {
+                return quartier;
+            }
+
+            /**
+             * Définit la valeur de la propriété quartier.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setQuartier(String value) {
+                this.quartier = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété address.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getAddress() {
+                return address;
+            }
+
+            /**
+             * Définit la valeur de la propriété address.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setAddress(String value) {
+                this.address = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété zoneCss.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getZoneCss() {
+                return zoneCss;
+            }
+
+            /**
+             * Définit la valeur de la propriété zoneCss.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setZoneCss(String value) {
+                this.zoneCss = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété zoneIpres.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getZoneIpres() {
+                return zoneIpres;
+            }
+
+            /**
+             * Définit la valeur de la propriété zoneIpres.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setZoneIpres(String value) {
+                this.zoneIpres = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété sectorCss.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getSectorCss() {
+                return sectorCss;
+            }
+
+            /**
+             * Définit la valeur de la propriété sectorCss.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setSectorCss(String value) {
+                this.sectorCss = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété sectorIpres.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getSectorIpres() {
+                return sectorIpres;
+            }
+
+            /**
+             * Définit la valeur de la propriété sectorIpres.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setSectorIpres(String value) {
+                this.sectorIpres = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété agencyCss.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getAgencyCss() {
+                return agencyCss;
+            }
+
+            /**
+             * Définit la valeur de la propriété agencyCss.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setAgencyCss(String value) {
+                this.agencyCss = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété agencyIpres.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getAgencyIpres() {
+                return agencyIpres;
+            }
+
+            /**
+             * Définit la valeur de la propriété agencyIpres.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setAgencyIpres(String value) {
+                this.agencyIpres = value;
+            }
+
+        }
+
+
+        /**
+         * <p>Classe Java pour anonymous complex type.
+         * 
+         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -3752,8 +4487,8 @@ public class IMMATRICULATIONINBOUND {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         *
-         *
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -3847,1008 +4582,1008 @@ public class IMMATRICULATIONINBOUND {
             protected String categorie;
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ rechercheEmploye.
-             *
+             * Obtient la valeur de la propriété rechercheEmploye.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getRechercheEmploye() {
                 return rechercheEmploye;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ rechercheEmploye.
-             *
+             * Définit la valeur de la propriété rechercheEmploye.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setRechercheEmploye(String value) {
                 this.rechercheEmploye = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ nomEmploye.
-             *
+             * Obtient la valeur de la propriété nomEmploye.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNomEmploye() {
                 return nomEmploye;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nomEmploye.
-             *
+             * Définit la valeur de la propriété nomEmploye.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNomEmploye(String value) {
                 this.nomEmploye = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ prenomEmploye.
-             *
+             * Obtient la valeur de la propriété prenomEmploye.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getPrenomEmploye() {
                 return prenomEmploye;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ prenomEmploye.
-             *
+             * Définit la valeur de la propriété prenomEmploye.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setPrenomEmploye(String value) {
                 this.prenomEmploye = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ sexe.
-             *
+             * Obtient la valeur de la propriété sexe.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getSexe() {
                 return sexe;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ sexe.
-             *
+             * Définit la valeur de la propriété sexe.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setSexe(String value) {
                 this.sexe = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ etatCivil.
-             *
+             * Obtient la valeur de la propriété etatCivil.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getEtatCivil() {
                 return etatCivil;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ etatCivil.
-             *
+             * Définit la valeur de la propriété etatCivil.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setEtatCivil(String value) {
                 this.etatCivil = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ dateNaissance.
-             *
+             * Obtient la valeur de la propriété dateNaissance.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getDateNaissance() {
                 return dateNaissance;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ dateNaissance.
-             *
+             * Définit la valeur de la propriété dateNaissance.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setDateNaissance(String value) {
                 this.dateNaissance = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ numRegNaiss.
-             *
+             * Obtient la valeur de la propriété numRegNaiss.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNumRegNaiss() {
                 return numRegNaiss;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ numRegNaiss.
-             *
+             * Définit la valeur de la propriété numRegNaiss.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNumRegNaiss(String value) {
                 this.numRegNaiss = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ nomPere.
-             *
+             * Obtient la valeur de la propriété nomPere.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNomPere() {
                 return nomPere;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nomPere.
-             *
+             * Définit la valeur de la propriété nomPere.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNomPere(String value) {
                 this.nomPere = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ prenomPere.
-             *
+             * Obtient la valeur de la propriété prenomPere.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getPrenomPere() {
                 return prenomPere;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ prenomPere.
-             *
+             * Définit la valeur de la propriété prenomPere.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setPrenomPere(String value) {
                 this.prenomPere = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ nomMere.
-             *
+             * Obtient la valeur de la propriété nomMere.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNomMere() {
                 return nomMere;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nomMere.
-             *
+             * Définit la valeur de la propriété nomMere.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNomMere(String value) {
                 this.nomMere = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ prenomMere.
-             *
+             * Obtient la valeur de la propriété prenomMere.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getPrenomMere() {
                 return prenomMere;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ prenomMere.
-             *
+             * Définit la valeur de la propriété prenomMere.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setPrenomMere(String value) {
                 this.prenomMere = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ nationalite.
-             *
+             * Obtient la valeur de la propriété nationalite.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNationalite() {
                 return nationalite;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nationalite.
-             *
+             * Définit la valeur de la propriété nationalite.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNationalite(String value) {
                 this.nationalite = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ typePieceIdentite.
-             *
+             * Obtient la valeur de la propriété typePieceIdentite.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getTypePieceIdentite() {
                 return typePieceIdentite;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ typePieceIdentite.
-             *
+             * Définit la valeur de la propriété typePieceIdentite.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setTypePieceIdentite(String value) {
                 this.typePieceIdentite = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ nin.
-             *
+             * Obtient la valeur de la propriété nin.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNin() {
                 return nin;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nin.
-             *
+             * Définit la valeur de la propriété nin.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNin(String value) {
                 this.nin = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ ninCedeao.
-             *
+             * Obtient la valeur de la propriété ninCedeao.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNinCedeao() {
                 return ninCedeao;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ ninCedeao.
-             *
+             * Définit la valeur de la propriété ninCedeao.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNinCedeao(String value) {
                 this.ninCedeao = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ numPieceIdentite.
-             *
+             * Obtient la valeur de la propriété numPieceIdentite.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNumPieceIdentite() {
                 return numPieceIdentite;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ numPieceIdentite.
-             *
+             * Définit la valeur de la propriété numPieceIdentite.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNumPieceIdentite(String value) {
                 this.numPieceIdentite = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ delivreLe.
-             *
+             * Obtient la valeur de la propriété delivreLe.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getDelivreLe() {
                 return delivreLe;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ delivreLe.
-             *
+             * Définit la valeur de la propriété delivreLe.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setDelivreLe(String value) {
                 this.delivreLe = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ lieuDelivrance.
-             *
+             * Obtient la valeur de la propriété lieuDelivrance.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getLieuDelivrance() {
                 return lieuDelivrance;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ lieuDelivrance.
-             *
+             * Définit la valeur de la propriété lieuDelivrance.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setLieuDelivrance(String value) {
                 this.lieuDelivrance = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ expireLe.
-             *
+             * Obtient la valeur de la propriété expireLe.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getExpireLe() {
                 return expireLe;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ expireLe.
-             *
+             * Définit la valeur de la propriété expireLe.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setExpireLe(String value) {
                 this.expireLe = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ villeNaissance.
-             *
+             * Obtient la valeur de la propriété villeNaissance.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getVilleNaissance() {
                 return villeNaissance;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ villeNaissance.
-             *
+             * Définit la valeur de la propriété villeNaissance.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setVilleNaissance(String value) {
                 this.villeNaissance = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ paysNaissance.
-             *
+             * Obtient la valeur de la propriété paysNaissance.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getPaysNaissance() {
                 return paysNaissance;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ paysNaissance.
-             *
+             * Définit la valeur de la propriété paysNaissance.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setPaysNaissance(String value) {
                 this.paysNaissance = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ employeurPrec.
-             *
+             * Obtient la valeur de la propriété employeurPrec.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getEmployeurPrec() {
                 return employeurPrec;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ employeurPrec.
-             *
+             * Définit la valeur de la propriété employeurPrec.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setEmployeurPrec(String value) {
                 this.employeurPrec = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ pays.
-             *
+             * Obtient la valeur de la propriété pays.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getPays() {
                 return pays;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ pays.
-             *
+             * Définit la valeur de la propriété pays.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setPays(String value) {
                 this.pays = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ region.
-             *
+             * Obtient la valeur de la propriété region.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getRegion() {
                 return region;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ region.
-             *
+             * Définit la valeur de la propriété region.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setRegion(String value) {
                 this.region = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ departement.
-             *
+             * Obtient la valeur de la propriété departement.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getDepartement() {
                 return departement;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ departement.
-             *
+             * Définit la valeur de la propriété departement.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setDepartement(String value) {
                 this.departement = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ arrondissement.
-             *
+             * Obtient la valeur de la propriété arrondissement.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getArrondissement() {
                 return arrondissement;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ arrondissement.
-             *
+             * Définit la valeur de la propriété arrondissement.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setArrondissement(String value) {
                 this.arrondissement = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ commune.
-             *
+             * Obtient la valeur de la propriété commune.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getCommune() {
                 return commune;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ commune.
-             *
+             * Définit la valeur de la propriété commune.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setCommune(String value) {
                 this.commune = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ quartier.
-             *
+             * Obtient la valeur de la propriété quartier.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getQuartier() {
                 return quartier;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ quartier.
-             *
+             * Définit la valeur de la propriété quartier.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setQuartier(String value) {
                 this.quartier = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ adresse.
-             *
+             * Obtient la valeur de la propriété adresse.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getAdresse() {
                 return adresse;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ adresse.
-             *
+             * Définit la valeur de la propriété adresse.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setAdresse(String value) {
                 this.adresse = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ boitePostale.
-             *
+             * Obtient la valeur de la propriété boitePostale.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getBoitePostale() {
                 return boitePostale;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ boitePostale.
-             *
+             * Définit la valeur de la propriété boitePostale.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setBoitePostale(String value) {
                 this.boitePostale = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ typeMouvement.
-             *
+             * Obtient la valeur de la propriété typeMouvement.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getTypeMouvement() {
                 return typeMouvement;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ typeMouvement.
-             *
+             * Définit la valeur de la propriété typeMouvement.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setTypeMouvement(String value) {
                 this.typeMouvement = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ natureContrat.
-             *
+             * Obtient la valeur de la propriété natureContrat.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNatureContrat() {
                 return natureContrat;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ natureContrat.
-             *
+             * Définit la valeur de la propriété natureContrat.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNatureContrat(String value) {
                 this.natureContrat = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ dateDebutContrat.
-             *
+             * Obtient la valeur de la propriété dateDebutContrat.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getDateDebutContrat() {
                 return dateDebutContrat;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ dateDebutContrat.
-             *
+             * Définit la valeur de la propriété dateDebutContrat.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setDateDebutContrat(String value) {
                 this.dateDebutContrat = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ dateFinContrat.
-             *
+             * Obtient la valeur de la propriété dateFinContrat.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getDateFinContrat() {
                 return dateFinContrat;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ dateFinContrat.
-             *
+             * Définit la valeur de la propriété dateFinContrat.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setDateFinContrat(String value) {
                 this.dateFinContrat = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ profession.
-             *
+             * Obtient la valeur de la propriété profession.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getProfession() {
                 return profession;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ profession.
-             *
+             * Définit la valeur de la propriété profession.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setProfession(String value) {
                 this.profession = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ emploi.
-             *
+             * Obtient la valeur de la propriété emploi.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getEmploi() {
                 return emploi;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ emploi.
-             *
+             * Définit la valeur de la propriété emploi.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setEmploi(String value) {
                 this.emploi = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ nonCadre.
-             *
+             * Obtient la valeur de la propriété nonCadre.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getNonCadre() {
                 return nonCadre;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nonCadre.
-             *
+             * Définit la valeur de la propriété nonCadre.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setNonCadre(String value) {
                 this.nonCadre = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ ouiCadre.
-             *
+             * Obtient la valeur de la propriété ouiCadre.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getOuiCadre() {
                 return ouiCadre;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ ouiCadre.
-             *
+             * Définit la valeur de la propriété ouiCadre.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setOuiCadre(String value) {
                 this.ouiCadre = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ conventionApplicable.
-             *
+             * Obtient la valeur de la propriété conventionApplicable.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getConventionApplicable() {
                 return conventionApplicable;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ conventionApplicable.
-             *
+             * Définit la valeur de la propriété conventionApplicable.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setConventionApplicable(String value) {
                 this.conventionApplicable = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ salaireContractuel.
-             *
+             * Obtient la valeur de la propriété salaireContractuel.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getSalaireContractuel() {
                 return salaireContractuel;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ salaireContractuel.
-             *
+             * Définit la valeur de la propriété salaireContractuel.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setSalaireContractuel(String value) {
                 this.salaireContractuel = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ tempsTravail.
-             *
+             * Obtient la valeur de la propriété tempsTravail.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getTempsTravail() {
                 return tempsTravail;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ tempsTravail.
-             *
+             * Définit la valeur de la propriété tempsTravail.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setTempsTravail(String value) {
                 this.tempsTravail = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ categorie.
-             *
+             * Obtient la valeur de la propriété categorie.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
             public String getCategorie() {
                 return categorie;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ categorie.
-             *
+             * Définit la valeur de la propriété categorie.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
             public void setCategorie(String value) {
                 this.categorie = value;
@@ -4859,1673 +5594,80 @@ public class IMMATRICULATIONINBOUND {
 
         /**
          * <p>Classe Java pour anonymous complex type.
-         *
-         * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-         *
+         * 
+         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
          *       &lt;sequence>
-         *         &lt;element name="regType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="employerType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="typeEtablissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="employerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="hqId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="nineaNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="ninetNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="companyOriginId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="legalStatus" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="taxId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="taxIdDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="tradeRegisterNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="tradeRegisterDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="receiveDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="documentLocator" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         *
-         *
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "regType",
-            "employerType",
-            "typeEtablissement",
-            "employerName",
-            "hqId",
-            "nineaNumber",
-            "ninetNumber",
-            "companyOriginId",
-            "legalStatus",
-            "taxId",
-            "taxIdDate",
-            "tradeRegisterNumber",
-            "tradeRegisterDate"
+            "receiveDate",
+            "documentLocator"
         })
-        public static class EmployerQuery {
+        public static class RegistrationFormInfos {
 
-            protected String regType;
-            protected String employerType;
-            protected String typeEtablissement;
-            protected String employerName;
-            protected String hqId;
-            protected String nineaNumber;
-            protected String ninetNumber;
-            protected String companyOriginId;
-            protected String legalStatus;
-            protected String taxId;
-            protected String taxIdDate;
-            protected String tradeRegisterNumber;
-            protected String tradeRegisterDate;
+            protected String receiveDate;
+            protected String documentLocator;
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ regType.
-             *
+             * Obtient la valeur de la propriété receiveDate.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
-            public String getRegType() {
-                return regType;
+            public String getReceiveDate() {
+                return receiveDate;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ regType.
-             *
+             * Définit la valeur de la propriété receiveDate.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
-            public void setRegType(String value) {
-                this.regType = value;
+            public void setReceiveDate(String value) {
+                this.receiveDate = value;
             }
 
             /**
-             * Obtient la valeur de la propriï¿½tï¿½ employerType.
-             *
+             * Obtient la valeur de la propriété documentLocator.
+             * 
              * @return
              *     possible object is
              *     {@link String }
-             *
+             *     
              */
-            public String getEmployerType() {
-                return employerType;
+            public String getDocumentLocator() {
+                return documentLocator;
             }
 
             /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ employerType.
-             *
+             * Définit la valeur de la propriété documentLocator.
+             * 
              * @param value
              *     allowed object is
              *     {@link String }
-             *
+             *     
              */
-            public void setEmployerType(String value) {
-                this.employerType = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ typeEtablissement.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTypeEtablissement() {
-                return typeEtablissement;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ typeEtablissement.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTypeEtablissement(String value) {
-                this.typeEtablissement = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ employerName.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getEmployerName() {
-                return employerName;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ employerName.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setEmployerName(String value) {
-                this.employerName = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ hqId.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getHqId() {
-                return hqId;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ hqId.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setHqId(String value) {
-                this.hqId = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ nineaNumber.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNineaNumber() {
-                return nineaNumber;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nineaNumber.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNineaNumber(String value) {
-                this.nineaNumber = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ ninetNumber.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNinetNumber() {
-                return ninetNumber;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ ninetNumber.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNinetNumber(String value) {
-                this.ninetNumber = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ companyOriginId.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getCompanyOriginId() {
-                return companyOriginId;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ companyOriginId.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setCompanyOriginId(String value) {
-                this.companyOriginId = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ legalStatus.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getLegalStatus() {
-                return legalStatus;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ legalStatus.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setLegalStatus(String value) {
-                this.legalStatus = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ taxId.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTaxId() {
-                return taxId;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ taxId.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTaxId(String value) {
-                this.taxId = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ taxIdDate.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTaxIdDate() {
-                return taxIdDate;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ taxIdDate.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTaxIdDate(String value) {
-                this.taxIdDate = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ tradeRegisterNumber.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTradeRegisterNumber() {
-                return tradeRegisterNumber;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ tradeRegisterNumber.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTradeRegisterNumber(String value) {
-                this.tradeRegisterNumber = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ tradeRegisterDate.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTradeRegisterDate() {
-                return tradeRegisterDate;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ tradeRegisterDate.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTradeRegisterDate(String value) {
-                this.tradeRegisterDate = value;
-            }
-
-        }
-
-
-        /**
-         * <p>Classe Java pour anonymous complex type.
-         *
-         * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-         *
-         * <pre>
-         * &lt;complexType>
-         *   &lt;complexContent>
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-         *       &lt;sequence>
-         *         &lt;element name="legalRepPerson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="placeOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="typeOfIdentity" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="identityIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="ninCedeo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="landLineNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="mobileNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *       &lt;/sequence>
-         *     &lt;/restriction>
-         *   &lt;/complexContent>
-         * &lt;/complexType>
-         * </pre>
-         *
-         *
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "legalRepPerson",
-            "lastName",
-            "firstName",
-            "birthdate",
-            "nationality",
-            "nin",
-            "placeOfBirth",
-            "cityOfBirth",
-            "typeOfIdentity",
-            "identityIdNumber",
-            "ninCedeo",
-            "issuedDate",
-            "expiryDate",
-            "region",
-            "department",
-            "arondissement",
-            "commune",
-            "qartier",
-            "address",
-            "landLineNumber",
-            "mobileNumber",
-            "email"
-        })
-        public static class LegalRepresentativeForm {
-
-            protected String legalRepPerson;
-            protected String lastName;
-            protected String firstName;
-            protected String birthdate;
-            protected String nationality;
-            protected String nin;
-            protected String placeOfBirth;
-            protected String cityOfBirth;
-            protected String typeOfIdentity;
-            protected String identityIdNumber;
-            protected String ninCedeo;
-            protected String issuedDate;
-            protected String expiryDate;
-            protected String region;
-            protected String department;
-            protected String arondissement;
-            protected String commune;
-            protected String qartier;
-            protected String address;
-            protected String landLineNumber;
-            protected String mobileNumber;
-            protected String email;
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ legalRepPerson.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getLegalRepPerson() {
-                return legalRepPerson;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ legalRepPerson.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setLegalRepPerson(String value) {
-                this.legalRepPerson = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ lastName.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getLastName() {
-                return lastName;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ lastName.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setLastName(String value) {
-                this.lastName = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ firstName.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getFirstName() {
-                return firstName;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ firstName.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setFirstName(String value) {
-                this.firstName = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ birthdate.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getBirthdate() {
-                return birthdate;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ birthdate.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setBirthdate(String value) {
-                this.birthdate = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ nationality.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNationality() {
-                return nationality;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nationality.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNationality(String value) {
-                this.nationality = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ nin.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNin() {
-                return nin;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ nin.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNin(String value) {
-                this.nin = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ placeOfBirth.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getPlaceOfBirth() {
-                return placeOfBirth;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ placeOfBirth.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setPlaceOfBirth(String value) {
-                this.placeOfBirth = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ cityOfBirth.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getCityOfBirth() {
-                return cityOfBirth;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ cityOfBirth.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setCityOfBirth(String value) {
-                this.cityOfBirth = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ typeOfIdentity.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTypeOfIdentity() {
-                return typeOfIdentity;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ typeOfIdentity.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTypeOfIdentity(String value) {
-                this.typeOfIdentity = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ identityIdNumber.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getIdentityIdNumber() {
-                return identityIdNumber;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ identityIdNumber.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setIdentityIdNumber(String value) {
-                this.identityIdNumber = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ ninCedeo.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNinCedeo() {
-                return ninCedeo;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ ninCedeo.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNinCedeo(String value) {
-                this.ninCedeo = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ issuedDate.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getIssuedDate() {
-                return issuedDate;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ issuedDate.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setIssuedDate(String value) {
-                this.issuedDate = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ expiryDate.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getExpiryDate() {
-                return expiryDate;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ expiryDate.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setExpiryDate(String value) {
-                this.expiryDate = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ region.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getRegion() {
-                return region;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ region.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setRegion(String value) {
-                this.region = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ department.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getDepartment() {
-                return department;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ department.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setDepartment(String value) {
-                this.department = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ arondissement.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getArondissement() {
-                return arondissement;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ arondissement.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setArondissement(String value) {
-                this.arondissement = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ commune.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getCommune() {
-                return commune;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ commune.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setCommune(String value) {
-                this.commune = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ qartier.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getQartier() {
-                return qartier;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ qartier.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setQartier(String value) {
-                this.qartier = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ address.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getAddress() {
-                return address;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ address.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setAddress(String value) {
-                this.address = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ landLineNumber.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getLandLineNumber() {
-                return landLineNumber;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ landLineNumber.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setLandLineNumber(String value) {
-                this.landLineNumber = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ mobileNumber.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getMobileNumber() {
-                return mobileNumber;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ mobileNumber.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setMobileNumber(String value) {
-                this.mobileNumber = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ email.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getEmail() {
-                return email;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ email.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setEmail(String value) {
-                this.email = value;
-            }
-
-        }
-
-
-        /**
-         * <p>Classe Java pour anonymous complex type.
-         *
-         * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-         *
-         * <pre>
-         * &lt;complexType>
-         *   &lt;complexContent>
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-         *       &lt;sequence>
-         *         &lt;element name="dateOfInspection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="dateOfFirstHire" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="shortName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="businessSector" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="mainLineOfBusiness" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="atRate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="noOfWorkersInGenScheme" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="noOfWorkersInBasicScheme" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="postboxNo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="telephone" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="website" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="zoneCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="zoneIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="sectorCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="sectorIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="agencyCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *         &lt;element name="agencyIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-         *       &lt;/sequence>
-         *     &lt;/restriction>
-         *   &lt;/complexContent>
-         * &lt;/complexType>
-         * </pre>
-         *
-         *
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "dateOfInspection",
-            "dateOfFirstHire",
-            "shortName",
-            "businessSector",
-            "mainLineOfBusiness",
-            "atRate",
-            "noOfWorkersInGenScheme",
-            "noOfWorkersInBasicScheme",
-            "region",
-            "department",
-            "arondissement",
-            "commune",
-            "qartier",
-            "address",
-            "postboxNo",
-            "telephone",
-            "email",
-            "website",
-            "zoneCss",
-            "zoneIpres",
-            "sectorCss",
-            "sectorIpres",
-            "agencyCss",
-            "agencyIpres"
-        })
-        public static class MainRegistrationForm {
-
-            protected String dateOfInspection;
-            protected String dateOfFirstHire;
-            protected String shortName;
-            protected String businessSector;
-            protected String mainLineOfBusiness;
-            protected String atRate;
-            protected String noOfWorkersInGenScheme;
-            protected String noOfWorkersInBasicScheme;
-            protected String region;
-            protected String department;
-            protected String arondissement;
-            protected String commune;
-            protected String qartier;
-            protected String address;
-            protected String postboxNo;
-            protected String telephone;
-            protected String email;
-            protected String website;
-            protected String zoneCss;
-            protected String zoneIpres;
-            protected String sectorCss;
-            protected String sectorIpres;
-            protected String agencyCss;
-            protected String agencyIpres;
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ dateOfInspection.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getDateOfInspection() {
-                return dateOfInspection;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ dateOfInspection.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setDateOfInspection(String value) {
-                this.dateOfInspection = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ dateOfFirstHire.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getDateOfFirstHire() {
-                return dateOfFirstHire;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ dateOfFirstHire.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setDateOfFirstHire(String value) {
-                this.dateOfFirstHire = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ shortName.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getShortName() {
-                return shortName;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ shortName.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setShortName(String value) {
-                this.shortName = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ businessSector.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getBusinessSector() {
-                return businessSector;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ businessSector.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setBusinessSector(String value) {
-                this.businessSector = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ mainLineOfBusiness.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getMainLineOfBusiness() {
-                return mainLineOfBusiness;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ mainLineOfBusiness.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setMainLineOfBusiness(String value) {
-                this.mainLineOfBusiness = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ atRate.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getAtRate() {
-                return atRate;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ atRate.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setAtRate(String value) {
-                this.atRate = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ noOfWorkersInGenScheme.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNoOfWorkersInGenScheme() {
-                return noOfWorkersInGenScheme;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ noOfWorkersInGenScheme.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNoOfWorkersInGenScheme(String value) {
-                this.noOfWorkersInGenScheme = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ noOfWorkersInBasicScheme.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getNoOfWorkersInBasicScheme() {
-                return noOfWorkersInBasicScheme;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ noOfWorkersInBasicScheme.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setNoOfWorkersInBasicScheme(String value) {
-                this.noOfWorkersInBasicScheme = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ region.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getRegion() {
-                return region;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ region.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setRegion(String value) {
-                this.region = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ department.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getDepartment() {
-                return department;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ department.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setDepartment(String value) {
-                this.department = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ arondissement.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getArondissement() {
-                return arondissement;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ arondissement.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setArondissement(String value) {
-                this.arondissement = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ commune.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getCommune() {
-                return commune;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ commune.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setCommune(String value) {
-                this.commune = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ qartier.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getQartier() {
-                return qartier;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ qartier.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setQartier(String value) {
-                this.qartier = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ address.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getAddress() {
-                return address;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ address.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setAddress(String value) {
-                this.address = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ postboxNo.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getPostboxNo() {
-                return postboxNo;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ postboxNo.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setPostboxNo(String value) {
-                this.postboxNo = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ telephone.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getTelephone() {
-                return telephone;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ telephone.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setTelephone(String value) {
-                this.telephone = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ email.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getEmail() {
-                return email;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ email.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setEmail(String value) {
-                this.email = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ website.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getWebsite() {
-                return website;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ website.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setWebsite(String value) {
-                this.website = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ zoneCss.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getZoneCss() {
-                return zoneCss;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ zoneCss.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setZoneCss(String value) {
-                this.zoneCss = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ zoneIpres.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getZoneIpres() {
-                return zoneIpres;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ zoneIpres.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setZoneIpres(String value) {
-                this.zoneIpres = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ sectorCss.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getSectorCss() {
-                return sectorCss;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ sectorCss.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setSectorCss(String value) {
-                this.sectorCss = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ sectorIpres.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getSectorIpres() {
-                return sectorIpres;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ sectorIpres.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setSectorIpres(String value) {
-                this.sectorIpres = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ agencyCss.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getAgencyCss() {
-                return agencyCss;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ agencyCss.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setAgencyCss(String value) {
-                this.agencyCss = value;
-            }
-
-            /**
-             * Obtient la valeur de la propriï¿½tï¿½ agencyIpres.
-             *
-             * @return
-             *     possible object is
-             *     {@link String }
-             *
-             */
-            public String getAgencyIpres() {
-                return agencyIpres;
-            }
-
-            /**
-             * Dï¿½finit la valeur de la propriï¿½tï¿½ agencyIpres.
-             *
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *
-             */
-            public void setAgencyIpres(String value) {
-                this.agencyIpres = value;
+            public void setDocumentLocator(String value) {
+                this.documentLocator = value;
             }
 
         }
@@ -6535,17 +5677,16 @@ public class IMMATRICULATIONINBOUND {
 
     /**
      * <p>Classe Java pour anonymous complex type.
-     *
-     * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
-     *
+     * 
+     * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="employerRegistrationFormId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *         &lt;element name="employeeRegistrationFormId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
-     *         &lt;element name="processFlowId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *         &lt;element name="registrationFormId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *         &lt;element name="folderId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="zoneCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="zoneIpres" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="sectorCss" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -6558,14 +5699,13 @@ public class IMMATRICULATIONINBOUND {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "employerRegistrationFormId",
-        "employeeRegistrationFormId",
-        "processFlowId",
+        "registrationFormId",
+        "folderId",
         "zoneCss",
         "zoneIpres",
         "sectorCss",
@@ -6576,9 +5716,8 @@ public class IMMATRICULATIONINBOUND {
     })
     public static class Output {
 
-        protected String employerRegistrationFormId;
-        protected String employeeRegistrationFormId;
-        protected String processFlowId;
+        protected String registrationFormId;
+        protected String folderId;
         protected String zoneCss;
         protected String zoneIpres;
         protected String sectorCss;
@@ -6588,240 +5727,216 @@ public class IMMATRICULATIONINBOUND {
         protected String tauxAt;
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ employerRegistrationFormId.
-         *
+         * Obtient la valeur de la propriété registrationFormId.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
-        public String getEmployerRegistrationFormId() {
-            return employerRegistrationFormId;
+        public String getRegistrationFormId() {
+            return registrationFormId;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ employerRegistrationFormId.
-         *
+         * Définit la valeur de la propriété registrationFormId.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
-        public void setEmployerRegistrationFormId(String value) {
-            this.employerRegistrationFormId = value;
+        public void setRegistrationFormId(String value) {
+            this.registrationFormId = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ employeeRegistrationFormId.
-         *
+         * Obtient la valeur de la propriété folderId.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
-        public String getEmployeeRegistrationFormId() {
-            return employeeRegistrationFormId;
+        public String getFolderId() {
+            return folderId;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ employeeRegistrationFormId.
-         *
+         * Définit la valeur de la propriété folderId.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
-        public void setEmployeeRegistrationFormId(String value) {
-            this.employeeRegistrationFormId = value;
+        public void setFolderId(String value) {
+            this.folderId = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ processFlowId.
-         *
+         * Obtient la valeur de la propriété zoneCss.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
-         */
-        public String getProcessFlowId() {
-            return processFlowId;
-        }
-
-        /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ processFlowId.
-         *
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *
-         */
-        public void setProcessFlowId(String value) {
-            this.processFlowId = value;
-        }
-
-        /**
-         * Obtient la valeur de la propriï¿½tï¿½ zoneCss.
-         *
-         * @return
-         *     possible object is
-         *     {@link String }
-         *
+         *     
          */
         public String getZoneCss() {
             return zoneCss;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ zoneCss.
-         *
+         * Définit la valeur de la propriété zoneCss.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setZoneCss(String value) {
             this.zoneCss = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ zoneIpres.
-         *
+         * Obtient la valeur de la propriété zoneIpres.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getZoneIpres() {
             return zoneIpres;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ zoneIpres.
-         *
+         * Définit la valeur de la propriété zoneIpres.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setZoneIpres(String value) {
             this.zoneIpres = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ sectorCss.
-         *
+         * Obtient la valeur de la propriété sectorCss.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getSectorCss() {
             return sectorCss;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ sectorCss.
-         *
+         * Définit la valeur de la propriété sectorCss.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setSectorCss(String value) {
             this.sectorCss = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ sectorIpres.
-         *
+         * Obtient la valeur de la propriété sectorIpres.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getSectorIpres() {
             return sectorIpres;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ sectorIpres.
-         *
+         * Définit la valeur de la propriété sectorIpres.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setSectorIpres(String value) {
             this.sectorIpres = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ agenceCss.
-         *
+         * Obtient la valeur de la propriété agenceCss.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getAgenceCss() {
             return agenceCss;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ agenceCss.
-         *
+         * Définit la valeur de la propriété agenceCss.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setAgenceCss(String value) {
             this.agenceCss = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ agenceIpres.
-         *
+         * Obtient la valeur de la propriété agenceIpres.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getAgenceIpres() {
             return agenceIpres;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ agenceIpres.
-         *
+         * Définit la valeur de la propriété agenceIpres.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setAgenceIpres(String value) {
             this.agenceIpres = value;
         }
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ tauxAt.
-         *
+         * Obtient la valeur de la propriété tauxAt.
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getTauxAt() {
             return tauxAt;
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ tauxAt.
-         *
+         * Définit la valeur de la propriété tauxAt.
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setTauxAt(String value) {
             this.tauxAt = value;

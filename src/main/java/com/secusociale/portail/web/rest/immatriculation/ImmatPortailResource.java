@@ -30,6 +30,7 @@ import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCerti
 import com.secusociale.portail.service.soap.checkExistenceEmployeur.CmCheckExistenceEmployeur;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
+import com.secusociale.portail.service.soap.domestique.InboundDomFrm;
 import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
 import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
@@ -56,7 +57,7 @@ public class ImmatPortailResource {
     private VerifierExistenceEmployeur verifierExistenceEmployeur;
 
 	@PostMapping("/immatPortail")
-    public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException {
+    public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException, IOException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMATRICULATIONINBOUND> immatriculationInbound = new Holder<IMMATRICULATIONINBOUND>();
@@ -66,8 +67,8 @@ public class ImmatPortailResource {
 		return immatriculationInbound;
 
     }
-	
-	
+
+
 	@PostMapping("/maintient-affiliation")
     public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND.Input immatriculation) throws URISyntaxException,   JAXBException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
@@ -79,10 +80,10 @@ public class ImmatPortailResource {
 		return immatriculationInbound;
 
     }
-	
-	
+
+
 	@PostMapping("/representation-diplomatique")
-    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO.Input immatriculation) throws URISyntaxException,  JAXBException {
+    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO immatriculation) throws URISyntaxException,  JAXBException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMATREPDIPLO> immatriculationInbound = new Holder<IMMATREPDIPLO>();
@@ -92,7 +93,7 @@ public class ImmatPortailResource {
 		return immatriculationInbound;
 
     }
-	
+
 	@PostMapping("/publique-parapublique")
     public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND immatriculation) throws URISyntaxException,  JAXBException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
@@ -105,6 +106,19 @@ public class ImmatPortailResource {
 
     }
 
+	
+
+	 @PostMapping("/domestique")
+	    public Holder<InboundDomFrm> createImmatriculationPortail(@RequestBody InboundDomFrm immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException {
+	       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+	        Holder<InboundDomFrm> immatriculationInbound = new Holder<InboundDomFrm>();
+
+	           immatriculationInbound = immatPortailService.createImmatDomestique(immatriculation);
+
+			return immatriculationInbound;
+
+	    }
 
 
     @PostMapping("/immatPortail/uploadFile")
@@ -164,7 +178,7 @@ public class ImmatPortailResource {
 
 	}
 
-	
+
 
 	@PostMapping("/employeurExistant")
     public Holder<CMGETEMPLOYEURDETAILS> getEmployeurexistant(@RequestBody CMGETEMPLOYEURDETAILS cmgetEmployeurDetails) throws JAXBException   {
@@ -177,8 +191,8 @@ public class ImmatPortailResource {
 		return employeurDetails;
 
     }
-	
-	
-	 
+
+
+
 }
 
