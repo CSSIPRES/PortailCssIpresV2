@@ -40,7 +40,7 @@ spring:
     url: jdbc:mysql://192.168.0.103:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     # url: jdbc:mysql://localhost:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root
-    password: Oracle123
+    password: Oracle123$
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -116,7 +116,7 @@ jhipster:
     use-json-format: false # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
       enabled: false
-      host: localhost
+      host: 192.168.0.103
       port: 5000
       queue-size: 512
   audit-events:
