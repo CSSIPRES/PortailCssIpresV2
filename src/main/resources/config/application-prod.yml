@@ -69,11 +69,11 @@ spring:
     protocol: smtp
     tls: true
     auth: true
-    from: cssipresportail@gmail.com
+    from: no-reply@secusociale.sn
     properties.mail.smtp:
       auth: true
       starttls.enable: true
-      ssl.trust: smtp.gmail.com
+      ssl.trust: smtp.office365.com
   thymeleaf:
     cache: true
 

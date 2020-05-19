@@ -69,7 +69,7 @@ spring:
     protocol: smtp
     tls: true
     auth: true
-    from: smtp.office365.com
+    from: no-reply@secusociale.sn
     properties.mail.smtp:
       auth: true
       starttls.enable: true

@@ -131,7 +131,7 @@ jhipster:
     allow-credentials: true
     max-age: 1800
   mail:
-    from: cssipresportail@gmail.com
+    from: no-reply@secusociale.sn
   swagger:
     default-include-pattern: /api/.*
     title: PortailCssIpresV2 API
