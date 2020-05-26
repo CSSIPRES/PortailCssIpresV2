@@ -62,20 +62,22 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: smtp.office365.com
+    host: smtp.gmail.com
     port: 587
-    username: no-reply@secusociale.sn
-    password: RQfzw688
+    username: cssipresportail@gmail.com
+    password: Oracle123$
     protocol: smtp
     tls: true
     auth: true
-    from: no-reply@secusociale.sn
+    from: cssipresportail@gmail.com
     properties.mail.smtp:
       auth: true
       starttls.enable: true
-      ssl.trust: smtp.office365.com
+      ssl.trust: smtp.gmail.com
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
-    cache: true
+    cache: false
 
 # ===================================================================
 # To enable TLS in production, generate a certificate using:
