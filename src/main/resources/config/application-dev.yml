@@ -37,11 +37,11 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://192.168.0.103:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    password: Oracle123$
+    # url: jdbc:mysql://192.168.0.103:3306/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    # password: Oracle123$
     username: root
-    # url: jdbc:mysql://localhost:8889/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    # password: root
+    url: jdbc:mysql://localhost:8889/PortailCssIpresV2?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    password: root
     hikari:
       poolName: Hikari
       auto-commit: false
