@@ -140,16 +140,27 @@ public class PreDNSService {
 		  JAXBElement<XMLGregorianCalendar> rcc1 = listSalaries.get(i).getDateEffetRegimeCadreMois1();
 		  JAXBElement<XMLGregorianCalendar> rcc2 = listSalaries.get(i).getDateEffetRegimeCadreMois2();
 		  JAXBElement<XMLGregorianCalendar> rcc3 = listSalaries.get(i).getDateEffetRegimeCadreMois3();
+		  JAXBElement<XMLGregorianCalendar> dateEntree = listSalaries.get(i).getDateEntree();
 		  JAXBElement<XMLGregorianCalendar> dateSortie = listSalaries.get(i).getDateSortie();
+		  JAXBElement<XMLGregorianCalendar> dateNaissance = listSalaries.get(i).getDateNaissance();
+		  
 		  
 		  employeModel.setNumeroAssureSocial(listSalaries.get(i).getNumeroAssureSocial()); 
 		  employeModel.setNomEmploye(listSalaries.get(i).getNom());
 		  employeModel.setPrenomEmploye(listSalaries.get(i).getPrenom());
-		  employeModel.setDateNaissance(formatDate.format(listSalaries.get(i).getDateNaissance().getValue().toGregorianCalendar().getTime()));
+		  
+		  if(dateNaissance != null) {
+			  employeModel.setDateSortie(model.formaToString(dateNaissance.getValue().toGregorianCalendar().getTime()));
+		  }
+		  
 		  employeModel.setTypePieceIdentite(listSalaries.get(i).getTypePiece());
 		  employeModel.setNumPieceIdentite(listSalaries.get(i).getNumeroPiece());
 		  employeModel.setNatureContrat(listSalaries.get(i).getNatureContrat());
-		  employeModel.setDateEntree(formatDate.format(listSalaries.get(i).getDateEntree().getValue().toGregorianCalendar().getTime()));
+		  
+		  if(dateEntree != null) {
+			  employeModel.setDateSortie(model.formaToString(dateEntree.getValue().toGregorianCalendar().getTime()));
+		  }
+		   
 		  if(dateSortie != null) {
 			  employeModel.setDateSortie(model.formaToString(dateSortie.getValue().toGregorianCalendar().getTime()));
 		  }
