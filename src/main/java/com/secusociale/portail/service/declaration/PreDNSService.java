@@ -158,7 +158,7 @@ public class PreDNSService {
 		  employeModel.setNatureContrat(listSalaries.get(i).getNatureContrat());
 		  
 		  if(dateEntree != null) {
-			  employeModel.setDateSortie(model.formaToString(dateEntree.getValue().toGregorianCalendar().getTime()));
+			  employeModel.setDateEntree(model.formaToString(dateEntree.getValue().toGregorianCalendar().getTime()));
 		  }
 		   
 		  if(dateSortie != null) {
