@@ -150,7 +150,7 @@ public class PreDNSService {
 		  employeModel.setPrenomEmploye(listSalaries.get(i).getPrenom());
 		  
 		  if(dateNaissance != null) {
-			  employeModel.setDateSortie(model.formaToString(dateNaissance.getValue().toGregorianCalendar().getTime()));
+			  employeModel.setDateNaissance(model.formaToString(dateNaissance.getValue().toGregorianCalendar().getTime()));
 		  }
 		  
 		  employeModel.setTypePieceIdentite(listSalaries.get(i).getTypePiece());
