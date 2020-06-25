@@ -79,11 +79,16 @@ public class ImmatPortailService {
 		input.setEmployerQuery(immatriculation.getInput().getEmployerQuery());
 		input.setMainRegistrationForm(immatriculation.getInput().getMainRegistrationForm());
 		input.setLegalRepresentativeForm(immatriculation.getInput().getLegalRepresentativeForm());
+		input.setDocuments(immatriculation.getInput().getDocuments());
+		
+		System.out.println("Documents portails:  "+immatriculation.getInput().getDocuments());
 
 		if(immatriculation.getInput().getDocuments() != null){
 
                     if(immatriculation.getInput().getDocuments().getDemandeEcrit().getUrl() != null){
+                    	
                         immatriculation.getInput().getDocuments().getDemandeEcrit().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getDemandeEcrit().getUrl(),"demande_ecrit")));
+                        
                     }
 
                    if(immatriculation.getInput().getDocuments().getFormDemande() != null){

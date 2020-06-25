@@ -83,10 +83,10 @@ public class DocumentUrlService {
 
     public String uploadedDocument(MultipartFile document) throws IOException {
 
-       /* document.transferTo(new File("http://192.168.0.104/Portail/documents/"+document.getOriginalFilename()));
-        return "http://192.168.0.104/Portail/documents/"+document.getOriginalFilename(); */
-        
         document.transferTo(new File("/var/www/html/Portail/documents/"+document.getOriginalFilename()));
-        return "/var/www/html/Portail/documents/"+document.getOriginalFilename();
+        return "http://192.168.0.104/Portail/documents/"+document.getOriginalFilename(); 
+        
+        /*document.transferTo(new File("/var/www/html/Portail/documents/"+document.getOriginalFilename()));
+        return "/var/www/html/Portail/documents/ "+document.getOriginalFilename();*/
     }
 }
