@@ -117,7 +117,7 @@ public class ImmatPortailService {
                     if(immatriculation.getInput().getDocuments().getContratsTravail() != null && immatriculation.getInput().getDocuments().getContratsTravail().getUrl() != ""){
                         immatriculation.getInput().getDocuments().getContratsTravail().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getContratsTravail().getUrl(),"contrats_travail")));
                     }
-                    if(immatriculation.getInput().getDocuments().getCni() != null){
+                    if(immatriculation.getInput().getDocuments().getCni() != null && immatriculation.getInput().getDocuments().getCni().getUrl() != ""){
                         immatriculation.getInput().getDocuments().getCni().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getCni().getUrl(),"cni")));
                     }
                     if(immatriculation.getInput().getDocuments().getCarteIdentiteConsulaire() != null && immatriculation.getInput().getDocuments().getCarteIdentiteConsulaire().getUrl() != ""){
