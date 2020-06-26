@@ -85,17 +85,19 @@ public class ImmatPortailService {
 
 		if(immatriculation.getInput().getDocuments() != null){
 
-                    if(immatriculation.getInput().getDocuments().getDemandeEcrit().getUrl() != null){
+                    if(immatriculation.getInput().getDocuments().getDemandeEcrit().getUrl() != null && immatriculation.getInput().getDocuments().getDemandeEcrit().getUrl() != "" ){
                     	
                         immatriculation.getInput().getDocuments().getDemandeEcrit().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getDemandeEcrit().getUrl(),"demande_ecrit")));
                         
                     }
 
-                   if(immatriculation.getInput().getDocuments().getFormDemande() != null){
+                   if(immatriculation.getInput().getDocuments().getFormDemande() != null && immatriculation.getInput().getDocuments().getFormDemande().getUrl() != ""  ){
                        immatriculation.getInput().getDocuments().getFormDemande().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getFormDemande().getUrl(),"form_demande")));
+                       System.out.println("Form de demande:  "+immatriculation.getInput().getDocuments().getFormDemande());
                     }
-                    if(immatriculation.getInput().getDocuments().getRegistreCommerce() != null){
-                        immatriculation.getInput().getDocuments().getRegistreCommerce().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getRegistreCommerce().getUrl(),"registre_commerce")));
+                    if(immatriculation.getInput().getDocuments().getRegistreCommerce() != null && immatriculation.getInput().getDocuments().getRegistreCommerce().getUrl() != "" ){
+                    	 System.out.println("Registre de commerce:  "+immatriculation.getInput().getDocuments().getRegistreCommerce());
+                    	immatriculation.getInput().getDocuments().getRegistreCommerce().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getRegistreCommerce().getUrl(),"registre_commerce")));
                     }
                     if(immatriculation.getInput().getDocuments().getDeclarationEtablissement() != null){
                         immatriculation.getInput().getDocuments().getDeclarationEtablissement().setUrl(this.documentUrlService.uploadedDocument(BASE64DecodedMultipartFile.base64ToMultipart(immatriculation.getInput().getDocuments().getDeclarationEtablissement().getUrl(),"declaration_etablissement")));
