@@ -76,6 +76,15 @@ public class EmployeurService {
        // String username = SecurityUtils.getCurrentUserLogin().get();
         return employeurRepository.findByUserIsCurrentUser();
     }
+    
+    @Transactional(readOnly = true)
+    public Optional<Employeur> findEmployeurByTypeIdentifiantAndNumeroIdentifiant(String typeIdentifiant, String numeroIdentifiant) {
+        log.debug("Request to get Employeur : {}");
+       // String username = SecurityUtils.getCurrentUserLogin().get();
+        return employeurRepository.findByTypeIdentifiantAndNumeroIdentifiant(typeIdentifiant, numeroIdentifiant);
+    }
+    
+    
 
 
 

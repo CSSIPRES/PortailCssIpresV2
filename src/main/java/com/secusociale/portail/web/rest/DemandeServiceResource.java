@@ -109,6 +109,20 @@ public class DemandeServiceResource {
         Optional<DemandeService> demandeService = demandeServiceService.findOne(id);
         return ResponseUtil.wrapOrNotFound(demandeService);
     }
+    
+    
+    /**
+     * {@code GET  /demande-services/:id} : get the "id" demandeService.
+     *
+     * @param id the id of the demandeService to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the demandeService, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/demande-services/{iDemployeur}/employeur")
+    public ResponseEntity<List<DemandeService>> getDemandeServicesByEmployeur(@PathVariable Long iDemployeur) {
+        log.debug("REST request to get DemandeService : {}", iDemployeur);
+        List<DemandeService> demandeServices = demandeServiceService.findDemandesByEmployeur(iDemployeur);
+        return new ResponseEntity<List<DemandeService>>(demandeServices, HttpStatus.OK);
+    }
 
     /**
      * {@code DELETE  /demande-services/:id} : delete the "id" demandeService.

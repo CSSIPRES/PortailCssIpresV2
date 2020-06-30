@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Spring Data  repository for the Employeur entity.
@@ -20,5 +21,6 @@ public interface EmployeurRepository extends JpaRepository<Employeur, Long> {
   //List<Employeur> findAllByUserLogin(String login);
     Employeur findByProcessFlowIdAndUserLogin(String processFlowId, String login);
     Employeur findByTypeIdentifiantAndNumeroIdentifiantAndUserLogin(String typeIdentifiant,String numeroIdentifiant, String login);
+    Optional<Employeur> findByTypeIdentifiantAndNumeroIdentifiant(String typeIdentifiant,String numeroIdentifiant);
 
 }

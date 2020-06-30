@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -61,6 +62,14 @@ public class DemandeServiceService {
         log.debug("Request to get DemandeService : {}", id);
         return demandeServiceRepository.findById(id);
     }
+    
+    @Transactional(readOnly = true)
+    public List<DemandeService> findDemandesByEmployeur(Long iDemployeur) {
+        log.debug("Request to get DemandeService : {}", iDemployeur);
+        return demandeServiceRepository.findByEmployeurId(iDemployeur);
+    }
+    
+    
 
     /**
      * Delete the demandeService by id.

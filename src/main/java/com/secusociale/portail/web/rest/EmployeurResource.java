@@ -123,6 +123,23 @@ public class EmployeurResource {
          List<Employeur> employeurs = employeurService.findEmployeurByUser();
         return  new ResponseEntity<List<Employeur>>(employeurs, HttpStatus.OK);
     }
+    
+    /**
+     * {@code GET  /employeurByIdentifiant/{typeIdentifiant}/{numeroIdentifiant} : get employeur by TypeIdentifiant.
+     *
+     *@param typeIdentifiant thetypeIdentifiant of employeur .
+     *
+     *@param numeroIdentifiant the numeroIdentifiant of employeur 
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the employeur, or with status {@code 404 (Not Found)}.
+     */
+    
+    @GetMapping("/employeurByIdentifiant/{typeIdentifiant}/{numeroIdentifiant}")
+    public ResponseEntity<Optional<Employeur>> getEmployeurByIdentifiantAndTypeIdentifiant(@PathVariable String typeIdentifiant, @PathVariable String numeroIdentifiant) {
+        log.debug("REST request to get Employeur : {}" );
+         Optional<Employeur> employeur = employeurService.findEmployeurByTypeIdentifiantAndNumeroIdentifiant(typeIdentifiant, numeroIdentifiant);
+        return  new ResponseEntity<Optional<Employeur>>(employeur, HttpStatus.OK);
+    }
 
     
     
