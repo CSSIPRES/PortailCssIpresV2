@@ -9,8 +9,12 @@ import javax.xml.ws.Holder;
 
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLO;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOFault;
+import com.secusociale.portail.service.soap.infosEmployeur.CMINFOSEMPLOYEUR;
+import com.secusociale.portail.service.soap.infosSalaries.CMGETPERSONSLINKTOEMPLOYER;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
+import com.secusociale.portail.service.soap.recepisseDepot.GETRECEPISSEDEPOTURL;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.secusociale.portail.service.immatriculation.CertificatImmatriculationService;
 import com.secusociale.portail.service.immatriculation.ImmatPortailService;
+import com.secusociale.portail.service.immatriculation.InfoSalariesService;
+import com.secusociale.portail.service.immatriculation.InfosCompteEmployeurService;
+import com.secusociale.portail.service.immatriculation.RecepisseDepotService;
 import com.secusociale.portail.service.immatriculation.StatutDossierImmatriculationService;
 import com.secusociale.portail.service.immatriculation.VerifierExistenceEmployeur;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculation;
@@ -55,6 +62,15 @@ public class ImmatPortailResource {
 
     @Autowired
     private VerifierExistenceEmployeur verifierExistenceEmployeur;
+    
+    @Autowired
+    private RecepisseDepotService recepisseDepotService ;
+    
+    @Autowired
+    private InfosCompteEmployeurService infosCompteEmployeurService ;
+    
+    @Autowired
+    private InfoSalariesService infosSalarieService ;
 
 	@PostMapping("/immatPortail")
     public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException, IOException {
@@ -163,7 +179,46 @@ public class ImmatPortailResource {
 
 
 
+	@GetMapping("/recepisseDepot/{idDossier}")
+	Holder<GETRECEPISSEDEPOTURL> getRecepisseDepot(@PathVariable String idDossier) {
 
+		Holder<GETRECEPISSEDEPOTURL> recepisse = new Holder<GETRECEPISSEDEPOTURL>();
+
+		recepisse = recepisseDepotService.getRecepisseDepotUrl(idDossier);
+
+		return recepisse;
+
+	}
+	
+	
+	@GetMapping("/infosCompteEmployeur/{idDossier}")
+	Holder<CMINFOSEMPLOYEUR> getinfosCompteEmployeur(@PathVariable String idDossier) throws JAXBException {
+
+		Holder<CMINFOSEMPLOYEUR> infosCompte = new Holder<CMINFOSEMPLOYEUR>();
+
+		infosCompte =  infosCompteEmployeurService.getInfosCompteEmployeur(idDossier);
+
+		return infosCompte;
+
+	}
+	
+	
+	@GetMapping("/salaries/{numeroEmployeur}")
+	Holder<CMGETPERSONSLINKTOEMPLOYER> getinfosSalaries(@PathVariable String numeroEmployeur) throws JAXBException {
+
+		Holder<CMGETPERSONSLINKTOEMPLOYER> infosalaries = new Holder<CMGETPERSONSLINKTOEMPLOYER>();
+
+		infosalaries =  infosSalarieService.getInfosalarie(numeroEmployeur) ;
+
+		return infosalaries;
+
+	}
+	
+	
+	
+	
+	
+	
 
 
 	@GetMapping("/certificatImmatriculation/{idDossier}")

@@ -18,11 +18,16 @@ public final class PortailConstant {
 	 public static final String CHECK_EXISTENCE_EMPLOYEUR_WSDL = "http://192.168.125.23:7500/ouaf/XAIApp/xaiserver/CmCheckExistenceEmployeur?WSDL" ;
 	 public static final String EMPLOYEUR_EXISTANT_WSDL = "http://192.168.125.23:7500/ouaf/XAIApp/xaiserver/CM_GET_EMPLOYEUR_DETAILS?wsdl" ;
 	 public static final String DOMESTIQUE_WSDL = "http://192.168.125.23:7500/ouaf/XAIApp/xaiserver/inboundDomFrm?WSDL" ;
+	 public static final String RECEPISSE_WSDL = "http://192.168.125.23:7500/ouaf/XAIApp/xaiserver/GET_RECEPISSE_DEPOT_URL?wsdl" ;
+	 public static final String INFOS_COMPTE_EMPLOYEUR_WSDL = "http://192.168.125.23:7500/ouaf/XAIApp/xaiserver/CM_INFOS_EMPLOYEUR?wsdl" ;
+	 public static final String INFOS_SALARIES_WSDL = " http://192.168.125.23:7500/ouaf/XAIApp/xaiserver/CM_GET_PERSONS_LINK_TO_EMPLOYER?wsdl" ;
 	 
 	 
 	 
+	
 	 
 	 
+	
 	 private PortailConstant() {
 	    }
 }
