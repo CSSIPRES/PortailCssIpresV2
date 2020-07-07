@@ -28,10 +28,13 @@ public class InfoSalariesService {
 		infoSalaries.value.setNumeroEmployeur(numeroEmployeur);
 		
 
-		final JAXBContext jc = JAXBContext.newInstance(CmGetCertificatImmatriculation.class); final
-		Marshaller marshaller = jc.createMarshaller();
-		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		marshaller.marshal(infoSalaries.value, System.out);
+		/*
+		 * final JAXBContext jc =
+		 * JAXBContext.newInstance(CmGetCertificatImmatriculation.class); final
+		 * Marshaller marshaller = jc.createMarshaller();
+		 * marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		 * marshaller.marshal(infoSalaries.value, System.out);
+		 */
 		
 		CMGETPERSONSLINKTOEMPLOYERService cmgetpersonslinktoemployerService = new CMGETPERSONSLINKTOEMPLOYERService() ;
 		CMGETPERSONSLINKTOEMPLOYERPortType cmgetpersonslinktoemployerPortType = cmgetpersonslinktoemployerService.getCMGETPERSONSLINKTOEMPLOYERPort();
