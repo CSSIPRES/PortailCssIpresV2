@@ -1,6 +1,9 @@
 package com.secusociale.portail.service.immatriculation;
 
+import java.math.BigDecimal;
+
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.ws.BindingProvider;
@@ -28,9 +31,11 @@ public class VerifierExistenceEmployeur {
 		 
 		 input.setTaxpayerIdentifierType(typeIdentifiant);
 		 input.setTaxpayerIdentifierValue(numeroIdentifiant);
+		  
 		 
 		 ObjectFactory obj = new ObjectFactory();
-		 
+		 JAXBElement<Boolean> bool = obj.createCmCheckExistenceEmployeurInputCheckUsingTaxpayerIDOnly(true);
+		 input.setCheckUsingTaxpayerIDOnly(bool);
 		 cmCheckExistenceEmployeur.value = obj.createCmCheckExistenceEmployeur();
 		 cmCheckExistenceEmployeur.value.setInput(input);
 		 

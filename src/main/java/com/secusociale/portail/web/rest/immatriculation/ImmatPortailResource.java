@@ -11,9 +11,11 @@ import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.I
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOFault;
 import com.secusociale.portail.service.soap.infosEmployeur.CMINFOSEMPLOYEUR;
 import com.secusociale.portail.service.soap.infosSalaries.CMGETPERSONSLINKTOEMPLOYER;
+import com.secusociale.portail.service.soap.listeEmployes.EMPLOYESLISTSERVICE;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
 import com.secusociale.portail.service.soap.recepisseDepot.GETRECEPISSEDEPOTURL;
+import com.secusociale.portail.service.soap.soldeEmployeur.XAIGETSOLDE;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,20 +27,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.secusociale.portail.service.immatriculation.AgencesRattachementService;
 import com.secusociale.portail.service.immatriculation.CertificatImmatriculationService;
+import com.secusociale.portail.service.immatriculation.IdentifiantsEmployeurService;
 import com.secusociale.portail.service.immatriculation.ImmatPortailService;
 import com.secusociale.portail.service.immatriculation.InfoSalariesService;
 import com.secusociale.portail.service.immatriculation.InfosCompteEmployeurService;
+import com.secusociale.portail.service.immatriculation.ListeEmployesService;
 import com.secusociale.portail.service.immatriculation.RecepisseDepotService;
+import com.secusociale.portail.service.immatriculation.SoldeEmployeurService;
 import com.secusociale.portail.service.immatriculation.StatutDossierImmatriculationService;
 import com.secusociale.portail.service.immatriculation.VerifierExistenceEmployeur;
+import com.secusociale.portail.service.soap.agencesRattachement.AGENCESEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculation;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculationFault;
 import com.secusociale.portail.service.soap.checkExistenceEmployeur.CmCheckExistenceEmployeur;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
+import com.secusociale.portail.service.soap.derniersDeclarations.DERNDNSEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.domestique.InboundDomFrm;
 import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
+import com.secusociale.portail.service.soap.identifiantsEmployeurs.IDsEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculationFault;
@@ -71,7 +80,20 @@ public class ImmatPortailResource {
     
     @Autowired
     private InfoSalariesService infosSalarieService ;
+    
+    @Autowired
+    private ListeEmployesService listeEmployesService ;
 
+    @Autowired
+    private SoldeEmployeurService soldeEmployeurService;
+    
+    @Autowired
+    private IdentifiantsEmployeurService identifiantsEmployeurService;
+    
+    @Autowired
+    private AgencesRattachementService agencesRattachementService ;
+    
+    
 	@PostMapping("/immatPortail")
     public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException, IOException {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
@@ -246,6 +268,54 @@ public class ImmatPortailResource {
 		return employeurDetails;
 
     }
+	
+	
+	@GetMapping("/listEmployes/{numeroUnique}")
+	Holder<EMPLOYESLISTSERVICE> getListeemployes(@PathVariable String numeroUnique) throws JAXBException {
+
+		Holder<EMPLOYESLISTSERVICE> employes = new Holder<EMPLOYESLISTSERVICE>();
+
+		employes =   listeEmployesService.getListeEmployes(numeroUnique);
+
+		return employes;
+
+	}
+	
+	
+	@GetMapping("/solde/{numeroUnique}")
+	Holder<XAIGETSOLDE> getSolde(@PathVariable String numeroUnique) throws JAXBException {
+
+		Holder<XAIGETSOLDE> solde = new Holder<XAIGETSOLDE>();
+
+		solde =  soldeEmployeurService.getSoldeEmployeur(numeroUnique);
+
+		return solde;
+
+	}
+	
+	
+	@GetMapping("/idsEmployeur/{numeroUnique}")
+	Holder<IDsEMPLOYEURSERVICE> getIdentifiantsEmployeur(@PathVariable String numeroUnique) throws JAXBException {
+
+		Holder<IDsEMPLOYEURSERVICE> ids = new Holder<IDsEMPLOYEURSERVICE>();
+
+		ids =  identifiantsEmployeurService.getIdentifiantsEmployeurs(numeroUnique);
+
+		return ids;
+
+	}
+	
+	
+	@GetMapping("/agences/{numeroUnique}")
+	Holder<AGENCESEMPLOYEURSERVICE> getAgencesEmployeur(@PathVariable String numeroUnique) throws JAXBException {
+
+		Holder<AGENCESEMPLOYEURSERVICE> agences = new Holder<AGENCESEMPLOYEURSERVICE>();
+
+		agences =   agencesRattachementService.getAgencesRattachement(numeroUnique);
+
+		return agences;
+
+	}
 
 
 
