@@ -183,15 +183,15 @@ public class ImmatPortailService {
 
 	 // Save Immatriculation maintien d'affiliation
 
-    public Holder<MAINTAFFINBOUND> createImmatriculationMaintienAffiliation(MAINTAFFINBOUND.Input immatriculation) throws   JAXBException, JAXBException {
+    public Holder<MAINTAFFINBOUND> createImmatriculationMaintienAffiliation(MAINTAFFINBOUND immatriculation) throws   JAXBException, JAXBException {
         //String immatriculationType = "BVOLN" ;   //Immatriculation Volontaire
         Holder<MAINTAFFINBOUND> immatriculationAffiliation = new Holder<MAINTAFFINBOUND>();
         MAINTAFFINBOUND.Input input = new MAINTAFFINBOUND.Input();
        // input.getEmployeList().addAll(immatriculation.getInput().getEmployeList());
-        input.setInformationsGenerales(immatriculation.getInformationsGenerales());
-        input.setRegistrationFormInfos(immatriculation.getRegistrationFormInfos());
-        input.setInfosSupplementaires(immatriculation.getInfosSupplementaires());
-        input.setDocuments(immatriculation.getDocuments());
+        input.setInformationsGenerales(immatriculation.getInput().getInformationsGenerales());
+        input.setRegistrationFormInfos(immatriculation.getInput().getRegistrationFormInfos());
+        input.setInfosSupplementaires(immatriculation.getInput().getInfosSupplementaires());
+        input.setDocuments(immatriculation.getInput().getDocuments());
         com.secusociale.portail.service.soap.maintientAffiliation.ObjectFactory obj = new com.secusociale.portail.service.soap.maintientAffiliation.ObjectFactory();
         immatriculationAffiliation.value = obj.createMAINTAFFINBOUND();
         immatriculationAffiliation.value.setInput(input);

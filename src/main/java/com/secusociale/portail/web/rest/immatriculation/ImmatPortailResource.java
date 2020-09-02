@@ -52,6 +52,9 @@ import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculationFault;
 //import com.secusociale.portail.web.rest.ImmatriculationResource;
+import com.secusociale.portail.web.rest.errors.EmailAlreadyUsedException;
+import com.secusociale.portail.web.rest.errors.InvalidPasswordException;
+import com.secusociale.portail.web.rest.errors.LoginAlreadyUsedException;
 
 @RestController
 @RequestMapping("/api")
@@ -94,51 +97,75 @@ public class ImmatPortailResource {
     private AgencesRattachementService agencesRattachementService ;
     
     
+    
+    /**
+     * {@code POST  /immatPortail} : Immatriculation Maintient affiliation.
+     *
+     * @param immatriculationPortail the managed user View Model.
+     * @throws IOException 
+     */
+ 
 	@PostMapping("/immatPortail")
-    public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException, IOException {
+    public Holder<IMMATRICULATIONINBOUND> createImmatriculationPortail(@RequestBody IMMATRICULATIONINBOUND immatriculationPortail) throws IOException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMATRICULATIONINBOUND> immatriculationInbound = new Holder<IMMATRICULATIONINBOUND>();
 
-           immatriculationInbound = immatPortailService.createImmatriculationPortail(immatriculation);
+           immatriculationInbound = immatPortailService.createImmatriculationPortail(immatriculationPortail);
 
 		return immatriculationInbound;
 
     }
 
-
+	/**
+     * {@code POST  /maintient-affiliation} : Immatriculation Maintient affiliation.
+     *
+     * @param maintient the managed user View Model.
+	 * @throws JAXBException 
+     */
 	@PostMapping("/maintient-affiliation")
-    public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND.Input immatriculation) throws URISyntaxException,   JAXBException {
+    public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND maintient) throws JAXBException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<MAINTAFFINBOUND> immatriculationInbound = new Holder<MAINTAFFINBOUND>();
 
-           immatriculationInbound = immatPortailService.createImmatriculationMaintienAffiliation(immatriculation);
+           immatriculationInbound = immatPortailService.createImmatriculationMaintienAffiliation(maintient);
 
 		return immatriculationInbound;
 
     }
-
-
+  
+	/**
+     * {@code POST  /representation-diplomatique} : Immatriculation Representation diplomatique.
+     *
+     * @param diplomatique the managed user View Model.
+	 * @throws JAXBException 
+     */
 	@PostMapping("/representation-diplomatique")
-    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO immatriculation) throws URISyntaxException,  JAXBException {
+    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO diplomatique) throws JAXBException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMATREPDIPLO> immatriculationInbound = new Holder<IMMATREPDIPLO>();
 
-           immatriculationInbound = immatPortailService.createImmatriculationRepresentatnt(immatriculation);
+           immatriculationInbound = immatPortailService.createImmatriculationRepresentatnt(diplomatique);
 
 		return immatriculationInbound;
 
     }
-
+    
+	/**
+     * {@code POST  /publique-parapublique} : Immatriculation des publics et parapublics.
+     *
+     * @param publicPara the managed user View Model.
+	 * @throws JAXBException 
+     */
 	@PostMapping("/publique-parapublique")
-    public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND immatriculation) throws URISyntaxException,  JAXBException {
+    public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND publicPara) throws JAXBException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMAT2INBOUND> immatriculationInbound = new Holder<IMMAT2INBOUND>();
 
-           immatriculationInbound = immatPortailService.createImmatPublicParapublique(immatriculation);
+           immatriculationInbound = immatPortailService.createImmatPublicParapublique(publicPara);
 
 		return immatriculationInbound;
 
@@ -146,13 +173,19 @@ public class ImmatPortailResource {
 
 	
 
+	/**
+     * {@code POST  /domestique} : Immatriculation des publics et parapublics.
+     *
+     * @param domestique the managed user View Model.
+	 * @throws JAXBException 
+     */
 	 @PostMapping("/domestique")
-	    public Holder<InboundDomFrm> createImmatriculationPortail(@RequestBody InboundDomFrm immatriculation) throws URISyntaxException, IMMATRICULATIONINBOUNDFault, JAXBException {
+	    public Holder<InboundDomFrm> createImmatriculationPortail(@RequestBody InboundDomFrm domestique) throws JAXBException  {
 	       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
 	        Holder<InboundDomFrm> immatriculationInbound = new Holder<InboundDomFrm>();
 
-	           immatriculationInbound = immatPortailService.createImmatDomestique(immatriculation);
+	           immatriculationInbound = immatPortailService.createImmatDomestique(domestique);
 
 			return immatriculationInbound;
 
@@ -244,7 +277,7 @@ public class ImmatPortailResource {
 
 
 	@GetMapping("/certificatImmatriculation/{idDossier}")
-	Holder<CmGetCertificatImmatriculation> getCertificatImmatriculation(@PathVariable String idDossier) throws JAXBException, CmGetCertificatImmatriculationFault{
+	Holder<CmGetCertificatImmatriculation> getCertificatImmatriculation(@PathVariable String idDossier) throws JAXBException, CmGetCertificatImmatriculationFault {
 
 		Holder<CmGetCertificatImmatriculation> certificatImmatriculation = new Holder<CmGetCertificatImmatriculation>();
 
