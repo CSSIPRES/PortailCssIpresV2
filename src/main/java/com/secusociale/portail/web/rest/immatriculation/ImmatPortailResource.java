@@ -14,6 +14,7 @@ import com.secusociale.portail.service.soap.infosSalaries.CMGETPERSONSLINKTOEMPL
 import com.secusociale.portail.service.soap.listeEmployes.EMPLOYESLISTSERVICE;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
+import com.secusociale.portail.service.soap.numeroCompteEmployeur.CMPerAccountById;
 import com.secusociale.portail.service.soap.recepisseDepot.GETRECEPISSEDEPOTURL;
 import com.secusociale.portail.service.soap.soldeEmployeur.XAIGETSOLDE;
 
@@ -33,7 +34,9 @@ import com.secusociale.portail.service.immatriculation.IdentifiantsEmployeurServ
 import com.secusociale.portail.service.immatriculation.ImmatPortailService;
 import com.secusociale.portail.service.immatriculation.InfoSalariesService;
 import com.secusociale.portail.service.immatriculation.InfosCompteEmployeurService;
+import com.secusociale.portail.service.immatriculation.InfosEmployeurService;
 import com.secusociale.portail.service.immatriculation.ListeEmployesService;
+import com.secusociale.portail.service.immatriculation.NumeroCompteEmployeurService;
 import com.secusociale.portail.service.immatriculation.RecepisseDepotService;
 import com.secusociale.portail.service.immatriculation.SoldeEmployeurService;
 import com.secusociale.portail.service.immatriculation.StatutDossierImmatriculationService;
@@ -47,6 +50,7 @@ import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATI
 import com.secusociale.portail.service.soap.derniersDeclarations.DERNDNSEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.domestique.InboundDomFrm;
 import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
+import com.secusociale.portail.service.soap.employeurInfos.CMEMPLOYEURINFOS;
 import com.secusociale.portail.service.soap.identifiantsEmployeurs.IDsEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
@@ -96,7 +100,11 @@ public class ImmatPortailResource {
     @Autowired
     private AgencesRattachementService agencesRattachementService ;
     
+    @Autowired
+    private InfosEmployeurService infosEmployeurService ;
     
+    @Autowired
+    private NumeroCompteEmployeurService numeroCompteService ;
     
     /**
      * {@code POST  /immatPortail} : Immatriculation Maintient affiliation.
@@ -347,6 +355,30 @@ public class ImmatPortailResource {
 		agences =   agencesRattachementService.getAgencesRattachement(numeroUnique);
 
 		return agences;
+	}
+	
+	
+	@GetMapping("/employeur/{numeroUnique}")
+	Holder<CMEMPLOYEURINFOS> getEmployeurbyPersonByNumeroUnique(@PathVariable String numeroUnique) throws JAXBException {
+
+		Holder<CMEMPLOYEURINFOS> employeur = new Holder<CMEMPLOYEURINFOS>();
+
+		employeur =   infosEmployeurService.getEmployeurInfos(numeroUnique);
+
+		return employeur;
+
+	}
+	
+	
+
+	@GetMapping("/numeroCompte/{numeroUnique}")
+	Holder<CMPerAccountById> getNumeroCompteByPersonId(@PathVariable String numeroUnique) throws JAXBException {
+
+		Holder<CMPerAccountById> compte = new Holder<CMPerAccountById>();
+
+		compte =   numeroCompteService.getNumeroCompteByPersonId(numeroUnique);
+
+		return compte;
 
 	}
 

@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.secusociale.portail.model.DeclarationModel;
 import com.secusociale.portail.service.declaration.DnsService;
+import com.secusociale.portail.service.declaration.GetTauxEtPlafondsService;
 import com.secusociale.portail.service.declaration.ListeDeclarationsService;
 import com.secusociale.portail.service.declaration.PreDNSService;
 import com.secusociale.portail.service.soap.declaration.DNSINBOUNDSERVICEFault;
 import com.secusociale.portail.service.soap.derniersDeclarations.DERNDNSEMPLOYEURSERVICE;
+import com.secusociale.portail.service.soap.getTauxPlafonds.CMGETCONSTANTS;
 import com.secusociale.portail.service.soap.preDNS.CmPresDnsFault;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculationFault;
@@ -44,6 +46,9 @@ public class DeclarationPortailResource {
 	
 	@Autowired
 	private DnsService dnsService ;
+	
+	@Autowired
+	private GetTauxEtPlafondsService getTauxPlafondService ;
 	
 	
 	@PostMapping("/preDNS")
@@ -76,6 +81,17 @@ public class DeclarationPortailResource {
 		declarations =  listeDeclarationsservice.getListeDeclarations(numeroUnique);
 
 		return declarations;
+
+	}
+	
+	@GetMapping("/tauxEtPlafonds")
+	Holder<CMGETCONSTANTS> getTauxEtPlafond() throws JAXBException {
+
+		Holder<CMGETCONSTANTS> tauxPlafond = new Holder<CMGETCONSTANTS>();
+
+		tauxPlafond =   getTauxPlafondService.getTauxPlafonds();
+
+		return tauxPlafond;
 
 	}
 

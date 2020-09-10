@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.secusociale.portail.service.paiement.DerniersPaiementsService;
 import com.secusociale.portail.service.paiement.FacturesImpayesService;
+import com.secusociale.portail.service.paiement.ListefacturesService;
 import com.secusociale.portail.service.soap.derniersPaiements.DERNPAYEMPLOYEURSERVICE;
+import com.secusociale.portail.service.soap.facturesDns.CMPAYDNSXAI;
 import com.secusociale.portail.service.soap.facturesImpayes.FACTURESIMPAYEESSERVICE;
 
 @RestController
@@ -23,6 +25,9 @@ public class PaiementPortailResource {
 	
 	@Autowired
 	private FacturesImpayesService facturesImpayesService;
+	
+	@Autowired
+	private ListefacturesService listefactureService ;
 
 	
 	@GetMapping("/listPaiement/{numeroUnique}")
@@ -44,6 +49,17 @@ public class PaiementPortailResource {
 		impayes =    facturesImpayesService.getFactureImpaye(numeroUnique);
 
 		return impayes;
+
+	}
+	
+	@GetMapping("/listefacture/{numeroCompte}")
+	Holder<CMPAYDNSXAI> getListfactures(@PathVariable String numeroCompte) throws JAXBException {
+
+		Holder<CMPAYDNSXAI> factures = new Holder<CMPAYDNSXAI>();
+
+		factures=    listefactureService.getListFactures(numeroCompte);
+
+		return factures;
 
 	}
 	
