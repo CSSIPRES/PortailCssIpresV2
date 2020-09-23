@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour anonymous complex type.
  * 
- * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -66,7 +66,7 @@ public class CMPerAccountById {
     protected String dateTimeTagFormat;
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ input.
+     * Obtient la valeur de la propriété input.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class CMPerAccountById {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ input.
+     * Définit la valeur de la propriété input.
      * 
      * @param value
      *     allowed object is
@@ -90,7 +90,7 @@ public class CMPerAccountById {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ output.
+     * Obtient la valeur de la propriété output.
      * 
      * @return
      *     possible object is
@@ -102,7 +102,7 @@ public class CMPerAccountById {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ output.
+     * Définit la valeur de la propriété output.
      * 
      * @param value
      *     allowed object is
@@ -114,7 +114,7 @@ public class CMPerAccountById {
     }
 
     /**
-     * Obtient la valeur de la propriï¿½tï¿½ dateTimeTagFormat.
+     * Obtient la valeur de la propriété dateTimeTagFormat.
      * 
      * @return
      *     possible object is
@@ -130,7 +130,7 @@ public class CMPerAccountById {
     }
 
     /**
-     * Dï¿½finit la valeur de la propriï¿½tï¿½ dateTimeTagFormat.
+     * Définit la valeur de la propriété dateTimeTagFormat.
      * 
      * @param value
      *     allowed object is
@@ -145,7 +145,7 @@ public class CMPerAccountById {
     /**
      * <p>Classe Java pour anonymous complex type.
      * 
-     * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
+     * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -171,7 +171,7 @@ public class CMPerAccountById {
         protected String personId;
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ personId.
+         * Obtient la valeur de la propriété personId.
          * 
          * @return
          *     possible object is
@@ -183,7 +183,7 @@ public class CMPerAccountById {
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ personId.
+         * Définit la valeur de la propriété personId.
          * 
          * @param value
          *     allowed object is
@@ -200,7 +200,7 @@ public class CMPerAccountById {
     /**
      * <p>Classe Java pour anonymous complex type.
      * 
-     * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
+     * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
      * 
      * <pre>
      * &lt;complexType>
@@ -226,7 +226,7 @@ public class CMPerAccountById {
         protected String accountId;
 
         /**
-         * Obtient la valeur de la propriï¿½tï¿½ accountId.
+         * Obtient la valeur de la propriété accountId.
          * 
          * @return
          *     possible object is
@@ -238,7 +238,7 @@ public class CMPerAccountById {
         }
 
         /**
-         * Dï¿½finit la valeur de la propriï¿½tï¿½ accountId.
+         * Définit la valeur de la propriété accountId.
          * 
          * @param value
          *     allowed object is

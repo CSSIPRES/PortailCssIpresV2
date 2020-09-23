@@ -1,5 +1,5 @@
 
-package com.secusociale.portail.service.soap.numeroCompteEmployeur;
+package com.secusociale.portail.service.soap.independant;
 
 import javax.xml.ws.WebFault;
 
@@ -11,7 +11,7 @@ import javax.xml.ws.WebFault;
  * 
  */
 @WebFault(name = "Fault", targetNamespace = "http://ouaf.oracle.com/")
-public class CMPerAccountByIdFault
+public class CMCrtIndForXAIFault
     extends Exception
 {
 
@@ -26,7 +26,7 @@ public class CMPerAccountByIdFault
      * @param faultInfo
      * @param message
      */
-    public CMPerAccountByIdFault(String message, Fault faultInfo) {
+    public CMCrtIndForXAIFault(String message, Fault faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class CMPerAccountByIdFault
      * @param cause
      * @param message
      */
-    public CMPerAccountByIdFault(String message, Fault faultInfo, Throwable cause) {
+    public CMCrtIndForXAIFault(String message, Fault faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,7 +45,7 @@ public class CMPerAccountByIdFault
     /**
      * 
      * @return
-     *     returns fault bean: com.secusociale.portail.service.soap.numeroCompteEmployeur.Fault
+     *     returns fault bean: com.secusociale.portail.service.soap.independant.Fault
      */
     public Fault getFaultInfo() {
         return faultInfo;

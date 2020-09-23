@@ -1,5 +1,5 @@
 
-package com.secusociale.portail.service.soap.numeroCompteEmployeur;
+package com.secusociale.portail.service.soap.independant;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;

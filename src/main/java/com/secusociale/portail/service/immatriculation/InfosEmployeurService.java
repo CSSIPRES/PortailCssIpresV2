@@ -20,13 +20,15 @@ import com.secusociale.portail.service.soap.employeurInfos.ObjectFactory;
 @Service
 public class InfosEmployeurService {
 
-	public Holder<CMEMPLOYEURINFOS> getEmployeurInfos(String personId) throws JAXBException{
+	public Holder<CMEMPLOYEURINFOS> getEmployeurInfos(CMEMPLOYEURINFOS empl) throws JAXBException{
 		
 		Holder<CMEMPLOYEURINFOS> employeurInfos = new Holder<CMEMPLOYEURINFOS>();
 		
 		Input input = new Input() ;
 		
-		input.setPersonId(personId);
+		input.setTypeIdentifiant(empl.getInput().getTypeIdentifiant());
+		input.setNumeroUnique(empl.getInput().getNumeroIdentifiant());
+		input.setNumeroUnique(empl.getInput().getNumeroUnique());
 		
 		ObjectFactory obj = new ObjectFactory() ;
 		

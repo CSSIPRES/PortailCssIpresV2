@@ -51,6 +51,7 @@ import com.secusociale.portail.service.soap.derniersDeclarations.DERNDNSEMPLOYEU
 import com.secusociale.portail.service.soap.domestique.InboundDomFrm;
 import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
 import com.secusociale.portail.service.soap.employeurInfos.CMEMPLOYEURINFOS;
+import com.secusociale.portail.service.soap.employeurInfos.CMEMPLOYEURINFOS.Input;
 import com.secusociale.portail.service.soap.identifiantsEmployeurs.IDsEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
@@ -130,9 +131,10 @@ public class ImmatPortailResource {
      *
      * @param maintient the managed user View Model.
 	 * @throws JAXBException 
+	 * @throws IOException 
      */
 	@PostMapping("/maintient-affiliation")
-    public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND maintient) throws JAXBException   {
+    public Holder<MAINTAFFINBOUND> createMaintientAffiliation(@RequestBody MAINTAFFINBOUND maintient) throws JAXBException, IOException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<MAINTAFFINBOUND> immatriculationInbound = new Holder<MAINTAFFINBOUND>();
@@ -148,9 +150,10 @@ public class ImmatPortailResource {
      *
      * @param diplomatique the managed user View Model.
 	 * @throws JAXBException 
+	 * @throws IOException 
      */
 	@PostMapping("/representation-diplomatique")
-    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO diplomatique) throws JAXBException   {
+    public Holder<IMMATREPDIPLO> createRepresentationDiplomatique(@RequestBody IMMATREPDIPLO diplomatique) throws JAXBException, IOException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMATREPDIPLO> immatriculationInbound = new Holder<IMMATREPDIPLO>();
@@ -166,9 +169,10 @@ public class ImmatPortailResource {
      *
      * @param publicPara the managed user View Model.
 	 * @throws JAXBException 
+	 * @throws IOException 
      */
 	@PostMapping("/publique-parapublique")
-    public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND publicPara) throws JAXBException   {
+    public Holder<IMMAT2INBOUND> createPubliqueParapublique(@RequestBody IMMAT2INBOUND publicPara) throws JAXBException, IOException   {
        // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
         Holder<IMMAT2INBOUND> immatriculationInbound = new Holder<IMMAT2INBOUND>();
@@ -186,9 +190,10 @@ public class ImmatPortailResource {
      *
      * @param domestique the managed user View Model.
 	 * @throws JAXBException 
+	 * @throws IOException 
      */
 	 @PostMapping("/domestique")
-	    public Holder<InboundDomFrm> createImmatriculationPortail(@RequestBody InboundDomFrm domestique) throws JAXBException  {
+	    public Holder<InboundDomFrm> createImmatriculationPortail(@RequestBody InboundDomFrm domestique) throws JAXBException, IOException  {
 	       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
 
 	        Holder<InboundDomFrm> immatriculationInbound = new Holder<InboundDomFrm>();
@@ -358,12 +363,12 @@ public class ImmatPortailResource {
 	}
 	
 	
-	@GetMapping("/employeur/{numeroUnique}")
-	Holder<CMEMPLOYEURINFOS> getEmployeurbyPersonByNumeroUnique(@PathVariable String numeroUnique) throws JAXBException {
+	@PostMapping("/employeurInfos")
+	Holder<CMEMPLOYEURINFOS> getEmployeurbyPersonByNumeroUnique(@RequestBody CMEMPLOYEURINFOS empl) throws JAXBException {
 
 		Holder<CMEMPLOYEURINFOS> employeur = new Holder<CMEMPLOYEURINFOS>();
 
-		employeur =   infosEmployeurService.getEmployeurInfos(numeroUnique);
+		employeur =   infosEmployeurService.getEmployeurInfos(empl);
 
 		return employeur;
 

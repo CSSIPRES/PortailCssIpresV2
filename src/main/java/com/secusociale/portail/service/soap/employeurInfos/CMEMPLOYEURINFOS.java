@@ -30,7 +30,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="typeIdentifiant" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="numeroIdentifiant" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="numeroUnique" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -199,6 +201,38 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *                       &lt;/complexContent>
  *                     &lt;/complexType>
  *                   &lt;/element>
+ *                   &lt;element name="representantLegal" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="legalRepPerson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="placeOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="typeOfIdentity" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="identityIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="ninCedeo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="landLineNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="mobileNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                             &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -315,7 +349,9 @@ public class CMEMPLOYEURINFOS {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *         &lt;element name="typeIdentifiant" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *         &lt;element name="numeroIdentifiant" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *         &lt;element name="numeroUnique" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -326,35 +362,89 @@ public class CMEMPLOYEURINFOS {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "personId"
+        "typeIdentifiant",
+        "numeroIdentifiant",
+        "numeroUnique"
     })
     public static class Input {
 
         @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
-        protected String personId;
+        protected String typeIdentifiant;
+        @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+        protected String numeroIdentifiant;
+        @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+        protected String numeroUnique;
 
         /**
-         * Obtient la valeur de la propriété personId.
+         * Obtient la valeur de la propriété typeIdentifiant.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getPersonId() {
-            return personId;
+        public String getTypeIdentifiant() {
+            return typeIdentifiant;
         }
 
         /**
-         * Définit la valeur de la propriété personId.
+         * Définit la valeur de la propriété typeIdentifiant.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setPersonId(String value) {
-            this.personId = value;
+        public void setTypeIdentifiant(String value) {
+            this.typeIdentifiant = value;
+        }
+
+        /**
+         * Obtient la valeur de la propriété numeroIdentifiant.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getNumeroIdentifiant() {
+            return numeroIdentifiant;
+        }
+
+        /**
+         * Définit la valeur de la propriété numeroIdentifiant.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setNumeroIdentifiant(String value) {
+            this.numeroIdentifiant = value;
+        }
+
+        /**
+         * Obtient la valeur de la propriété numeroUnique.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getNumeroUnique() {
+            return numeroUnique;
+        }
+
+        /**
+         * Définit la valeur de la propriété numeroUnique.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setNumeroUnique(String value) {
+            this.numeroUnique = value;
         }
 
     }
@@ -528,6 +618,38 @@ public class CMEMPLOYEURINFOS {
      *             &lt;/complexContent>
      *           &lt;/complexType>
      *         &lt;/element>
+     *         &lt;element name="representantLegal" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="legalRepPerson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="placeOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="typeOfIdentity" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="identityIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="ninCedeo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="landLineNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="mobileNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                   &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -540,7 +662,8 @@ public class CMEMPLOYEURINFOS {
     @XmlType(name = "", propOrder = {
         "identifiants",
         "status",
-        "additional"
+        "additional",
+        "representantLegal"
     })
     public static class Output {
 
@@ -550,6 +673,8 @@ public class CMEMPLOYEURINFOS {
         protected CMEMPLOYEURINFOS.Output.Status status;
         @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
         protected CMEMPLOYEURINFOS.Output.Additional additional;
+        @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+        protected CMEMPLOYEURINFOS.Output.RepresentantLegal representantLegal;
 
         /**
          * Gets the value of the identifiants property.
@@ -626,6 +751,30 @@ public class CMEMPLOYEURINFOS {
          */
         public void setAdditional(CMEMPLOYEURINFOS.Output.Additional value) {
             this.additional = value;
+        }
+
+        /**
+         * Obtient la valeur de la propriété representantLegal.
+         * 
+         * @return
+         *     possible object is
+         *     {@link CMEMPLOYEURINFOS.Output.RepresentantLegal }
+         *     
+         */
+        public CMEMPLOYEURINFOS.Output.RepresentantLegal getRepresentantLegal() {
+            return representantLegal;
+        }
+
+        /**
+         * Définit la valeur de la propriété representantLegal.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link CMEMPLOYEURINFOS.Output.RepresentantLegal }
+         *     
+         */
+        public void setRepresentantLegal(CMEMPLOYEURINFOS.Output.RepresentantLegal value) {
+            this.representantLegal = value;
         }
 
 
@@ -1696,6 +1845,649 @@ public class CMEMPLOYEURINFOS {
              */
             public void setNumeroIdentifiant(String value) {
                 this.numeroIdentifiant = value;
+            }
+
+        }
+
+
+        /**
+         * <p>Classe Java pour anonymous complex type.
+         * 
+         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * 
+         * <pre>
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="legalRepPerson" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="nationality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="nin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="placeOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="cityOfBirth" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="typeOfIdentity" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="identityIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="ninCedeo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="issuedDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="expiryDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="region" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="department" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="arondissement" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="commune" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="qartier" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="landLineNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="mobileNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "legalRepPerson",
+            "lastName",
+            "firstName",
+            "birthdate",
+            "nationality",
+            "nin",
+            "placeOfBirth",
+            "cityOfBirth",
+            "typeOfIdentity",
+            "identityIdNumber",
+            "ninCedeo",
+            "issuedDate",
+            "expiryDate",
+            "region",
+            "department",
+            "arondissement",
+            "commune",
+            "qartier",
+            "address",
+            "landLineNumber",
+            "mobileNumber",
+            "email"
+        })
+        public static class RepresentantLegal {
+
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String legalRepPerson;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String lastName;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String firstName;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String birthdate;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String nationality;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String nin;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String placeOfBirth;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String cityOfBirth;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String typeOfIdentity;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String identityIdNumber;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String ninCedeo;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String issuedDate;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String expiryDate;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String region;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String department;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String arondissement;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String commune;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String qartier;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String address;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String landLineNumber;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String mobileNumber;
+            @XmlElement(namespace = "http://oracle.com/CM_EMPLOYEUR_INFOS.xsd")
+            protected String email;
+
+            /**
+             * Obtient la valeur de la propriété legalRepPerson.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getLegalRepPerson() {
+                return legalRepPerson;
+            }
+
+            /**
+             * Définit la valeur de la propriété legalRepPerson.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setLegalRepPerson(String value) {
+                this.legalRepPerson = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété lastName.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getLastName() {
+                return lastName;
+            }
+
+            /**
+             * Définit la valeur de la propriété lastName.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setLastName(String value) {
+                this.lastName = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété firstName.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFirstName() {
+                return firstName;
+            }
+
+            /**
+             * Définit la valeur de la propriété firstName.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFirstName(String value) {
+                this.firstName = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété birthdate.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getBirthdate() {
+                return birthdate;
+            }
+
+            /**
+             * Définit la valeur de la propriété birthdate.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setBirthdate(String value) {
+                this.birthdate = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété nationality.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNationality() {
+                return nationality;
+            }
+
+            /**
+             * Définit la valeur de la propriété nationality.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNationality(String value) {
+                this.nationality = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété nin.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNin() {
+                return nin;
+            }
+
+            /**
+             * Définit la valeur de la propriété nin.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNin(String value) {
+                this.nin = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété placeOfBirth.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getPlaceOfBirth() {
+                return placeOfBirth;
+            }
+
+            /**
+             * Définit la valeur de la propriété placeOfBirth.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setPlaceOfBirth(String value) {
+                this.placeOfBirth = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété cityOfBirth.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCityOfBirth() {
+                return cityOfBirth;
+            }
+
+            /**
+             * Définit la valeur de la propriété cityOfBirth.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCityOfBirth(String value) {
+                this.cityOfBirth = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété typeOfIdentity.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getTypeOfIdentity() {
+                return typeOfIdentity;
+            }
+
+            /**
+             * Définit la valeur de la propriété typeOfIdentity.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setTypeOfIdentity(String value) {
+                this.typeOfIdentity = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété identityIdNumber.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getIdentityIdNumber() {
+                return identityIdNumber;
+            }
+
+            /**
+             * Définit la valeur de la propriété identityIdNumber.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setIdentityIdNumber(String value) {
+                this.identityIdNumber = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété ninCedeo.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNinCedeo() {
+                return ninCedeo;
+            }
+
+            /**
+             * Définit la valeur de la propriété ninCedeo.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNinCedeo(String value) {
+                this.ninCedeo = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété issuedDate.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getIssuedDate() {
+                return issuedDate;
+            }
+
+            /**
+             * Définit la valeur de la propriété issuedDate.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setIssuedDate(String value) {
+                this.issuedDate = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété expiryDate.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getExpiryDate() {
+                return expiryDate;
+            }
+
+            /**
+             * Définit la valeur de la propriété expiryDate.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setExpiryDate(String value) {
+                this.expiryDate = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété region.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getRegion() {
+                return region;
+            }
+
+            /**
+             * Définit la valeur de la propriété region.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setRegion(String value) {
+                this.region = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété department.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDepartment() {
+                return department;
+            }
+
+            /**
+             * Définit la valeur de la propriété department.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDepartment(String value) {
+                this.department = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété arondissement.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getArondissement() {
+                return arondissement;
+            }
+
+            /**
+             * Définit la valeur de la propriété arondissement.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setArondissement(String value) {
+                this.arondissement = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété commune.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCommune() {
+                return commune;
+            }
+
+            /**
+             * Définit la valeur de la propriété commune.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCommune(String value) {
+                this.commune = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété qartier.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getQartier() {
+                return qartier;
+            }
+
+            /**
+             * Définit la valeur de la propriété qartier.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setQartier(String value) {
+                this.qartier = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété address.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getAddress() {
+                return address;
+            }
+
+            /**
+             * Définit la valeur de la propriété address.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setAddress(String value) {
+                this.address = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété landLineNumber.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getLandLineNumber() {
+                return landLineNumber;
+            }
+
+            /**
+             * Définit la valeur de la propriété landLineNumber.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setLandLineNumber(String value) {
+                this.landLineNumber = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété mobileNumber.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getMobileNumber() {
+                return mobileNumber;
+            }
+
+            /**
+             * Définit la valeur de la propriété mobileNumber.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setMobileNumber(String value) {
+                this.mobileNumber = value;
+            }
+
+            /**
+             * Obtient la valeur de la propriété email.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getEmail() {
+                return email;
+            }
+
+            /**
+             * Définit la valeur de la propriété email.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setEmail(String value) {
+                this.email = value;
             }
 
         }

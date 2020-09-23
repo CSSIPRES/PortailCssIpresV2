@@ -1,5 +1,5 @@
 
-package com.secusociale.portail.service.soap.numeroCompteEmployeur;
+package com.secusociale.portail.service.soap.independant;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -76,15 +76,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Fault", namespace = "http://ouaf.oracle.com/")
 public class Fault {
 
-    @XmlElement(name = "ResponseStatus", required = true)
+    @XmlElement(name = "ResponseStatus", namespace = "", required = true)
     protected String responseStatus;
-    @XmlElement(name = "ResponseCode")
+    @XmlElement(name = "ResponseCode", namespace = "")
     protected int responseCode;
-    @XmlElement(name = "ResponseText", required = true)
+    @XmlElement(name = "ResponseText", namespace = "", required = true)
     protected String responseText;
-    @XmlElement(name = "ResponseData")
+    @XmlElement(name = "ResponseData", namespace = "")
     protected Fault.ResponseData responseData;
-    @XmlElement(name = "ServerMessage")
+    @XmlElement(name = "ServerMessage", namespace = "")
     protected Fault.ServerMessage serverMessage;
 
     /**
@@ -607,21 +607,21 @@ public class Fault {
     })
     public static class ServerMessage {
 
-        @XmlElement(name = "Category", required = true)
+        @XmlElement(name = "Category", namespace = "", required = true)
         protected String category;
-        @XmlElement(name = "Number", required = true)
+        @XmlElement(name = "Number", namespace = "", required = true)
         protected String number;
-        @XmlElement(name = "CallSequence", required = true)
+        @XmlElement(name = "CallSequence", namespace = "", required = true)
         protected String callSequence;
-        @XmlElement(name = "ProgramName", required = true)
+        @XmlElement(name = "ProgramName", namespace = "", required = true)
         protected String programName;
-        @XmlElement(name = "Text", required = true)
+        @XmlElement(name = "Text", namespace = "", required = true)
         protected String text;
-        @XmlElement(name = "Description", required = true)
+        @XmlElement(name = "Description", namespace = "", required = true)
         protected String description;
-        @XmlElement(name = "Table", required = true)
+        @XmlElement(name = "Table", namespace = "", required = true)
         protected String table;
-        @XmlElement(name = "Field", required = true)
+        @XmlElement(name = "Field", namespace = "", required = true)
         protected String field;
 
         /**

@@ -110,6 +110,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CMEMPLOYEURINFOS.Output.RepresentantLegal }
+     * 
+     */
+    public CMEMPLOYEURINFOS.Output.RepresentantLegal createCMEMPLOYEURINFOSOutputRepresentantLegal() {
+        return new CMEMPLOYEURINFOS.Output.RepresentantLegal();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
      * 
      */

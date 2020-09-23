@@ -39,6 +39,10 @@ import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.I
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOFault;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOPortType;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOService;
+import com.secusociale.portail.service.soap.independant.CMCrtIndForXAI;
+import com.secusociale.portail.service.soap.independant.CMCrtIndForXAIFault;
+import com.secusociale.portail.service.soap.independant.CMCrtIndForXAIPortType;
+import com.secusociale.portail.service.soap.independant.CMCrtIndForXAIService;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUND;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDFault;
 import com.secusociale.portail.service.soap.maintientAffiliation.MAINTAFFINBOUNDPortType;
@@ -425,7 +429,43 @@ public class ImmatPortailService {
     }
     
     
-    
+    public Holder<CMCrtIndForXAI> createImmatIndependant(CMCrtIndForXAI immatriculation) throws JAXBException{
+    	
+   Holder<CMCrtIndForXAI> immat = new Holder<CMCrtIndForXAI>();
+   
+        
+	 
+       
+       com.secusociale.portail.service.soap.independant.ObjectFactory obj = new com.secusociale.portail.service.soap.independant.ObjectFactory();
+       
+       immat.value= obj.createCMCrtIndForXAI();
+       immat.value.setInput(immatriculation.getInput());
+       
+       final JAXBContext jc = JAXBContext.newInstance(CMCrtIndForXAI.class);
+	     final Marshaller marshaller = jc.createMarshaller();
+	     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	     marshaller.marshal(immat.value, System.out);
+	     
+	     CMCrtIndForXAIService cmCrtIndForXAIService = new CMCrtIndForXAIService();
+	     CMCrtIndForXAIPortType cmCrtIndForXAIPortType = cmCrtIndForXAIService.getCMCrtIndForXAIPort();
+	     
+	     BindingProvider prov = (BindingProvider) cmCrtIndForXAIPortType ;
+	        prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+	        prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+       
+	        try {
+				cmCrtIndForXAIPortType.cmCrtIndForXAI(immat);
+			} catch (CMCrtIndForXAIFault e) {
+				// TODO Auto-generated catch block
+				throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+			}
+	        
+	        
+       return immat;
+    	
+    	
+    	
+    }
 
 
 }
