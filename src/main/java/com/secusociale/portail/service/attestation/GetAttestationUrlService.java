@@ -21,7 +21,7 @@ import com.secusociale.portail.service.soap.urlAttestationReguralite.ObjectFacto
 public class GetAttestationUrlService {
 	
 	
-	public Holder<CMGENATTESTATION> getUrlAttestation(String idDossier) throws JAXBException, CMGENATTESTATIONFault{
+	public Holder<CMGENATTESTATION> getUrlAttestation(String idDossier) throws JAXBException {
 		
 		String reportTemplate = "ATTESTATION_REGULARITE" ;
 		String parameterName = "processFlowId";
@@ -63,7 +63,11 @@ public class GetAttestationUrlService {
 		prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
         prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
         
-        cmgenattestationPortType.cmGENATTESTATION(cmGenAttestation);
+        try {
+			cmgenattestationPortType.cmGENATTESTATION(cmGenAttestation);
+		} catch (CMGENATTESTATIONFault e) {
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
 		
 		return cmGenAttestation;
 		

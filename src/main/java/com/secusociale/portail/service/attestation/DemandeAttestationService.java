@@ -19,7 +19,7 @@ import com.secusociale.portail.service.soap.demandeAttestationReguralite.CmGetAt
 @Service
 public class DemandeAttestationService {
 	
-	public Holder<CmGetAttestationRegularite> createDossierAttestation(String typeIdentifiant, String numeroIdentifiant ) throws JAXBException, CmGetAttestationRegulariteFault{
+	public Holder<CmGetAttestationRegularite> createDossierAttestation(String typeIdentifiant, String numeroIdentifiant ) throws JAXBException {
 		
 		
 		Input input = new Input();
@@ -47,7 +47,12 @@ public class DemandeAttestationService {
 	    prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
         prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
 	    
-		attestationRegularitePortType.cmGetAttestationRegularite(cmGetAttestationRegularite);
+		try {
+			attestationRegularitePortType.cmGetAttestationRegularite(cmGetAttestationRegularite);
+		} catch (CmGetAttestationRegulariteFault e) {
+			// TODO Auto-generated catch block
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
 		
 		
 		return cmGetAttestationRegularite ;

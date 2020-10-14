@@ -20,7 +20,7 @@ import com.secusociale.portail.service.soap.statutAttestationRegularite.ObjectFa
 public class StatutDossierAttestationService {
 	
 	
-	public Holder<CMGetStatusDemandeAttestation> getStatutDemandeAttestation(String idDossier) throws JAXBException, CMGetStatusDemandeAttestationFault{
+	public Holder<CMGetStatusDemandeAttestation> getStatutDemandeAttestation(String idDossier) throws JAXBException {
 		
 		
 		Input input = new Input();
@@ -44,7 +44,12 @@ public class StatutDossierAttestationService {
 		 prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
 	     prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
 	     
-	     attestationPortType.cmGetStatusDemandeAttestation(cmGetstatutDemandeAttestation);
+	     try {
+			attestationPortType.cmGetStatusDemandeAttestation(cmGetstatutDemandeAttestation);
+		} catch (CMGetStatusDemandeAttestationFault e) {
+			// TODO Auto-generated catch block
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
 		 
 		
 		
