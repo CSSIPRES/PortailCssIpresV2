@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.secusociale.portail.model.DeclarationModel;
+import com.secusociale.portail.service.declaration.DeclarationsManquantesService;
 import com.secusociale.portail.service.declaration.DnsService;
 import com.secusociale.portail.service.declaration.GetTauxEtPlafondsService;
 import com.secusociale.portail.service.declaration.ListeDeclarationsService;
 import com.secusociale.portail.service.declaration.PreDNSService;
 import com.secusociale.portail.service.soap.declaration.DNSINBOUNDSERVICEFault;
+import com.secusociale.portail.service.soap.declarations_manquantes.CMINFORMATIONMANQUEDNSIPRES;
 import com.secusociale.portail.service.soap.derniersDeclarations.DERNDNSEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.getTauxPlafonds.CMGETCONSTANTS;
 import com.secusociale.portail.service.soap.preDNS.CmPresDnsFault;
@@ -49,6 +51,9 @@ public class DeclarationPortailResource {
 	
 	@Autowired
 	private GetTauxEtPlafondsService getTauxPlafondService ;
+	
+	@Autowired
+	private DeclarationsManquantesService declarationManquanteService ;
 	
 	
 	@PostMapping("/preDNS")
@@ -94,6 +99,18 @@ public class DeclarationPortailResource {
 		return tauxPlafond;
 
 	}
+	
+	@PostMapping("/getDeclarationManquante")
+	public Holder<CMINFORMATIONMANQUEDNSIPRES> getDeclarationManquante(@RequestBody CMINFORMATIONMANQUEDNSIPRES decmanquante) throws CmPresDnsFault, JAXBException, DatatypeConfigurationException{
+		
+		log.debug("REST request to get PreDNS: {}", ENTITY_NAME);
+		
+		 
+		
+		return  declarationManquanteService.getDeclarationManquantes(decmanquante);
+		
+	}
+	
 
 	
 }

@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.secusociale.portail.service.immatriculation.AgencesRattachementService;
 import com.secusociale.portail.service.immatriculation.CertificatImmatriculationService;
+import com.secusociale.portail.service.immatriculation.FicheEmployeurService;
 import com.secusociale.portail.service.immatriculation.IdentifiantsEmployeurService;
 import com.secusociale.portail.service.immatriculation.ImmatPortailService;
 import com.secusociale.portail.service.immatriculation.InfoSalariesService;
@@ -52,6 +53,7 @@ import com.secusociale.portail.service.soap.domestique.InboundDomFrm;
 import com.secusociale.portail.service.soap.employeurExistant.CMGETEMPLOYEURDETAILS;
 import com.secusociale.portail.service.soap.employeurInfos.CMEMPLOYEURINFOS;
 import com.secusociale.portail.service.soap.employeurInfos.CMEMPLOYEURINFOS.Input;
+import com.secusociale.portail.service.soap.ficheEmployeur.CMFICHEPORTXAI;
 import com.secusociale.portail.service.soap.identifiantsEmployeurs.IDsEMPLOYEURSERVICE;
 import com.secusociale.portail.service.soap.immatPublicParapublic.IMMAT2INBOUND;
 import com.secusociale.portail.service.soap.statutDossierImmatriculation.CmGetStatusDossierImmatriculation;
@@ -106,6 +108,9 @@ public class ImmatPortailResource {
     
     @Autowired
     private NumeroCompteEmployeurService numeroCompteService ;
+    
+    @Autowired
+    private FicheEmployeurService ficheEmployeurService ;
     
     /**
      * {@code POST  /immatPortail} : Immatriculation Maintient affiliation.
@@ -384,6 +389,13 @@ public class ImmatPortailResource {
 		compte =   numeroCompteService.getNumeroCompteByPersonId(numeroUnique);
 
 		return compte;
+
+	}
+	
+	@PostMapping("/updateEmployeur")
+	Holder<CMFICHEPORTXAI> updateEmployeur(@RequestBody CMFICHEPORTXAI employeurToUpdate) throws JAXBException {
+
+		return ficheEmployeurService.updateEmployeur(employeurToUpdate);
 
 	}
 
