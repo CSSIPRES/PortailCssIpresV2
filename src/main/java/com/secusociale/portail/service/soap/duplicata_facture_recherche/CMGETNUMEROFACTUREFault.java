@@ -1,5 +1,5 @@
 
-package com.secusociale.portail.service.soap.reprise_activite;
+package com.secusociale.portail.service.soap.duplicata_facture_recherche;
 
 import javax.xml.ws.WebFault;
 
@@ -11,7 +11,7 @@ import javax.xml.ws.WebFault;
  * 
  */
 @WebFault(name = "Fault", targetNamespace = "http://ouaf.oracle.com/")
-public class CMGETINFOSREPRISEFault
+public class CMGETNUMEROFACTUREFault
     extends Exception
 {
 
@@ -26,7 +26,7 @@ public class CMGETINFOSREPRISEFault
      * @param faultInfo
      * @param message
      */
-    public CMGETINFOSREPRISEFault(String message, Fault faultInfo) {
+    public CMGETNUMEROFACTUREFault(String message, Fault faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class CMGETINFOSREPRISEFault
      * @param cause
      * @param message
      */
-    public CMGETINFOSREPRISEFault(String message, Fault faultInfo, Throwable cause) {
+    public CMGETNUMEROFACTUREFault(String message, Fault faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,7 +45,7 @@ public class CMGETINFOSREPRISEFault
     /**
      * 
      * @return
-     *     returns fault bean: com.secusociale.portail.service.soap.reprise_activite.Fault
+     *     returns fault bean: com.secusociale.portail.service.soap.duplicata_facture_recherche.Fault
      */
     public Fault getFaultInfo() {
         return faultInfo;
