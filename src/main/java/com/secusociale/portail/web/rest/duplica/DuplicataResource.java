@@ -6,6 +6,7 @@ import javax.xml.ws.Holder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +33,7 @@ public class DuplicataResource {
 
 		}
 		
-		@GetMapping("/duplicata/rechercheFacture")
+		@PostMapping("/duplicata/rechercheFacture")
 		Holder<CMGETNUMEROFACTURE> rechercheFacture(@RequestBody CMGETNUMEROFACTURE  rechercheFacture) throws JAXBException {
 	 	 
 			return duplicataService.rechercheFacture(rechercheFacture);
@@ -46,8 +47,8 @@ public class DuplicataResource {
 
 		}
 		
-		@GetMapping("/duplicata/rechercheRecu")
-		Holder<CMGETPAYMENT> rechercheFacture(@RequestBody CMGETPAYMENT  rechercheRecu) throws JAXBException {
+		@PostMapping("/duplicata/rechercheRecu")
+		Holder<CMGETPAYMENT> rechercheFacture(@RequestBody CMGETPAYMENT rechercheRecu) throws JAXBException {
 	 	 
 			return duplicataService.rechercheRecu(rechercheRecu);
 
