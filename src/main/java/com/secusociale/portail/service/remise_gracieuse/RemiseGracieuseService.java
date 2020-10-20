@@ -19,6 +19,14 @@ import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRem
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieusePortType;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuseService;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.ObjectFactory;
+import com.secusociale.portail.service.soap.remise_gracieuse_notification_url.CMGETURLNOTIFICATION;
+import com.secusociale.portail.service.soap.remise_gracieuse_notification_url.CMGETURLNOTIFICATIONFault;
+import com.secusociale.portail.service.soap.remise_gracieuse_notification_url.CMGETURLNOTIFICATIONPortType;
+import com.secusociale.portail.service.soap.remise_gracieuse_notification_url.CMGETURLNOTIFICATIONService;
+import com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusRemiseGracieuse;
+import com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusRemiseGracieuseFault;
+import com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusRemiseGracieusePortType;
+import com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusRemiseGracieuseService;
 
 @Service
 public class RemiseGracieuseService {
@@ -99,6 +107,80 @@ public class RemiseGracieuseService {
         
 		return urlAccuseRemise;
 		
+		
+	}
+	
+	
+	public Holder<CMGetStatusRemiseGracieuse> getStatutRemise(String idDossier) throws JAXBException{
+		
+		com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusRemiseGracieuse.Input input = new com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusRemiseGracieuse.Input();
+		
+		input.setIdDossier(idDossier);
+		
+		Holder<CMGetStatusRemiseGracieuse> statutRemise = new Holder<CMGetStatusRemiseGracieuse>();
+		
+		com.secusociale.portail.service.soap.remise_gracieuse_statut.ObjectFactory obj = new com.secusociale.portail.service.soap.remise_gracieuse_statut.ObjectFactory();
+		statutRemise.value = obj.createCMGetStatusRemiseGracieuse();
+		statutRemise.value.setInput(input);
+		
+		final JAXBContext jc = JAXBContext.newInstance(CMGetStatusRemiseGracieuse.class);
+	    final Marshaller marshaller = jc.createMarshaller();
+	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	    marshaller.marshal(statutRemise.value, System.out);
+		
+	    CMGetStatusRemiseGracieuseService cmGetStatusRemiseGracieuseService = new CMGetStatusRemiseGracieuseService();
+	    CMGetStatusRemiseGracieusePortType cmGetStatusRemiseGracieusePortType = cmGetStatusRemiseGracieuseService.getCMGetStatusRemiseGracieusePort();
+	    
+        BindingProvider prov = (BindingProvider) cmGetStatusRemiseGracieusePortType ;
+	    
+	    prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+        prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+        
+        try {
+			cmGetStatusRemiseGracieusePortType.cmGetStatusRemiseGracieuse(statutRemise);
+		} catch (CMGetStatusRemiseGracieuseFault e) {
+			// TODO Auto-generated catch block
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
+        
+		return statutRemise;
+		
+	}
+	 
+	public Holder<CMGETURLNOTIFICATION> getUrlNotification(String idDossier) throws JAXBException{
+		
+		com.secusociale.portail.service.soap.remise_gracieuse_notification_url.CMGETURLNOTIFICATION.Input input = new com.secusociale.portail.service.soap.remise_gracieuse_notification_url.CMGETURLNOTIFICATION.Input();
+		input.setIdDossier(idDossier);
+		
+		Holder<CMGETURLNOTIFICATION> urlNotification = new Holder<CMGETURLNOTIFICATION>();
+		com.secusociale.portail.service.soap.remise_gracieuse_notification_url.ObjectFactory obj = new com.secusociale.portail.service.soap.remise_gracieuse_notification_url.ObjectFactory();
+		
+		urlNotification.value = obj.createCMGETURLNOTIFICATION();
+		urlNotification.value.setInput(input);
+		
+		
+		final JAXBContext jc = JAXBContext.newInstance(CMGETURLNOTIFICATION.class);
+	    final Marshaller marshaller = jc.createMarshaller();
+	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	    marshaller.marshal(urlNotification.value, System.out);
+	    
+	    CMGETURLNOTIFICATIONService cmgeturlnotificationService = new CMGETURLNOTIFICATIONService();
+	    CMGETURLNOTIFICATIONPortType cmgeturlnotificationPortType = cmgeturlnotificationService.getCMGETURLNOTIFICATIONPort();
+	    
+        BindingProvider prov = (BindingProvider) cmgeturlnotificationPortType ;
+	    
+	    prov.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, PortailConstant.USERNAME);
+        prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, PortailConstant.PASSWORD);
+	    
+        
+        try {
+			cmgeturlnotificationPortType.cmGETURLNOTIFICATION(urlNotification);
+		} catch (CMGETURLNOTIFICATIONFault e) {
+			// TODO Auto-generated catch block
+			throw new  RuntimeException(e.getFaultInfo().getServerMessage().getText(), e);
+		}
+		
+		return urlNotification;
 		
 	}
 	
