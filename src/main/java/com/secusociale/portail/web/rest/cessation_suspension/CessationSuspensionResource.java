@@ -1,8 +1,10 @@
 package com.secusociale.portail.web.rest.cessation_suspension;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.ws.Holder;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.secusociale.portail.model.CessationSuspension;
 import com.secusociale.portail.service.cessation_suspension.CessationSuspensionService;
 import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSION;
 import com.secusociale.portail.service.soap.cessation_suspension_statut.CMGETSTATUSCESSATIONSUSPENSION;
@@ -26,7 +29,7 @@ public class CessationSuspensionResource {
 	private CessationSuspensionService cessationSuspensionService;
 	
 	@PostMapping("/cessation_suspension/add")
-    public Holder<CMADDCESSATIONORSUSPENSION> createCessationSuspension(@RequestBody CMADDCESSATIONORSUSPENSION cessation_suspension) throws IOException, JAXBException   {
+    public Holder<CMADDCESSATIONORSUSPENSION> createCessationSuspension(@RequestBody CessationSuspension cessation_suspension) throws IOException, JAXBException, DatatypeConfigurationException, ParseException   {
        
 		return cessationSuspensionService.createCessationSuspension(cessation_suspension);
 

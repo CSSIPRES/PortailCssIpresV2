@@ -1,8 +1,10 @@
 package com.secusociale.portail.web.rest.remise_gracieuse;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.ws.Holder;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.secusociale.portail.model.RemiseGracieuse;
 import com.secusociale.portail.service.remise_gracieuse.RemiseGracieuseService;
 import com.secusociale.portail.service.soap.remise_gracieuse_accuse_url.CmGetUrlAccuseReceptionRemiseGracieuse;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuse;
@@ -27,7 +30,7 @@ public class RemiseGracieuseResource {
 	private RemiseGracieuseService gracieuseService ;
 	
 	@PostMapping("/remise_gracieuse/add")
-    public Holder<CmAddDemandeRemiseGracieuse> createRepriseActivite(@RequestBody CmAddDemandeRemiseGracieuse remise_gracieuse) throws IOException, JAXBException   {
+    public Holder<CmAddDemandeRemiseGracieuse> createRemiseGracieuse(@RequestBody RemiseGracieuse remise_gracieuse) throws IOException, JAXBException, DatatypeConfigurationException, ParseException   {
        
 		return  gracieuseService.createRemiseGracieuse(remise_gracieuse);
 

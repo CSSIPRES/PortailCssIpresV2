@@ -1,16 +1,24 @@
 package com.secusociale.portail.service.cessation_suspension;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Holder;
 
 import org.springframework.stereotype.Service;
 
+import com.google.protobuf.TextFormat.ParseException;
+import com.secusociale.portail.model.CessationSuspension;
 import com.secusociale.portail.service.PortailConstant;
 import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSION;
 import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSION.Input;
+import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSION.Input.Documents;
+import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSION.Input.InformationDemande;
+import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSION.Input.InformationEmployer;
 import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSIONFault;
 import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSIONPortType;
 import com.secusociale.portail.service.soap.cessation_suspension.CMADDCESSATIONORSUSPENSIONService;
@@ -28,22 +36,59 @@ import com.secusociale.portail.service.soap.url_reception_cessation_suspension.C
 public class CessationSuspensionService {
 	
 	
-	public Holder<CMADDCESSATIONORSUSPENSION> createCessationSuspension(CMADDCESSATIONORSUSPENSION cess_suspension) throws JAXBException{
+	public Holder<CMADDCESSATIONORSUSPENSION> createCessationSuspension ( CessationSuspension cess_suspension) throws JAXBException, DatatypeConfigurationException, ParseException, java.text.ParseException{
 		
+      
 		Input input = new Input();
+		InformationDemande informationDemande = new InformationDemande();
+		InformationEmployer informationEmployer = new InformationEmployer();
+		Documents documents = new Documents();
 		
+		 XMLGregorianCalendar dd = cess_suspension.formatToGregorianCalendar(cess_suspension.getInput().getInformationDemande().getDateDebut());
+		 
+		 XMLGregorianCalendar df = cess_suspension.formatToGregorianCalendar(cess_suspension.getInput().getInformationDemande().getDateFin());
+		
+		
+		 
+		 
 		Holder<CMADDCESSATIONORSUSPENSION> cessation_suspension = new Holder<CMADDCESSATIONORSUSPENSION>();
-		input.setInformationEmployer(cess_suspension.getInput().getInformationEmployer());
-		input.setInformationDemande(cess_suspension.getInput().getInformationDemande());
-		input.setDocuments(cess_suspension.getInput().getDocuments());
+		 
+		
+		
 		
 		ObjectFactory obj = new ObjectFactory();
 		
 		cessation_suspension.value = obj.createCMADDCESSATIONORSUSPENSION();
-		cessation_suspension.value.setInput(input);
+		 
 		
-		
-
+		 JAXBElement<XMLGregorianCalendar> date_debut = obj.createCMADDCESSATIONORSUSPENSIONInputInformationDemandeDateDebut(dd);
+		 JAXBElement<XMLGregorianCalendar> date_fin = obj.createCMADDCESSATIONORSUSPENSIONInputInformationDemandeDateFin(df);
+		 
+		 JAXBElement<Boolean> dmdeEmployeur = obj.createCMADDCESSATIONORSUSPENSIONInputDocumentsDemandeEmployer(cess_suspension.getInput().getDocuments().getDemandeEmployer());
+		 JAXBElement<Boolean> dmtsorti     =  obj.createCMADDCESSATIONORSUSPENSIONInputDocumentsDmtDeSortie(cess_suspension.getInput().getDocuments().getDmtDeSortie());
+		 JAXBElement<Boolean> declCessation = obj.createCMADDCESSATIONORSUSPENSIONInputDocumentsDeclartionCessationActivite(cess_suspension.getInput().getDocuments().getDeclartionCessationActivite());
+		 JAXBElement<Boolean> deciJudiciaire = obj.createCMADDCESSATIONORSUSPENSIONInputDocumentsDecisionJudiciare(cess_suspension.getInput().getDocuments().getDecisionJudiciare());
+		 JAXBElement<Boolean> deciAdministrative = obj.createCMADDCESSATIONORSUSPENSIONInputDocumentsDecisionAdministrative(cess_suspension.getInput().getDocuments().getDecisionAdministrative());
+		 
+		 informationDemande.setDateDebut(date_debut);
+		 informationDemande.setDateFin(date_fin);
+		 informationDemande.setTypeDemande(cess_suspension.getInput().getInformationDemande().getTypeDemande());
+		 informationDemande.setTypeProcess(cess_suspension.getInput().getInformationDemande().getTypeProcess());
+		 
+		 informationEmployer.setIdEmployer(cess_suspension.getInput().getInformationEmployer().getIdEmployer());
+		 
+		 documents.setDecisionAdministrative(deciAdministrative);
+		 documents.setDecisionJudiciare(deciJudiciaire);
+		 documents.setDeclartionCessationActivite(declCessation);
+		 documents.setDemandeEmployer(dmdeEmployeur);
+		 documents.setDmtDeSortie(dmtsorti);
+		 
+		 input.setInformationDemande(informationDemande);
+		 input.setInformationEmployer(informationEmployer);
+		 input.setDocuments(documents);
+		 
+		 cessation_suspension.value.setInput(input);
+		 
 		final JAXBContext jc = JAXBContext.newInstance(CMADDCESSATIONORSUSPENSION.class);
 	    final Marshaller marshaller = jc.createMarshaller();
 	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);

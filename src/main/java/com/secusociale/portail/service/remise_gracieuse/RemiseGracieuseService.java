@@ -1,13 +1,18 @@
 package com.secusociale.portail.service.remise_gracieuse;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Holder;
 
 import org.springframework.stereotype.Service;
 
+import com.google.protobuf.TextFormat.ParseException;
+import com.secusociale.portail.model.RemiseGracieuse;
 import com.secusociale.portail.service.PortailConstant;
 import com.secusociale.portail.service.soap.remise_gracieuse_accuse_url.CmGetUrlAccuseReceptionRemiseGracieuse;
 import com.secusociale.portail.service.soap.remise_gracieuse_accuse_url.CmGetUrlAccuseReceptionRemiseGracieuseFault;
@@ -15,6 +20,9 @@ import com.secusociale.portail.service.soap.remise_gracieuse_accuse_url.CmGetUrl
 import com.secusociale.portail.service.soap.remise_gracieuse_accuse_url.CmGetUrlAccuseReceptionRemiseGracieuseService;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuse;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuse.Input;
+import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuse.Input.Documents;
+import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuse.Input.InformationDemande;
+import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuse.Input.InformationEmployeur;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuseFault;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieusePortType;
 import com.secusociale.portail.service.soap.remise_gracieuse_add.CmAddDemandeRemiseGracieuseService;
@@ -32,16 +40,38 @@ import com.secusociale.portail.service.soap.remise_gracieuse_statut.CMGetStatusR
 public class RemiseGracieuseService {
 
 	
-	public Holder<CmAddDemandeRemiseGracieuse> createRemiseGracieuse(CmAddDemandeRemiseGracieuse demandeRemiseGracieuse) throws JAXBException{
+	public Holder<CmAddDemandeRemiseGracieuse> createRemiseGracieuse(RemiseGracieuse demandeRemiseGracieuse) throws JAXBException, ParseException, DatatypeConfigurationException, java.text.ParseException{
+		
+		
 		
 		Input input = new Input();
-		input.setInformationEmployeur(demandeRemiseGracieuse.getInput().getInformationEmployeur());
-		input.setInformationDemande(demandeRemiseGracieuse.getInput().getInformationDemande());
-		input.setDocuments(demandeRemiseGracieuse.getInput().getDocuments());
+		InformationDemande informationDemande = new InformationDemande();
+		InformationEmployeur informationEmployeur = new InformationEmployeur();
+		Documents documents =  new Documents();
+		
+		informationEmployeur.setNumeroEmployeur(demandeRemiseGracieuse.getInput().getInformationEmployeur().getNumeroEmployeur());
+		
+		
+		
 		
 		Holder<CmAddDemandeRemiseGracieuse> remiseGracieuse = new Holder<CmAddDemandeRemiseGracieuse>();
 		ObjectFactory obj = new ObjectFactory();
 		
+		XMLGregorianCalendar dd = demandeRemiseGracieuse.formatToGregorianCalendar(demandeRemiseGracieuse.getInput().getInformationDemande().getDateDebutPeriode());
+		XMLGregorianCalendar df = demandeRemiseGracieuse.formatToGregorianCalendar(demandeRemiseGracieuse.getInput().getInformationDemande().getDateFinPeriode());
+		
+		 informationDemande.setDateDebutPeriode(dd);
+		 informationDemande.setDateFinPeriode(df);
+		 informationDemande.setInstitution(demandeRemiseGracieuse.getInput().getInformationDemande().getInstitution());
+		 informationDemande.setMontant(demandeRemiseGracieuse.getInput().getInformationDemande().getMontant());
+		 informationDemande.setMotifDemande(demandeRemiseGracieuse.getInput().getInformationDemande().getMotifDemande());
+		 
+		 documents.setDemandeEcrite(demandeRemiseGracieuse.getInput().getDocuments().getDemandeEcrite());
+		
+		input.setInformationEmployeur(informationEmployeur);
+		input.setInformationDemande(informationDemande);
+		input.setDocuments(documents);
+		 
 		remiseGracieuse.value = obj.createCmAddDemandeRemiseGracieuse();
 		remiseGracieuse.value.setInput(input);
 		

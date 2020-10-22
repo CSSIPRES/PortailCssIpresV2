@@ -1,6 +1,9 @@
 package com.secusociale.portail.service.reprise_activite;
 
+import java.math.BigDecimal;
+
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.ws.BindingProvider;
@@ -8,9 +11,13 @@ import javax.xml.ws.Holder;
 
 import org.springframework.stereotype.Service;
 
+import com.secusociale.portail.model.RepriseActivite;
 import com.secusociale.portail.service.PortailConstant;
 import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivite;
 import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivite.Input;
+import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivite.Input.Documents;
+import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivite.Input.InformationEmployer;
+import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivite.Input.InformationReprise;
 import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActiviteFault;
 import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivitePortType;
 import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActiviteService;
@@ -28,16 +35,39 @@ import com.secusociale.portail.service.soap.reprise_activite_statut.CMGetStatusR
 @Service
 public class RepriseActiviteService {
 	
-	 public Holder<CMAddProcessRepriseActivite> createReprise(CMAddProcessRepriseActivite demandeReprise) throws JAXBException{
+	 public Holder<CMAddProcessRepriseActivite> createReprise(RepriseActivite demandeReprise) throws JAXBException{
 		
 		 Input input = new Input();
-		 input.setInformationReprise(demandeReprise.getInput().getInformationReprise());
-		 input.setInformationEmployer(demandeReprise.getInput().getInformationEmployer());
-		 input.setDocuments(demandeReprise.getInput().getDocuments());
+		 InformationEmployer informationEmployer = new InformationEmployer();
+		 InformationReprise informationReprise = new InformationReprise();
+		 Documents documents = new Documents();
+		 
 		 
 		 Holder<CMAddProcessRepriseActivite> reprise = new Holder<CMAddProcessRepriseActivite>();
 		 
 		 ObjectFactory obj = new ObjectFactory();
+		 
+		 JAXBElement<BigDecimal> nombreDmt = obj.createCMAddProcessRepriseActiviteInputInformationRepriseNombreDmt(demandeReprise.getInput().getInformationReprise().getNombreDmt());
+		 JAXBElement<BigDecimal> nmbreContrat = obj.createCMAddProcessRepriseActiviteInputInformationRepriseNombreContrat(demandeReprise.getInput().getInformationReprise().getNombreContrat());
+		 
+		 
+		 informationEmployer.setIdEmployer(demandeReprise.getInput().getInformationEmployer().getIdEmployer());
+		 
+		 informationReprise.setNombreDmt(nombreDmt);
+		 informationReprise.setNombreContrat(nmbreContrat);
+		 informationReprise.setTypeDemande(demandeReprise.getInput().getInformationReprise().getTypeDemande());
+		 
+		 JAXBElement<Boolean> dmt = obj.createCMAddProcessRepriseActiviteInputDocumentsDmt(demandeReprise.getInput().getDocuments().getDmt());
+		 JAXBElement<Boolean> formDeclarationReprise = obj.createCMAddProcessRepriseActiviteInputDocumentsFormDeclarationReprise(demandeReprise.getInput().getDocuments().getFormDeclarationReprise());
+		 JAXBElement<Boolean> photocopiePiece = obj.createCMAddProcessRepriseActiviteInputDocumentsPhotocopiePiece(demandeReprise.getInput().getDocuments().getPhotocopiePiece());
+		 
+		 documents.setDmt(dmt);
+		 documents.setFormDeclarationReprise(formDeclarationReprise);
+		 documents.setPhotocopiePiece(photocopiePiece);
+		 
+		 input.setInformationEmployer(informationEmployer);
+		 input.setInformationReprise(informationReprise);
+		 input.setDocuments(documents);
 		 
 		 reprise.value = obj.createCMAddProcessRepriseActivite();
 		 reprise.value.setInput(input);

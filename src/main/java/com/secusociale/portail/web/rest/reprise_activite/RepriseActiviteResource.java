@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.secusociale.portail.model.RepriseActivite;
 import com.secusociale.portail.service.reprise_activite.RepriseActiviteService;
 import com.secusociale.portail.service.soap.reprise_activite.CMAddProcessRepriseActivite;
 import com.secusociale.portail.service.soap.reprise_activite_accuse_url.CMGetUrlAccuseReceptionReprise;
@@ -28,7 +29,7 @@ public class RepriseActiviteResource {
 	
 	
 	@PostMapping("/reprise_activite/add")
-    public Holder<CMAddProcessRepriseActivite> createRepriseActivite(@RequestBody CMAddProcessRepriseActivite reprise_activite) throws IOException, JAXBException   {
+    public Holder<CMAddProcessRepriseActivite> createRepriseActivite(@RequestBody RepriseActivite reprise_activite) throws IOException, JAXBException   {
        
 		return activiteService.createReprise(reprise_activite);
 
