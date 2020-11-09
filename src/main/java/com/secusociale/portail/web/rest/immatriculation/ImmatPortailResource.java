@@ -9,6 +9,7 @@ import javax.xml.ws.Holder;
 
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLO;
 import com.secusociale.portail.service.soap.immatRepresentantationDiplomatique.IMMATREPDIPLOFault;
+import com.secusociale.portail.service.soap.independant.CMCrtIndForXAI;
 import com.secusociale.portail.service.soap.infosEmployeur.CMINFOSEMPLOYEUR;
 import com.secusociale.portail.service.soap.infosSalaries.CMGETPERSONSLINKTOEMPLOYER;
 import com.secusociale.portail.service.soap.listeEmployes.EMPLOYESLISTSERVICE;
@@ -206,6 +207,17 @@ public class ImmatPortailResource {
 	           immatriculationInbound = immatPortailService.createImmatDomestique(domestique);
 
 			return immatriculationInbound;
+
+	    }
+	 
+	 
+	 
+	 @PostMapping("/independant")
+	    public Holder<CMCrtIndForXAI> createIndependant(@RequestBody CMCrtIndForXAI independant) throws JAXBException, IOException  {
+	       // log.debug("REST request to save Immatriculation : {}", ENTITY_NAME);
+
+	        
+			return immatPortailService.createImmatIndependant(independant);
 
 	    }
 
