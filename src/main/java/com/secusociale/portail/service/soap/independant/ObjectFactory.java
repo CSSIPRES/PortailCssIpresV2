@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME = new QName("http://oracle.com/CM-CrtIndForXAI.xsd", "delivered");
+    private final static QName _CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME = new QName("http://oracle.com/CM-CrtIndForXAI.xsd", "delivered");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.secusociale.portail.service.soap.independant
@@ -261,18 +261,9 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DecretMinisteriel.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDecretMinisterielDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DecretMinisteriel.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.AvisImmatriculation.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsAvisImmatriculationDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.AvisImmatriculation.class, value);
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.Dmt.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDmtDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.Dmt.class, value);
     }
 
     /**
@@ -281,34 +272,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.ContratsTravail.class)
     public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsContratsTravailDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.ContratsTravail.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PhotocopieStatus.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPhotocopieStatusDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PhotocopieStatus.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.CarteNationaleIdentite.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCarteNationaleIdentiteDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.CarteNationaleIdentite.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PassportDoc.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPassportDocDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PassportDoc.class, value);
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.ContratsTravail.class, value);
     }
 
     /**
@@ -317,52 +281,16 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.CarteIdentiteConsulaire.class)
     public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCarteIdentiteConsulaireDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.CarteIdentiteConsulaire.class, value);
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.CarteIdentiteConsulaire.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.Dmt.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDmtDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.Dmt.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.Cni.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCniDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.Cni.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DemandeEcrit.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDemandeEcritDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DemandeEcrit.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.BulletinsSalaire.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsBulletinsSalaireDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.BulletinsSalaire.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PieceIdGerantDoc.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPieceIdGerantDocDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PieceIdGerantDoc.class, value);
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.AvisImmatriculation.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsAvisImmatriculationDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.AvisImmatriculation.class, value);
     }
 
     /**
@@ -371,34 +299,25 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.ManuscriteAdressee.class)
     public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsManuscriteAdresseeDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.ManuscriteAdressee.class, value);
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.ManuscriteAdressee.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DerniersBulletins.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDerniersBulletinsDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DerniersBulletins.class, value);
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PieceIdGerantDoc.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPieceIdGerantDocDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PieceIdGerantDoc.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.CessationActivity.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCessationActivityDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.CessationActivity.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PieceIdDoc.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPieceIdDocDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PieceIdDoc.class, value);
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DemandeEcrit.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDemandeEcritDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DemandeEcrit.class, value);
     }
 
     /**
@@ -407,25 +326,16 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.AttestationChomage.class)
     public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsAttestationChomageDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.AttestationChomage.class, value);
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.AttestationChomage.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DeclarationEtablissement.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDeclarationEtablissementDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DeclarationEtablissement.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.FormDemande.class)
-    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsFormDemandeDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.FormDemande.class, value);
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.Cni.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCniDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.Cni.class, value);
     }
 
     /**
@@ -434,7 +344,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.EtatRecensement.class)
     public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsEtatRecensementDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.EtatRecensement.class, value);
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.EtatRecensement.class, value);
     }
 
     /**
@@ -443,7 +353,97 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.RegistreCommerce.class)
     public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsRegistreCommerceDelivered(Boolean value) {
-        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDecretMinisterielDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.RegistreCommerce.class, value);
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.RegistreCommerce.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.CarteNationaleIdentite.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCarteNationaleIdentiteDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.CarteNationaleIdentite.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PieceIdDoc.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPieceIdDocDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PieceIdDoc.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PassportDoc.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPassportDocDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PassportDoc.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DerniersBulletins.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDerniersBulletinsDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DerniersBulletins.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.CessationActivity.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsCessationActivityDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.CessationActivity.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DecretMinisteriel.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDecretMinisterielDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DecretMinisteriel.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.DeclarationEtablissement.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsDeclarationEtablissementDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.DeclarationEtablissement.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.BulletinsSalaire.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsBulletinsSalaireDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.BulletinsSalaire.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.PhotocopieStatus.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsPhotocopieStatusDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.PhotocopieStatus.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", name = "delivered", scope = CMCrtIndForXAI.Input.Documents.FormDemande.class)
+    public JAXBElement<Boolean> createCMCrtIndForXAIInputDocumentsFormDemandeDelivered(Boolean value) {
+        return new JAXBElement<Boolean>(_CMCrtIndForXAIInputDocumentsDmtDelivered_QNAME, Boolean.class, CMCrtIndForXAI.Input.Documents.FormDemande.class, value);
     }
 
 }

@@ -73,7 +73,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
 
 })
-@XmlRootElement(name = "Fault", namespace = "http://ouaf.oracle.com/")
+@XmlRootElement(name = "Fault")
 public class Fault {
 
     @XmlElement(name = "ResponseStatus", namespace = "", required = true)

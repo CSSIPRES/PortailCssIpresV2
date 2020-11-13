@@ -5,6 +5,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -29,6 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *                   &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="prenom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="typePieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="carteIdentiteCEDEAO" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="carteConsulaire" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="carteIdentiteNationale" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;element name="passport" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -356,10 +358,12 @@ import javax.xml.bind.annotation.XmlType;
     "input",
     "output"
 })
-@XmlRootElement(name = "CM-CrtIndForXAI")
+@XmlRootElement(name = "CM-CrtIndForXAI", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
 public class CMCrtIndForXAI {
 
+    @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
     protected CMCrtIndForXAI.Input input;
+    @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
     protected CMCrtIndForXAI.Output output;
     @XmlAttribute(name = "dateTimeTagFormat", required = true)
     protected String dateTimeTagFormat;
@@ -455,6 +459,7 @@ public class CMCrtIndForXAI {
      *         &lt;element name="nom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="prenom" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="typePieceIdentite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *         &lt;element name="carteIdentiteCEDEAO" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="carteConsulaire" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="carteIdentiteNationale" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;element name="passport" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -758,6 +763,7 @@ public class CMCrtIndForXAI {
         "nom",
         "prenom",
         "typePieceIdentite",
+        "carteIdentiteCEDEAO",
         "carteConsulaire",
         "carteIdentiteNationale",
         "passport",
@@ -789,37 +795,71 @@ public class CMCrtIndForXAI {
     })
     public static class Input {
 
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String typeDemandeur;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String nom;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String prenom;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String typePieceIdentite;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
+        protected String carteIdentiteCEDEAO;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String carteConsulaire;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String carteIdentiteNationale;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String passport;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String nationalite;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String issueDate;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String expiryDate;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String dateOfBirth;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String country;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String cityOfBirth;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String landLineNumber;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String mobileNumber;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String email;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String businessSector;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String mainLineOfBusiness;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String region;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String department;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String arrondissement;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String commune;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String quartier;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String address;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String tauxAt;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String zoneCSS;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String zoneIPRES;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String sectorCSS;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String sectorIPRES;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String agenceCSS;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String agenceIPRES;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected CMCrtIndForXAI.Input.Documents documents;
 
         /**
@@ -916,6 +956,30 @@ public class CMCrtIndForXAI {
          */
         public void setTypePieceIdentite(String value) {
             this.typePieceIdentite = value;
+        }
+
+        /**
+         * Obtient la valeur de la propriété carteIdentiteCEDEAO.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCarteIdentiteCEDEAO() {
+            return carteIdentiteCEDEAO;
+        }
+
+        /**
+         * Définit la valeur de la propriété carteIdentiteCEDEAO.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCarteIdentiteCEDEAO(String value) {
+            this.carteIdentiteCEDEAO = value;
         }
 
         /**
@@ -1887,26 +1951,47 @@ public class CMCrtIndForXAI {
         })
         public static class Documents {
 
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.DemandeEcrit demandeEcrit;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.FormDemande formDemande;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.RegistreCommerce registreCommerce;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.DeclarationEtablissement declarationEtablissement;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.PhotocopieStatus photocopieStatus;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.DecretMinisteriel decretMinisteriel;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.AvisImmatriculation avisImmatriculation;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.Dmt dmt;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.ContratsTravail contratsTravail;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.Cni cni;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.CarteIdentiteConsulaire carteIdentiteConsulaire;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.EtatRecensement etatRecensement;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.AttestationChomage attestationChomage;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.BulletinsSalaire bulletinsSalaire;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.CessationActivity cessationActivity;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.CarteNationaleIdentite carteNationaleIdentite;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.DerniersBulletins derniersBulletins;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.ManuscriteAdressee manuscriteAdressee;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.PassportDoc passportDoc;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.PieceIdDoc pieceIdDoc;
+            @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
             protected CMCrtIndForXAI.Input.Documents.PieceIdGerantDoc pieceIdGerantDoc;
 
             /**
@@ -2443,6 +2528,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -2525,6 +2611,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -2607,6 +2694,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -2689,6 +2777,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -2771,6 +2860,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -2853,6 +2943,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -2935,6 +3026,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3017,6 +3109,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3099,6 +3192,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3181,6 +3275,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3263,6 +3358,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3345,6 +3441,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3427,6 +3524,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3509,6 +3607,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3591,6 +3690,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3673,6 +3773,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3755,6 +3856,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3837,6 +3939,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -3919,6 +4022,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -4001,6 +4105,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -4083,6 +4188,7 @@ public class CMCrtIndForXAI {
 
                 @XmlElementRef(name = "delivered", namespace = "http://oracle.com/CM-CrtIndForXAI.xsd", type = JAXBElement.class, required = false)
                 protected JAXBElement<Boolean> delivered;
+                @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
                 protected String url;
 
                 /**
@@ -4181,14 +4287,23 @@ public class CMCrtIndForXAI {
     })
     public static class Output {
 
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String formulaireId;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String dossierId;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String zoneCss;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String zoneIpres;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String sectorCss;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String sectorIpres;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String agenceCss;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String agenceIpres;
+        @XmlElement(namespace = "http://oracle.com/CM-CrtIndForXAI.xsd")
         protected String tauxAt;
 
         /**

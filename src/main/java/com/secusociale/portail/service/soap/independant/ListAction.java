@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "listAction", namespace = "http://ouaf.oracle.com/")
+@XmlType(name = "listAction")
 @XmlEnum
 public enum ListAction {
 
